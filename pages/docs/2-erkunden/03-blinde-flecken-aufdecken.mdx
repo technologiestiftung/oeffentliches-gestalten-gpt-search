@@ -1,0 +1,137 @@
+---
+sidebar_label: "Blinde Flecken aufdecken"
+sidebar_position: 4
+sidebar_class_name: "stage stage-3"
+image: "/img/social-erkunden.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as Wissensatlas from "@site/src/assets/methods/wissensatlas.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Blinde Flecken aufdecken
+
+## Bestehendes Wissen recherchieren
+
+Bei der Bearbeitung komplexer Probleme müssen wir den eigenen Horizont erweitern.
+
+### Internes Wissen
+
+Am Anfang einer jeden Recherche sollten zunächst interne Wissensträger in die Recherchearbeit eingebunden werden. Oft ist in der eigenen Organisation mehr Know-how vorhanden, als es auf den ersten Blick scheint.
+
+An welchen Stellen wird zu ähnlichen Problematiken gearbeitet? Welche laufenden Projekte, Programme oder organisationsinternen Prozesse gibt es in der eigenen Organisation? Was wird bereits getan? Im Rahmen unseres Innovationsprozesses können wir auf Hürden oder unbeantworteten Fragen anderer Abteilungen aufbauen, Doppelarbeit vermeiden und die verantwortlichen Kolleg:innen effizient einbinden.
+
+### Interne Wissensträger:innen
+
+Ohne persönliche Kontakte, interne Netzwerkstrukturen oder die Erlaubnis, diese zu nutzen, ist es speziell in großen Organisationen schwer, relevante Wissensträger:innen einzubeziehen. Regelmäßige Netzwerktreffen sind ideal, um einen Überblick zu laufenden Aktivitäten, involvierten Personen oder relevanten Lösungen und Wissensbeständen zu bekommen. [Themengeleitetes Netzwerken](#themengeleitetes-netzwerken) ist ein bewährtes, kurzweiliges Vorgehen, das als Anregung dienen kann.
+
+### Externe Daten
+
+Statistiken ermöglichen uns zu verstehen, ob wir den Problemrahmen ausweiten oder fokussieren sollten. Dabei sind auch historische Daten hilfreich. Das Statistische Bundesamt erhebt und verarbeitet solche und stellt sie unter _www.destatis.de_ zur Nutzung bereit.
+
+### Externes Wissen
+
+Positive und negative Beispiele können auch aus dem privaten, gemeinnützigen oder akademischen Sektor stammen oder in anderen Kommunen und Verwaltungen gefunden werden. Unsere Arbeit wird besser, wenn wir wissen, was andere wie entwickeln. Der sektorübergreifende Austausch trägt zum Wissenstransfer und Netzwerkaufbau bei.
+
+<Hint>
+	<b>Hinweis:</b>
+	&nbsp; Die Recherchephase lässt sich effizient zwischen zwei Workshops durchführen,
+	wenn sie auf unterschiedliche Teammitglieder verteilt wird. Dazu die Quellen über
+	die Recherche hinweg notieren und im Team auf ein gemeinsames Format einigen. Die
+	Ergebnisse der Recherche kurz und knapp im <a href="#wissensatlas">
+		Wissensatlas
+	</a> sammeln.
+</Hint>
+
+## Themengeleitetes Netzwerken
+
+<MethodCard
+	title={"Themengeleitets Netzwerken"}
+	surtitle="Arbeitsblatt"
+	imageUrl={"/img/02_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/02_themengeleitetes_netzwerken.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+## Forschungswissen recherchieren
+
+Je nach Umfang der Unternehmung ist es sinnvoll, den Stand der Forschung im Bezug auf das Thema bzw. die Problemstellung zu
+ermitteln. Um zu wissen, wars bereits bekannt ist, werden in einer Literaturrecherche relevante Studien oder Berichte mit Bezug auf die Unternehmung gelesen.
+
+Dieses Vorgehen ist sowohl informativ als auch richtungsweisend für unsere Arbeit. Wenn wir wissen, was andere Menschen oder Organisationen bereits erforscht haben, können wir auf deren Arbeit aufbauen. So können wir uns bei der weiteren Entwicklung darauf konzentrieren, wirklich etwas Neues zu erkennen.
+
+Die „Schreibtisch-Forschung“ mündet in das gemeinsame Strukturieren der Ergebnisse in Wissensbestände, die:
+
+- den Prozess oder Inhalt betreffen
+- mehr oder weniger relevant sind
+
+_oder_
+
+- sich inner- oder außerhalb unserer Organisation(en) befinden.
+
+Neben wissenschaftlichen Online-Portalen wie _researchgate.net_ oder _academia.edu_ lassen sich vor allem bei den [Forschungseinrichtungen des Bundes](https://www.bundesregierung.de/breg-de/themen/forschung/forschungseinrichtungen-des-bundes) viele nützliche Veröffentlichungen und Artikel finden. Um nicht komplett davon überwältigt zu werden, gilt:
+
+1. Zusammenfassungen von Forschungsberichten lesen, die interessant klingen.
+
+2. Bibliografien dieser Artikel einsehen und ggf. Werke finden, die in unterschiedlichen Artikeln genannt sind.
+
+3. Artikel auswählen, die am relevantesten erscheinen (am besten von unterschiedlichen Autoren und Jahrgängen), komplett lesen und notieren, was für das Team wichtig zu wissen ist – mit Quellenangabe!
+
+Alle relevanten Erkenntnisse, die wir in dieser Zeit im Bezug auf das Thema erfahren, versammeln wir kurz und knapp im _Wissensatlas_. Die Kartierung kann nur einen Ausschnitt der existierenden Informationen darstellen. Eine allumfassende Erfassung ist weder notwendig noch möglich.
+
+## Wissensatlas
+
+<MethodSummary
+	title={Wissensatlas.frontMatter.title}
+	time={Wissensatlas.frontMatter.time}
+	attributes={Wissensatlas.frontMatter.attributes}
+	footer={Wissensatlas.frontMatter.note}
+>
+	<Wissensatlas.default />
+</MethodSummary>
+
+<MethodCard
+	title={Wissensatlas.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[Wissensatlas.frontMatter.time]}
+	imageUrl={"/img/02_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/02_wissensatlas.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+Vor der Kartierung die Recherchequellen über den Prozess hinweg notieren und im Team auf ein gemeinsames Format einigen.
+
+1. Matrix auf ein größeres Arbeitsformat, z.B. Flipchartpapier übertragen. Das Thema oder die Problemstellung als Ausgangspunkt für das Befüllen der Matrix eintragen. Jede Person in der Runde hat einen Stift und Papier bzw. Klebezettel.
+
+2. In **Feld A** beginnen und bekanntes Wissen aus der Recherche inklusive Quellen platzieren.
+
+3. In den **Feldern B, C, D** mit Impulsfragen relevante Punkte sammeln. _Alle für sich allein_ (ca. 15 min): Erste Gedanken zu den drei Feldern aufschreiben. Ein Aspekt je Klebezettel.
+
+_Alle nacheinander_ (ca. 5 min pro Person): Aufgeschriebene Aspekte für die anderen vorlesen und in zugehörigen Feldern verorten. Gleiche oder ähnliche Aspekte können direkt nebeneinander positioniert werden. Gegebenenfalls **03** wiederholen.
+
+4. In allen Feldern sind Wissensbestände vermerkt. Jetzt kann die Gruppe Prioritäten setzen. Was ist besonders relevant für die Problemlösung? Die wichtigsten Punkte werden in der Mitte platziert.
+
+5. Fokus auf die **Felder C** und **D** setzen. Hier sind wichtige Punkte verortet, die durch eine Untersuchung in _Phase 3_, unter aktiver Beteiligung von Schlüsselakteuren, zu vertiefen sein werden. Vermerken, welche Schlüsselakteure zu den Inhalten befragt werden könnten.
+
+6. Ergebnisse gut dokumentieren und Originale verwahren, um damit später Teilbereiche [Annahmen-Dreiecks](http://www.citylab-berlin.org/handbuch "Annahmen-Dreiecks") zu befüllen.

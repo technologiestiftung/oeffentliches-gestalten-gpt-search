@@ -1,0 +1,81 @@
+---
+sidebar_label: "System & Akteure verbinden"
+sidebar_position: 3
+sidebar_class_name: "stage stage-2"
+image: "/img/social-erkunden.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as AkteureKartieren from "@site/src/assets/methods/akteure-kartieren.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# System & Akteure verbinden
+
+## Schlüsselakteure identifizieren
+
+Basierend auf dem besseren Verständnis der Ursachen und Effekte unserer Herausforderung haben wir in der [Baumanalyse](/buch/erkunden/problemverstaendnis-schaerfen#baumanalyse) für die weitere Entwicklung einen Fokus gesetzt. Das kann bedeuten, dass unsere Aufmerksamkeit nicht mehr auf dem ursprünglichen Problem liegt, sondern beispielsweise in Richtung Wurzeln wandert und tiefer liegende Ursachen genauer betrachtet.
+
+### Zusammenbringen, was zusammen gehört
+
+Warum ist das, was wir erleben so, wie es ist? Wie können wir beeinflussen, dass es anders ist? Die Zusammenhänge zwischen spürbaren Ereignissen und handelnden Personen sind von Belang – auch im Zeitalter der digitalen Transformation. Daher widmen wir uns als nächstes den Menschen, die in Verbindung mit den identifizierten Effekten und den Ursachen stehen. An diesem Punkt treffen wir eine erste Unterscheidung in zwei Akteursgruppen:
+
+- die von den Effekten **Betroffenen**
+- die für die Ursachen **Verantwortlichen**
+
+Je nach Problemstellung können betroffene oder verantwortliche Akteure als Nutzer:innen, Bürger:innen, Mitarbeiter:innen oder Dienstleister:innen bezeichnet werden – müssen sie aber nicht.
+
+Wir nutzen die Erkenntnisse aus der **Baumanalyse**, um erste Akteure zu identifizieren (siehe Abbildung). Zusätzlich können die kartierten Mitspieler:innen aus der _Vorbereitungsphase_ genutzt werden.
+
+<img
+	src="/img/02_tree_diagram.svg"
+	className="w-full mx-auto aspect-square"
+	aria-hidden
+/>
+
+Welche der dort genannten Personen gehören zu einer der beiden Akteursgruppen? Nachdem wir erste Personen(gruppen) notiert haben, verdichten wir unser Verständnis über diese Akteure und deren Beziehungen mit der Methode _Akteure kartieren_.
+
+## Akteure kartieren
+
+<MethodSummary
+	title={AkteureKartieren.frontMatter.title}
+	time={AkteureKartieren.frontMatter.time}
+	attributes={AkteureKartieren.frontMatter.attributes}
+	footer={AkteureKartieren.frontMatter.note}
+>
+	<AkteureKartieren.default />
+</MethodSummary>
+
+<MethodCard
+	title={AkteureKartieren.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[AkteureKartieren.frontMatter.time]}
+	imageUrl={"/img/02_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/02_akteure_kartieren.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Den Ursachen und Effekten der Baumanalyse [Baumanalyse](/buch/erkunden/problemverstaendnis-schaerfen#baumanalyse) jeweils Akteure oder Akteursgruppen zuweisen. Wer ist von den einzelnen Effekten betroffen? Wer ist für die Ursachen verantwortlich? Inspiration liefert hier auch [Mitspieler:innen kartieren](/buch/vorbereiten/beteiligte-identifizieren-analysieren#mitspielerinnen-kartieren) aus _Phase 1_.
+
+2. Schema dieser Vorlage auf ein großes Blatt Papier übertragen. Das zentrale Problem oben eintragen. In den folgenden Arbeitsschritten Notizen aus Schritt **01** einbeziehen.
+
+3. Betroffene Akteure in Organisation oder Gesellschaft identifizieren. Welche Menschen oder Zielgruppen sind innerhalb und außerhalb der Organisation vom Problem betroffen? Pro Klebezettel einen Akteur oder eine Gruppe notieren. Je relevanter das Problem und dessen Auswirkungen auf den Akteur ist, umso näher rückt der Klebezettel in die Mitte.
+
+4. Verantwortliche Akteure in Organisation und Gesellschaft verorten. Welche Personen oder Einheiten sind innerhalb und außerhalb der Organisation für die Beseitigung des Problems zuständig bzw.
+   für dessen Ursachen verantwortlich?
+
+5. Schlüsselakteure haben sich in der Mitte angesammelt. Überlegen, welche dieser Personen stellvertretend für die jeweiligen Akteursgruppen kontaktiert werden sollen, um sie in Phase 3 zum Thema zu befragen.
+
+6. Beziehung zwischen den Schlüsselakteuren in der Mitte abschließend näher beschreiben. Dafür die Vorlage [Akteursbeziehungen](/arbeitsblatt/02_akteursbeziehungen.pdf) nutzen.

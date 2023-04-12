@@ -1,0 +1,175 @@
+---
+sidebar_label: "Prototypen erstellen"
+sidebar_position: 3
+sidebar_class_name: "stage stage-2"
+image: "/img/social-erproben.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as PersonaProfil from "@site/src/assets/methods/persona-profil.md";
+import * as KonzeptPrototypen from "@site/src/assets/methods/konzept-prototypen.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+import { Checkbox } from "@site/src/components/Checkbox";
+
+# Prototypen erstellen
+
+## Strukturiert experimentieren
+
+Öffentliche Innovation entsteht durch das Ausprobieren und Lernen von Prototypen. Nur so können wir innerhalb unseres Teams ein gemeinsames Verständnis für das entwickelte Konzept bekommen.
+
+### Verschiedene Lebensrealitäten einbeziehen
+
+Damit die Schlüsselakteure weiterhin im Zentrum unseres Innovationsprozesses stehen, erstellen wir [Persona-Profile](#persona-profil), die uns eindrücklich an spezielle Verhaltensweisen, Interessen und Erwartungen von bestimmten Personengruppen erinnern. Zusätzlich bedenken wir bei der Entwicklung der **Persona-Profile** auch Randgruppen mit speziellen Bedürfnissen. Durch das Testen mit Extremgruppen kann schließlich ein ganzheitlicher Prototyp entwickelt werden.
+
+### Kritische Rückmeldungen einfordern
+
+Ausgestattet mit einer Menge Wissen, erstellen wir einen [Konzept-Prototyp](#konzept-prototypen). Die einfache Fertigung dieses Prototyps, verleiht unseren Gedanken eine Form, mit der die Schlüsselakteure interagieren können. Anhand der erhobenen Test-Daten kann gemessen werden, ob die Richtung noch dem Ziel entspricht oder der Prototyp bzw. unser Lösungsansatz angepasst werden muss. Kritisches Feedback ist hierbei besonders wertvoll. Es beschleunigt den Lernprozess und trägt maßgeblich zur effizienten Entwicklung einer wirkungsorientierten öffentlichen Leistung bei.
+
+## Checkliste: Konzept-Prototyp bauen
+
+### Ziel definieren:
+
+<Checkbox
+	id="gemeinsam-entscheiden"
+	label={
+		"Gemeinsam entscheiden, was mit dem Prototyp erreicht werden soll. Soll ein Lösungsansatz oder zunächst eine spezielle Interaktion getestet werden?"
+	}
+/>
+
+### Materialwahl & Ressourcen eingrenzen:
+
+<Checkbox
+	id="niemals-fertig"
+	label={
+		"Konzept-Prototypen sind zweckmäßig und niemals fertig – das darf und soll den Entwürfen angesehen werden."
+	}
+/>
+
+<Checkbox
+	id="gemeinsam-entscheiden"
+	label={
+		"Gemeinsam entscheiden, was mit dem Prototyp erreicht werden soll. Soll ein Lösungsansatz oder zunächst eine spezielle Interaktion getestet werden?"
+	}
+/>
+
+<Checkbox
+	id="meist-reichen"
+	label={
+		"Meist reichen Stift, Schere und Papier, um einen Prototyp anzu­fertigen, wobei der Fantasie keine Grenzen gesetzt sind."
+	}
+/>
+
+### Versionen erstellen:
+
+<Checkbox
+	id="wenige-minuten"
+	label={
+		"Es dauert oft nur wenige Minuten, um verschiedene Varianten einer Lösung zu bauen. Ohne viele Worte mit den Händen denken. Sich überraschen lassen was dabei entsteht."
+	}
+/>
+
+<Checkbox
+	id="ideen-verwerfen"
+	label={
+		"Je weniger Zeit in die Anfertigung gesteckt wird, desto eher lassen sich Ideen wieder verwerfen. Testpersonen kritisieren Skizzen ehrlicher als ausgefeilte Entwürfe."
+	}
+/>
+
+<Checkbox id="formate" label={"Unterschiedliche Formate ausprobieren."} />
+
+### Kooperation stärken & Spaß haben:
+
+<Checkbox
+	id="erstellen"
+	label={
+		"Das Erstellen von Konzept-Prototypen sollte Freude bereiten und alle Mitwirkenden aktiv einbeziehen."
+	}
+/>
+
+## Persona-Profil
+
+<MethodSummary
+	title={PersonaProfil.frontMatter.title}
+	time={PersonaProfil.frontMatter.time}
+	attributes={PersonaProfil.frontMatter.attributes}
+	footer={PersonaProfil.frontMatter.note}
+	className="!mt-7"
+>
+	<PersonaProfil.default />
+</MethodSummary>
+
+<MethodCard
+	title={PersonaProfil.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[PersonaProfil.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_persona_profil.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Akteursgruppen in Organisation und Gesellschaft definieren, die mit Personas veranschaulicht werden sollen. Mindestens drei markante Schlüssel- bzw. Randgruppen auswählen.
+
+2. Entsprechend der Auswahl Untersuchungsdaten bereit legen. Artefakte, Schlüsselbilder, Zitate, Screenshots gut sichtbar für alle zugänglich machen. Pro Akteursgruppe Vorlage groß übertragen, z.B. auf zwei Flipcharts. Für die Entwicklung der **Persona-Profile** ggf. parallel in Kleingruppen arbeiten.
+
+3. Mit der Beantwortung der Frage _„Wie bin ich?“_ beginnen. Vorsortierte Daten aus der Felduntersuchung als Inspiration nutzen. Antworten auf Klebezetteln notieren und pro Frage zu markanten Aussagen verdichten. Darauf aufbauend die Fragen im Bereich _„Wer bin ich?“_ beantworten. Den Daten ein Gesicht geben und die Entwicklung mit einer Zeichnung oder Collage abrunden.
+
+4. Überprüfen, ob das Profil realistisch ist oder ob es sich zu konstruiert anfühlt. Die häufigste Falle bei dem Erstellen von **Persona-Profilen** besteht darin, Idealisierungen zu schaffen, die nicht in der Realität zu finden sind. Kolleg:innen um einen Abgleich bitten, die reale Kontakte zu den jeweiligen Gruppen haben. **Persona-Profile** entsprechend anpassen.
+
+5. Ergebnisse dokumentieren. Wegen ihren Hintergrundgeschichten und markanten Verhaltensmustern sind Personas sehr einprägsam. Deshalb ist es empfehlenswert, sie nicht nur für den _Konzept-Prototyp_ zu nutzen, sondern auch physisch oder digital in der Organisation zu kommunizieren.
+
+## Konzept-Prototypen
+
+<MethodSummary
+	title={KonzeptPrototypen.frontMatter.title}
+	time={KonzeptPrototypen.frontMatter.time}
+	attributes={KonzeptPrototypen.frontMatter.attributes}
+	footer={KonzeptPrototypen.frontMatter.note}
+>
+	<KonzeptPrototypen.default />
+</MethodSummary>
+
+<MethodCard
+	title={KonzeptPrototypen.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[KonzeptPrototypen.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_konzept_prototypen.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Testbasis gemeinsam sichten. Wirkungsweise und Wert des Ideenkerns sollen vermittelt werden. Welche **Konzept-Prototypen** bzw. Kombinationen sind dafür sinnvoll? Ein oder mehrere Formate auswählen:
+
+- **Storyboard** – _Visualisierung in Szenen:_ Abbildung und Kurzbeschreibung der wichtigsten Ereignisse im Zusammenhang mit der angedachten Lösung.
+
+- **Erlebniskette** – _Prozessbeschreibung mit Berührungspunkten:_ Einzelne Schritte vor, zur, während und nach der Interaktion mit der Lösung werden aus der Perspektive der Persona detailliert erfasst.
+
+- **Papier-Prototyp** – _Skizze eines zur Lösung gehörenden Objektes:_ einfach hergestelltes Objekt, das die neue Interaktion erlebbar macht.
+
+2. **Persona-Profile** bereitlegen. In welcher Situation würden sie auf die Lösung treffen? Wie wäre ihre Reaktion? Storyboard und/oder Erlebniskette erstellen, um Kontext und Nutzung zu beschreiben. Ggf. enthält die Beschreibung im Zusammenhang mit der Lösung ein Medium oder Objekt, das als Papier-Prototyp angefertigt werden kann.
+
+3. Material bereitlegen. Wie kann dieses Medium oder Objekt aus den vorhandenen Materialien greifbar und erlebbar nachgestellt werden? Papier-Prototyp bauen. Bsp.: Eine illustrierte Software-Oberfläche als Klick-Dummy. Diverse Varianten fertigen. Auswählen, was am besten für die Interaktion im Test geeignet ist.
+
+4. **Konzept-Prototypen** auf Konsistenz prüfen. Wird das Erlebnis mit der Lösung und ihr Wert klar verdeutlicht? Ggf. Schritt **02** und **03** wiederholen.

@@ -1,121 +1,37 @@
-![](https://img.shields.io/badge/Built%20with%20%E2%9D%A4%EF%B8%8F-at%20Technologiestiftung%20Berlin-blue)
+# OpenAI Search
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+This is a Proof Of Concept (POC) for a search engine that uses OpenAI's GPT- (3-4) API to generate search results for the project Handbuch öffentliches Gestalten. Based on https://github.com/supabase-community/nextjs-openai-doc-search and https://levelup.gitconnected.com/how-to-stream-real-time-openai-api-responses-next-js-13-2-gpt-3-5-turbo-and-edge-functions-378fea4dadb (https://archive.is/2ouIz)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+## Getting Started
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+First copy the files from [docs](https://github.com/technologiestiftung/oeffentliches-gestalten-docusaurus/tree/main/docs) folder of the GitHub repo [technologiestiftung/oeffentliches-gestalten-docusaurus](https://github.com/technologiestiftung/oeffentliches-gestalten-docusaurus) to the pages directory.
 
-# {repo-template}
-
-## TODO (after you generated the repo)
-
-- [ ] Review the content of the README.md and adjust to your liking
-- [ ] Read the README.md till the end and adjust the content licensing,
-      logos, etc (I know you stopped at tbd...)
-- [ ] Adjust the file [.github/CODEOWNERS](./.github/CODEOWNERS)
-- [ ] Adjust the files under [.github/ISSUE_TEMPLATE](./.github/ISSUE_TEMPLATE)
-- [ ] If you use staging and main branches use this template for [.github/renovate.json](./.github/renovate.json)
-
-```json
-{
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["github>technologiestiftung/renovate-config"],
-	"baseBranches": ["staging"]
-}
-```
-
-- [ ] Do you want to honor all kinds of contributions? Use [all-contributors](https://allcontributors.org/)
+Start the supabase project.
 
 ```bash
-npx all-contributors-cli check
-npx all-contributors-cli add ff6347 doc
+supabase start
 ```
 
-You can use it on GitHub just by commenting on PRs and issues:
+Copy the `.env.example` file to `.env` and add the variables and api keys.
 
-```plain
-@all-contributors please add @ff6347 for infrastructure, tests and code
+Then run the development server:
+
+```bash
+npm ci
+npm run dev
+
 ```
 
-- [ ] Add your project description
-- [ ] Get fancy shields at https://shields.io
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Prerequisites
+Regenerate the embeddings.
 
-tbd...
+```bash
+npm run embeddings
+```
 
-## Installation
+Or restore the `embeddings.dump` using tools like pgadmin.
 
-tbd...
+## TODO
 
-## Usage or Deployment
-
-tbd...
-
-## Development
-
-tbd...
-
-## Tests
-
-tbd...
-
-## Contributing
-
-Before you create a pull request, write an issue so we can discuss your changes.
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## Content Licensing
-
-Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3.0/de/).
-
-Illustrations by {MARIA_MUSTERFRAU}, all rights reserved.
-
-## Credits
-
-<table>
-  <tr>
-    <td>
-      Made by <a href="https://citylab-berlin.org/de/start/">
-        <br />
-        <br />
-        <img width="200" src="https://citylab-berlin.org/wp-content/uploads/2021/05/citylab-logo.svg" />
-      </a>
-    </td>
-    <td>
-      A project by <a href="https://www.technologiestiftung-berlin.de/">
-        <br />
-        <br />
-        <img width="150" src="https://citylab-berlin.org/wp-content/uploads/2021/05/tsb.svg" />
-      </a>
-    </td>
-    <td>
-      Supported by <a href="https://www.berlin.de/rbmskzl/">
-        <br />
-        <br />
-        <img width="80" src="https://citylab-berlin.org/wp-content/uploads/2021/12/B_RBmin_Skzl_Logo_DE_V_PT_RGB-300x200.png" />
-      </a>
-    </td>
-  </tr>
-</table>
-
-## Related Projects
+- [ ] Regenerate embeddings there where some errors with the source files on the first generation

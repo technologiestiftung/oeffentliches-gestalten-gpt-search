@@ -1,0 +1,80 @@
+---
+sidebar_label: "Nutzen validieren"
+sidebar_position: 6
+sidebar_class_name: "stage stage-5"
+image: "/img/social-erproben.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+
+import * as MvpCanvas from "@site/src/assets/methods/mvp-canvas.md";
+
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+import { Checkbox } from "@site/src/components/Checkbox";
+
+# Nutzen validieren
+
+## Der Spur des Neuen folgen
+
+Das Erproben beenden wir mit wertvollen Resultaten. Die Ergebnisse aus den Tests des Prototyps nutzen wir, um das Gelernte in einen funktionstüchtigen Prototyp einzuarbeiten und diesen erneut zu testen.
+
+### Verantwortliches Entwickeln
+
+Die Tests haben gezeigt, dass wir bei einigen Vermutungen falsch gelegen haben. Es wäre unverantwortlich, aufgrund eines getesteten Prototyps davon auszugehen, dass unsere Lösung mit all ihren Wechselwirkungen jetzt im System implementiert werden kann. Um Risikos und kritische Annahmen mit möglichst geringen Kosten zu untersuchen, brauchen wir weiterhin echte Erfahrungen mit echten Menschen.
+
+### Gelerntes verstetigen
+
+Uns interessiert ein Lösungsansatz, der schnellstmöglich zu direkten Verbesserungen führt. Die durch den [Konzept-Prototyp](/buch/erproben/prototypen-erstellen#konzept-prototypen) gewonnen Evidenzen bilden die Basis für dessen Erweiterung in Richtung Betriebsfähigkeit und Funktionalität. Der Kernwert steht weiterhin im Fokus. Bei der Gestaltung von Imitations- oder Funktionsprototypen wird auf Details und nahezu alle Leistungsmerkmale verzichtet. Wir suchen deshalb nach der Basisfunktionalität, durch die unsere Lösung auf der kleinsten Stufe real anwendbar wird. Dieses sogenannte _Minimal Verwendbare Produkt/Prozess (MVP)_ ist ein Funktions-Prototyp.
+
+### So viel wie nötig, so wenig wie möglich gestalten
+
+Bei der Entwicklung von neuen Produkten oder Prozessen liegt die Herausforderung darin, einen Funktionsumfang zu finden, der einerseits ein echtes Problem löst und sich andererseits mit wenig Zeit und Ressourcen erstellen lässt.
+
+### Wert als Basis nutzen
+
+Für das MVP existieren viele Definitionen und Übersetzungen. Einigkeit besteht darüber, dass es eine Wertbasis braucht, um die Funktionen passgenau zu gestalten. Daher basiert unser MVP auf wünschenswerten und zweckmäßigen Eigenschaften, die schon ansatzweise im **Konzept-Prototyp** enthalten und erfreulich für unsere Schlüsselakteure sind. In der [MVP-Canvas](#mvp-Canvas) sammeln wir die wichtigsten Erkenntnisse für die Gestaltung eines Funktions-Prototyps. Dadurch entsteht ein Überblick, der eine gute Grundlage bietet, um mit Führungskräften die nächsten Schritte zu besprechen. MVPs sind Basiswerkzeuge in der Entwicklung digital-sozialer Anwendungen und unmittelbar mit agilen, kooperativen Arbeitsansätzen verbunden. Diese kulturellen Aspekte sollten frühzeitig mitgedacht werden.
+
+## MVP-Canvas
+
+<MethodSummary
+	title={MvpCanvas.frontMatter.title}
+	time={MvpCanvas.frontMatter.time}
+	attributes={MvpCanvas.frontMatter.attributes}
+	footer={MvpCanvas.frontMatter.note}
+>
+	<MvpCanvas.default />
+</MethodSummary>
+
+<MethodCard
+	title={MvpCanvas.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[MvpCanvas.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_mvp_canvas.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Die bisherigen Zwischenergebnisse aus [Test dokumentieren](/buch/erproben/ausprobieren-lassen#test-dokumentieren) und [Test auswerten](/buch/erproben/lernen-anpassen#test-auswerten) bereit legen. Vorlage auf ein größeres Stück Papier übertragen oder als Struktur für die Erstellung von Präsentationsfolien nutzen.
+
+2. Anhand der Impulsfragen unter dem Dreieck überlegen, was in die Entwicklung des MVP-Konzeptes einfließen soll. Methodisch arbeiten und jede Person zu Wort kommen lassen. Erste Anregungen notieren (15 min).
+
+3. Den Fokus auf die rechte Seite der Vorlage richten und alle Überschriften kurz vorstellen. Sich in Kleingruppen von 2-3 Personen aufteilen und parallel zu jeder Überschrift die wichtigsten Aspekte zusammentragen. Impulsfragen nutzen (20 min).
+
+4. Zwischenergebnisse vorstellen, diskutieren und gemeinsam auf den Punkt bringen (15 min).
+
+5. Offene Fragen klären und definieren, wer bis wann einzelne Aspekte, z.B. einen Kostenplan ausarbeitet.
+
+6. Präsentation der Ergebnisse und weiteren Maßnahmen vorbereiten.

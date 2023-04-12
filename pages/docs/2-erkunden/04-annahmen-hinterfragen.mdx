@@ -1,0 +1,80 @@
+---
+sidebar_label: "Annahmen hinterfragen"
+sidebar_position: 5
+sidebar_class_name: "stage stage-4"
+image: "/img/social-erkunden.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as AnnahmenDreieck from "@site/src/assets/methods/annahmen-dreieck.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Annahmen hinterfragen
+
+## Eigene Annahmen in Frage stellen
+
+Die Recherche von existierenden Wissensquellen oder das Einbeziehen von Expert:innen kann stellenweise ernüchternd sein. Oft fragen wir uns: Was kann unsere Unternehmung bei so viel vorhandenem Wissen noch beitragen? Einiges! Denn es geht nicht allein um den Erkenntnisgewinn, sondern vor allem um das Einsetzen der gewonnenen Erkenntnis zum Gestalten von Lösungen, die das Leben von Menschen verbessern.
+
+### Voreingenommenheit hinterfragen
+
+Um dabei zu vermeiden, dass wir eine Lösung gestalten, die nur unseren eigenen Vorstellungen und Ansprüchen entspricht – nicht aber denen der tatsächlich Betroffenen – müssen wir unsere eigenen Annahmen verstehen und hinterfragen.
+
+Dazu werden wir bald in Kontakt mit den Schlüsselakteuren treten und jetzt als Vorbereitung unsere wichtigsten Informationen ein letztes Mal differenzieren. Mit dem nachfolgenden [Annahmen-Dreieck](#annahmen-dreieck) werden wir dazu tatsächliche Fakten von unseren persönlichen Neigungen und Annahmen unterscheiden.
+
+Die Unterteilung verdeutlicht die Blickwinkel, aus denen wir die Welt betrachten. Die präzise Formulierung unserer Annahmen wird es uns ermöglichen, die damit verbunden Hypothesen durch Gespräche oder Beobachtungen zu überprüfen.
+
+<img
+	src="/img/02_eigene_annahmen_in_frage_stellen.svg"
+	className="w-64 mx-auto aspect-square"
+	aria-hidden
+/>
+
+## Annahmen-Dreieck
+
+<MethodSummary
+	title={AnnahmenDreieck.frontMatter.title}
+	time={AnnahmenDreieck.frontMatter.time}
+	attributes={AnnahmenDreieck.frontMatter.attributes}
+	footer={AnnahmenDreieck.frontMatter.note}
+>
+	<AnnahmenDreieck.default />
+</MethodSummary>
+
+<MethodCard
+	title={AnnahmenDreieck.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[AnnahmenDreieck.frontMatter.time]}
+	imageUrl={"/img/02_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/02_annahmen_dreieck.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Dreieck auf ein großes Blatt Papier oder eine Stellwand übertragen.
+
+2. Thema/Problem in der Mitte eintragen. Was sind zu untersuchende Unterbereiche des Problems? Material aus dem [Entwicklungsplan](/buch/vorbereiten/unternehmung-beginnen#entwicklungsplan), der [Baumanalyse](/buch/erkunden/problemverstaendnis-schaerfen#baumanalyse) und dem [Wissensatlas](/buch/erkunden/blinde-flecken-aufdecken#wissensatlas) nutzen.
+
+3. Existierende Fakten auf der linken Seite des Dreiecks verorten und ggf. thematisch ordnen. **Feld A** des **Wissensatlas** zur Inspiration nutzen.
+
+4. Neigungen diskutieren. Das können z.B. anekdotische Evidenzen, individuelle Überzeugungen oder Anker-Informationen sein, die den Verlauf aller weiteren Gedanken zum Thema geprägt haben. Ein Aspekt pro Klebezettel aufschreiben und auf der rechten Seite des Dreiecks verorten. **Feld B** des **Wissensatlas** zur Inspiration nutzen.
+
+5. Annahmen identifizieren. **Feld C** und **D** des **Wissensatlas** als Einstieg nutzen und auf die Unterbereiche der Problemstellung fokussieren. Diskutieren, aufschreiben, thematisch ordnen und verdichten. Drei relevante Annahmen herauskristallisieren, die im Austausch mit den Schlüsselakteuren untersucht werden sollen.
+
+6. Die entstandenen Zwischenergebnisse dokumentieren. Wichtigste Annahmen konkret und als ganze Sätze formulieren. Der [Gesprächsleitfaden](/buch/erkennen/gespraechsbasis-erstellen#gesprächsleitfaden) wird in _Phase 3_ erstellt.
+
+<Hint>
+	<b>Hinweis:</b> Im Nachgang zum Termin tauchen häufig weitere wichtige Punkte
+	auf. Ergänzungen sind sinnvoll.
+</Hint>

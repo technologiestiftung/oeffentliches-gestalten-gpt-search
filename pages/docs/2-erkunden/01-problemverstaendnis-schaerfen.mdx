@@ -1,0 +1,74 @@
+---
+sidebar_label: "Problemverständnis schärfen"
+sidebar_position: 2
+sidebar_class_name: "stage stage-1"
+image: "/img/social-erkunden.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as Baumanalyse from "@site/src/assets/methods/baumanalyse.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Problemverständnis schärfen
+
+## Das Umfeld betrachten
+
+Wenn Probleme bearbeitet werden, dann hat dies häufig nicht nur positive Konsequenzen. Beim Verändern von organisatorischen Routinen entstehen oft Reibungen. Um diese frühzeitig zu erkennen, beginnt die Phase des Erkundens mit einem besseren Verständnis der zu bearbeitenden Herausforderung. Die Basis dafür bildet der [Entwicklungsplan](/buch/vorbereiten/unternehmung-beginnen#entwicklungsplan) aus dem vorherigen Kapitel. Hier wurde vorläufig die allgemeine Situation erfasst und beschrieben, welche Probleme behoben werden sollen, wer von einer Lösung profitieren könnte und welche Ressourcen für die gemeinsame Bearbeitung notwendig sind.
+
+Diese ersten Beschreibungen beinhalten zunächst nur das Offensichtliche. Ähnlich wie bei der Betrachtung eines Baumes, ist es selten, dass wir unseren Fokus gleich zu Beginn auf die neuen Blätter hoch oben in der Baumkrone oder die lebensnotwendigen Wurzeln unter der Erde richten. Mit der Methode [Baumanalyse](#baumanalyse) betrachten wir die Herausforderung unter ähnlichen Gesichtspunkten und benennen Ursachen und Auswirkungen des Problems, das wir lösen wollen.
+
+<img
+	src="/img/02_das_umfeld_betrachten.svg"
+	className="w-64 mx-auto aspect-square"
+	aria-hidden
+/>
+
+## Baumanalyse
+
+<MethodSummary
+	title={Baumanalyse.frontMatter.title}
+	time={Baumanalyse.frontMatter.time}
+	attributes={Baumanalyse.frontMatter.attributes}
+	footer={Baumanalyse.frontMatter.note}
+>
+	<Baumanalyse.default />
+</MethodSummary>
+
+<MethodCard
+	title={Baumanalyse.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[Baumanalyse.frontMatter.time]}
+	imageUrl={"/img/02_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/02_baumanalyse.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Schema des Baums auf ein großes Blatt Papier übertragen. Alle Teammitglieder haben Klebezettel und Filzstifte zur Hand.
+
+2. Zentrales Problem in der Mitte eintragen. Die Mitte steht stellvertretend für den Stamm, der den Ausgangspunkt der Problemerkundung darstellt.
+
+3. Um Ursachen des Problems zu ermitteln, mehrmals fragen: „Welche tieferliegende Ursache ist der Grund für eine Ursache?“. Alle Aspekte aufschreiben und im Austausch in logische Ordnung unterhalb des zentralen Problems bringen. Hier versammeln sich die Ursachen des Problems.
+
+4. Um Effekte des Problems zu ermitteln, mehrmals fragen: „Welcher Effekt löst welchen weiteren Effekt aus?“. Alle Aspekte aufschreiben und oberhalb des zentralen Problems in logischer Ordnung aufhängen. Hier versammeln sich die Symptome des Problems.
+
+5. Alle Aspekte im Wurzelwerk bzw. in der Baumkrone als Ganzes betrachten. Was ist für die Bearbeitung des Problems relevant? Auf welche Ursachen oder Effekte sollte besonders eingegangen werden? Die wichtigsten Punkte markieren.
+
+6. Entstandene Schwerpunkte übersichtlich dokumentieren. Den Bereich mit den meisten Hervorhebungen detailliert untersuchen.
+
+<Hint>
+	<b>Hinweis:</b> Im Nachgang zum Termin tauchen häufig weitere wichtige Punkte
+	auf. Ergänzungen sind sinnvoll.
+</Hint>

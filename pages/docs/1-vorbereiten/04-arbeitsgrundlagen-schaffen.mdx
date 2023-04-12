@@ -1,0 +1,370 @@
+---
+sidebar_label: "Arbeitsgrundlagen schaffen"
+sidebar_position: 5
+sidebar_class_name: "stage stage-4"
+image: "/img/social-vorbereiten.png"
+---
+
+import { Hint } from "@site/src/components/Hint";
+import { Checkbox } from "@site/src/components/Checkbox";
+import { MethodCard } from "@site/src/components/MethodCard";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as Teamarbeitsroutine from "@site/src/assets/methods/teamarbeitsroutine.md";
+import * as FuenfFingerFeedback from "@site/src/assets/methods/fuenf-finger-feedback.md";
+import * as GewaltfreieKommunikation from "@site/src/assets//methods/gewaltfreie-kommunikation.md";
+import { Link } from "@site/src/components/Link";
+
+# Arbeitsgrundlagen schaffen
+
+## Arbeitsumgebung vorbereiten
+
+Öffentliche Innovation entsteht durch Beteiligung, die in unterschiedlichen Formaten erfolgen kann. Im Rahmen der Unternehmung wird das Kernteam andere Menschen einbeziehen, um Wissen zu generieren, Zwischenergebnisse zu erarbeiten, zu testen oder weiterzuentwickeln. Um die Zusammenarbeit zu ermöglichen, werden verschiedene Beteiligungsformate, wie Interviews oder Workshops, durchgeführt. Dabei ist nicht nur der Umfang, sondern vor allem die Qualität der Kooperation wichtig. Auch dafür ist eine gründliche Vorbereitung entscheidend.
+
+### Raum schaffen, um gut zu arbeiten
+
+Ein adäquates Setting ist grundlegend für die Zusammenarbeit und den gedanklichen Hochleistungssport, der innerhalb weniger Stunden zu wichtigen Zwischenergebnissen führen soll. Neben der Organisation des Workshops an sich, sind weitere Vorkehrungen zu treffen. Die Räume sollten hell und mit mobilen Möbeln ausgestattet sein, um flexible Arbeitssituationen zu schaffen und persönliche Begegnungen der Mitwirkenden bestmöglich zu unterstützen. Dazu gehört es genauso, die Pausenzeiten gemeinsam zu gestalten und eine gesunde Verpflegung zur Verfügung zu stellen.
+
+<Hint>
+	<b>Hinweis:</b> Alle Elemente für einen erfolgreichen Workshop sollten bereits
+	als Budgetplanung im{" "}
+	<Link href="/buch/vorbereiten/prozess-planen#prozessverlauf">
+		Prozessverlauf
+	</Link>{" "}
+	mitgedacht werden.
+</Hint>
+
+## Workshop Organisation
+
+<div className="grid grid-cols-1 gap-y-3">
+	<Checkbox
+		id="raum"
+		label={
+			<>
+				<b>Raum:</b> einladend, ungestört, sicher
+			</>
+		}
+	/>
+	<Checkbox
+		id="moebel"
+		label={
+			<>
+				<b>Möbel:</b> mobile Tische und Stühle, nicht festgeschraubt, am besten
+				Stellwände und Stehtische
+			</>
+		}
+	/>
+	<Checkbox
+		id="arbeitsmaterial"
+		label={
+			<>
+				<b>Arbeitsmaterial:</b> (wenn möglich recyclebar):
+			</>
+		}
+	/>
+	<Checkbox
+		id="flipcharts"
+		label="Flipcharts oder großes Papier (z.B. Rückseite von nicht mehr benötigten Postern)"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="klebeband"
+		label="Klebeband und Pinnwandnadeln"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="post-its"
+		label="Klebezettel (Post-Its) in unterschiedlichen Farben"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="flipcharts"
+		label="Flipchartstifte, Filzstifte, Tintenroller"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="kreativmaterial"
+		label="Kreativmaterial, z.B. Bildmaterial, Pappkartons, Kostümierungen, Knete etc."
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="ausdrucke"
+		label="Ausgedruckte Vorlagen, A4 Papier"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="technik"
+		label={
+			<>
+				<b>Technik:</b> Beamer, Pointer, Computer, Kurzzeitwecker und ein Plan B
+			</>
+		}
+	/>
+	<Checkbox
+		id="verpflegung"
+		label={
+			<>
+				<b>Verpflegung:</b> Gehirnfutter wie Nüsse, rohe Schokolade, Obst,
+				Gemüse, viel Wasser
+			</>
+		}
+	/>
+	<Checkbox
+		id="agenda"
+		label={
+			<>
+				<b>Agenda</b> mit Zielen, Zwischenergebnissen, Inhalten, Methoden:
+			</>
+		}
+	/>
+	<Checkbox
+		id="check-in"
+		label="Check In: Beitragsmöglichkeiten aufzeigen"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="zusammenarbeit"
+		label="Methodengeleitete Zusammenarbeit"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="check-out"
+		label="Check Out: Reflexion"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="kurzpraese"
+		label={
+			<>
+				<b>Kurzpräsentation</b> bei Einbindung interner Akteure mit Antworten
+				auf folgende Fragen:
+			</>
+		}
+	/>
+	<Checkbox
+		id="beteiligung-wichtig"
+		label="Warum ist Ihre Beteiligung wichtig?"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="beteiligung-warum"
+		label="Woran beteiligen Sie sich?"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="rolle"
+		label="In welcher Rolle?"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="wie-umgehen"
+		label="Wie gehen wir mit dem Input um?"
+		className="md:translate-x-7 text-sm"
+	/>
+	<Checkbox
+		id="entscheidungen"
+		label="Wer trifft weitere Entscheidungen?"
+		className="md:translate-x-7 text-sm"
+	/>
+</div>
+
+## Zusammenarbeit fördern
+
+Im Kernteam sind alle Personen Lernende und Lehrende zugleich. Zu Beginn der Teamarbeit ist es wichtig, sich auf Grundsätze einer wertschätzenden und produktiven Arbeitshaltung zu verständigen. Das erleichtert, neue Routinen einzuüben und darauf aufbauend Energie auf die wirklich wichtigen Schaffensmomente zu fokussieren.
+
+### Multiperspektivität nutzen
+
+Unterschiedliche Sichtweisen sind das Lebenselixier für gute Teamarbeit. Um problemorientiert an einer gemeinsamen Sache zu arbeiten, gilt es, verschiedene Meinungen konstruktiv zu nutzen und Hierarchien temporär abzulegen. Persönliches, Alltägliches und aktuelle Launen können einfach spielerisch mit aufgenommen werden.
+
+### Gemeinsame Zeit wertschätzen
+
+Zeit ist eine wichtige und immer knappe Ressource. Das sogenannte _timeboxing_ – also die strenge zeitliche Limitierung einzelner Arbeitsschritte – unterstützt kleine Teams und große Gruppen, gemeinsame Arbeitsmomente diszipliniert zu nutzen. Alle sollen gehört werden und jede Idee Berücksichtigung finden. Dieses Vorgehen setzt häufig Kreativität frei. Und mit etwas Übung liegt die Konzentration präzise auf dem Thema und nicht auf ausschweifenden Beschreibungen.
+
+### Rotierend dokumentieren
+
+Die nachvollziehbare Dokumentation der einzelnen Schritte ist grundlegend, damit Zwischenergebnisse gemeinsam weiterentwickelt werden können. Diese Wissensbasis ermöglicht es, sich unkompliziert zu informieren, datenbasiert zu diskutieren und lösungsorientiert Entscheidungen vorzubereiten und zu treffen. Dokumentieren ist eine anspruchsvolle Aufgabe, die rotierend durch unterschiedliche Personen übernommen wird. Nutzen Sie zur Zusammenfassung die PDF-Vorlage _Resultate dokumentieren_ am Ende jeder Phase.
+
+### Teams über Tools
+
+Handbücher oder Innovationsmanagement-Ratgeber mit unzähligen Werkzeugen und Methoden füllen ganze Bücherregale – auch im öffentlichen Sektor. Letztlich sind es aber oft nicht die Werkzeuge, die über den Erfolg einer Unternehmung entscheiden, sondern die Art und Weise, wie und mit welcher Intention sie eingesetzt werden. Haltung definiert somit Gestaltung. Der Schlüssel zur Innovation sind die Menschen und ihr Umgang miteinander.
+
+## Kommunikation fördern
+
+> „Kommunikation ist ein bisschen wie Liebe – sie geht uns alle etwas an, aber niemand kann wirklich sagen, wie man es richtig macht.“
+
+**Krogerus, Tschäppeler. 2018. Das Kommunikationsbuch – Wie man sich besser verständigt**
+
+Innovationsprozesse leben durch Kommunikation. Gerade wenn ein dynamisches Vorgehen und eine flexible Einstellung gefragt sind, braucht es Kommunikationsgrundlagen, die Offenheit, Verständnis und Lernen begünstigen. In den iterativen Entwicklungsschritten, kommen sich die Teammitglieder nahe und sind am Ende des Innovationsprozesses durch dick und dünn gegangen.
+
+- Setzen Sie sich bewusst mit Problemen in ihrem Team auseinander. Das gehört zum Gelingen des Innovationsprozesses dazu. Der Konflikt hilft, blinde Flecken, Fehlendes oder Störendes zu identifizieren und gibt Orientierung, um eine wertschätzende [Teamarbeitsroutine](#teamarbeitsroutine) zu etablieren
+
+- Nutzen Sie zur Unterstützung die 4 Schritte der [Gewaltfreien Kommunikation](#gewaltfreie-kommunikation) oder reflektieren Sie das Erlebte mithilfe des [Fünf-Finger-Feedback](#fünf-finger-feedback). Das hilft hinter dem Konflikt das Wertvolle zu entdecken oder das Erfahrene als Gelerntes in den weiteren Ablauf zu integrieren.
+
+- Durch _Ja, und …_ anstatt _Ja, aber…_ nehmen Sie das vorher Gesagte wahr und fügen Ihre Perspektive hinzu.
+
+Im Nachfolgenden werden die drei Methoden der Etappe 4 erläutert.
+
+## Teamarbeitsroutine
+
+<MethodSummary
+	title={Teamarbeitsroutine.frontMatter.title}
+	time={Teamarbeitsroutine.frontMatter.time}
+	attributes={Teamarbeitsroutine.frontMatter.attributes}
+>
+	<Teamarbeitsroutine.default />
+</MethodSummary>
+
+<MethodCard
+	title={Teamarbeitsroutine.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[Teamarbeitsroutine.frontMatter.time]}
+	imageUrl={"/img/01_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/01_teamarbeitsroutine.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+Mit den folgenden Schritten lässt sich ein zeitlich begrenzter Lernzyklus öffnen und schließen:
+
+1. Einchecken mit guter Laune oder etwas Persönlichem
+
+2. Rollen klären bzw. rotierend pro Treffen vergeben
+
+3. Fokus des Treffens mitteilen bzw. sich im Prozess verorten
+
+   **1** Agenda und Zwischenergebnisse setzen
+
+   **2** Methodisch zusammenarbeiten
+
+   **3** Nächste Schritte definieren
+
+   **4** Aufgaben mit Termin und Frist versehen und verteilen
+
+   **5** Auschecken mit Danksagung
+
+4. Vorlage anhand der Schritte ausfüllen. Daraus ergibt sich die Agenda für das Treffen.
+
+5. Vor Beginn des Arbeitstreffens vereinbaren, wer welche Rolle übernimmt, z.B. einzelne Arbeitsschritte moderiert und dokumentiert.
+
+6. Agenda für das Treffen für alle sichtbar machen, um bei Bedarf Anpassungen vorzunehmen.
+
+<Hint>
+	<b>Hinweis:</b> Die zwei wichtigsten Rollen für gelungene Arbeitstreffen sind
+	die Moderator:in und die Zeitmanager:in. Die Moderator:in leitet nicht das
+	Team, sondern unterstützt das <i>Durchlaufen</i> der Arbeitsroutine und hilft
+	der Gruppe, positive Erfahrungen zu machen. Die Moderator:in ist, wie alle,
+	ein:e Teilnehmer:in des Arbeitstreffens und bringt sich mit eigenen Beiträgen
+	ein. Die Zeitmanager:in unterstützt das Arbeiten in Mikrozeiteinheiten und
+	sorgt für das Beibehalten des Fokus während des Arbeitstreffens.
+</Hint>
+
+## Fünf-Finger-Feedback
+
+<MethodSummary
+	title={FuenfFingerFeedback.frontMatter.title}
+	time={FuenfFingerFeedback.frontMatter.time}
+	attributes={FuenfFingerFeedback.frontMatter.attributes}
+	footer={FuenfFingerFeedback.frontMatter.note}
+>
+	<FuenfFingerFeedback.default />
+</MethodSummary>
+
+<MethodCard
+	title={FuenfFingerFeedback.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[FuenfFingerFeedback.frontMatter.time]}
+	imageUrl={"/img/01_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/01_fuenf_finger_feedback.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. **Fünf-Finger-Feedback** Vorlage zur Hand nehmen und als Orientierungshilfe für alle Teilnehmer:innen gut sichtbar machen.
+
+2. Ziele des Feedbacks verdeutlichen und der gemeinsamen Reflexion einen Zweck geben.
+
+3. Das Feedback wird in der _Ich_-Form geschrieben, weil es die persönliche Perspektive verdeutlichen soll. Alle nehmen sich drei Minuten Zeit, um pro Finger eine Rückmeldung zu formulieren:
+
+   **1** Sehr gut gefallen hat mir …
+
+   **2** Bemerkenswert ist für mich …
+
+   **3** Für's nächste Mal wünsche ich mir …
+
+   **4** Gelernt habe ich …
+
+   **5** Zu kurz gekommen ist für mich …
+
+4. Die vervollständigten Sätze reihum in der Gruppe vorstellen. Alle hören aufmerksam zu. Niemand wird dabei unterbrochen. Alle bekommen die gleichen Konditionen, sich kurz und knapp zum Erlebten zu äußern. Feedback geschieht ohne Rechtfertigung.
+
+<Hint>
+	<b>Hinweis:</b> Formulierungen wie „<b>Sie</b> haben / <b>Du</b> hast …“ oder
+	„<b>Ihre / Deine</b> Arbeit ist ...“ sollten für ein konstruktives Feedback
+	vermieden werden.
+</Hint>
+
+## Gewaltfreie Kommunikation
+
+<MethodSummary
+	title={GewaltfreieKommunikation.frontMatter.title}
+	time={GewaltfreieKommunikation.frontMatter.time}
+	attributes={GewaltfreieKommunikation.frontMatter.attributes}
+>
+	<GewaltfreieKommunikation.default />
+</MethodSummary>
+
+<MethodCard
+	title={GewaltfreieKommunikation.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[GewaltfreieKommunikation.frontMatter.time]}
+	imageUrl={"/img/01_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/01_gewaltfreie_kommunikation.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+Die folgenden Schritte für sich selbst durchlaufen:
+
+1. **Beobachten ohne zu bewerten:** Was sehe ich, höre ich, beobachte ich, ohne mich selbst oder andere zu verurteilen?
+
+2. **Eigene oder fremde Gefühle wahrnehmen und benennen:** Was fühle ich, ohne jemand anderen dafür verantwortlich zu machen? Was fühlen andere, ohne dass ich es persönlich nehme?
+
+3. **Bedürfnisse erkennen und ernst nehmen:** Auf welche unerfüllten Bedürfnisse weisen mich meine Gefühle oder die der anderen hin?
+
+4. Auf Grundlage der Bedürfnisse **klare und erfüllbare Bitten äußern:** Worum möchte ich jemand anderen bitten? Und was möchte ich selbst tun?
+
+5. **Anworten reflektieren und bündeln.** Was sind die Essenzen von **01-04**, die mitgeteilt werden müssen, um die Situation zu verbessern oder den Konflikt zu lösen?
+
+<Hint>
+	<b>Hinweis:</b> Gewaltfrei zu kommunizieren bedarf ein wenig Übung. Am Anfang
+	hilft es, die wichtigsten Punkte je Schritt zu notieren.
+</Hint>
+
+6. **Entscheiden,** ob und wann die Essenzen der vier Schritte kommuniziert werden. Erfahrungsgemäß ergeben sich durch das Reflektieren neue Perspektiven auf die Situation. Das kann dazu führen, dass der Konflikt ggf. ohne Gespräch beigelegt werden kann.

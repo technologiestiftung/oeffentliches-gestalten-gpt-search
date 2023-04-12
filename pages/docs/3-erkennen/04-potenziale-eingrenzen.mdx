@@ -1,0 +1,138 @@
+---
+sidebar_label: "Potenziale eingrenzen"
+sidebar_position: 5
+sidebar_class_name: "stage stage-4"
+image: "/img/social-erkennen.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as PotenzialBaukasten from "@site/src/assets/methods/potenzialbaukasten.md";
+import * as WieKoennenWirFragen from "@site/src/assets/methods/wie-koennen-wir-fragen.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Potenziale eingrenzen
+
+## Gestaltungsräume eröffnen
+
+Die Wissensgenese in Innovationsprozessen durchläuft mehrere Stadien. Um den Raum Richtung Lösung zu öffnen, ist es notwendig, unsere Sondierungen nochmals zu verfeinern. Das kann sich stellenweise anfühlen, als ob wir durch ein Nadelöhr gehen. Es existieren verschiedene Vorgehensweisen, um Innovationspotenziale einzugrenzen. Was sie alle verbindet, ist die Mischung aus enormer Denkarbeit und vorausschauender Intuition.
+
+### Möglichkeiten identifizieren
+
+Herausgearbeitete Bedürfnisse und Hindernisse können wir mit dem [Potenzialbaukasten](#potenzialbaukasten) in verschiedenen Erkenntnisebenen verorten und analysieren. Das ermöglicht den Aufbau von Argumentationsketten, die uns den Zugang zu Potenzialen für systemische Verbesserung erleichtern. Dabei reicht das Spektrum von absehbaren Ergebnissen bis hin zu nachhaltigen Wirkungen.
+
+### Vom Status Quo zum nützlichen Prinzip
+
+Wenn wir erkennen, was den Status Quo bedingt, können wir dieses Wissen nutzen, um ein oder mehrere nützliche Prinzipien zu ermitteln. Diese Prinzipien können Herangehensweisen offenbaren, die als Schlüssel für wirksame Veränderungen förderlich sind.
+In unserer Unternehmung ebnen wir den Weg zur Lösung durch ambitionierte Fragestellungen. In der Innovationsarbeit sind Fragetechniken etablierte Werkzeuge, um Herausforderungen auf den Punkt zu bringen und den Lösungsraum abzustecken. Richtig gute Fragen sind der Ausgangspunkt, um in neuen Perspektiven zu denken.
+
+### Fragen als Denkhaltung
+
+Für unsere [„Wie können wir ...“-Fragen](#wie-können-wir-fragen) sind zwei Aspekte entscheidend: der Fokus auf das zu bearbeitende Problem und eine Lösungsspur, die uns motiviert, etwas zu entwickeln, auf das wir bisher keine Antwort haben. Dabei ziehen wir unterschiedliche Versionen in Betracht, um Fragestellungen zu formulieren, die unser bisheriges Wissen gekonnt bündeln:
+
+<img
+	src="/img/03_line_graph.svg"
+	className="w-full mx-auto aspect-square"
+	aria-hidden
+/>
+
+## Potenzialbaukasten
+
+<MethodSummary
+	title={PotenzialBaukasten.frontMatter.title}
+	time={PotenzialBaukasten.frontMatter.time}
+	attributes={PotenzialBaukasten.frontMatter.attributes}
+	footer={PotenzialBaukasten.frontMatter.note}
+>
+	<PotenzialBaukasten.default />
+</MethodSummary>
+
+<MethodCard
+	title={PotenzialBaukasten.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[PotenzialBaukasten.frontMatter.time]}
+	imageUrl={"/img/03_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/03_potenzialbaukasten.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Vorlage mit Ebenen und Feldern groß übertragen.
+
+<Hint>
+	<b>Hinweis:</b> Es ist sinnvoll, bei der Bearbeitung die Beschreibungen laut
+	zu lesen und die Erkenntnisse bzw. Antworten gemeinsam zuzuordnen und
+	auszuformulieren.
+</Hint>
+
+2. Ein prägnantes Paar aus dem [Bedürfnis-Hindernis-Filter](#bedürfnis-hindernis-filter) auswählen.
+
+3. Mit den erstrebenswerten Zuständen beginnen. Das Bedürfnis zunächst in der individuellen Erkenntnisebene platzieren. Diskutieren, ob es auf die Beschreibung zutrifft. Wenn nicht, den Klebezettel in die funktionale oder strukturelle Erkenntnisebene bewegen und entscheiden, in welcher der Ebenen er am besten zu verorten ist. Darauf aufbauend die beiden verbleibenden Feldbeschreibungen nochmals lesen. Adäquate Inhalte ableiten und notieren.
+
+4. Das Vorgehen aus **03** für die _hindernden_ Faktoren wiederholen.
+
+5. Wenn die Felder der drei Erkenntnisebenen auf beiden Seiten befüllt sind, die strukturelle Ebene fokussieren und den Bereich nützliches Prinzip bearbeiten. Den drei Schritten zur Ermittlung des Prinzips folgen und wesentliche Aspekte gemeinsam formulieren und notieren.
+
+6. Ergebnisse dieser Runde zusammenhängend als Baukasten sichern. Sie dienen als Arbeitsgrundlage zur Erstellung der [„Wie können wir ...“-Fragen](#wie-können-wir-fragen).
+
+7. Für die Bearbeitung weiterer Bedürfnis-Hindernis-Paare **02 bis 06** wiederholen.
+
+## „Wie können wir...“­-Fragen
+
+<MethodSummary
+	title={WieKoennenWirFragen.frontMatter.title}
+	time={WieKoennenWirFragen.frontMatter.time}
+	attributes={WieKoennenWirFragen.frontMatter.attributes}
+	footer={WieKoennenWirFragen.frontMatter.note}
+>
+	<WieKoennenWirFragen.default />
+</MethodSummary>
+
+<MethodCard
+	title={WieKoennenWirFragen.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[WieKoennenWirFragen.frontMatter.time]}
+	imageUrl={"/img/03_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/03_wie_koennen_wir_fragen.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Vorlage groß übertragen. Alle Erkenntnisse aus dem [Potenzialbaukasten](#potenzialbaukasten) bereitlegen. Bei mehreren Potenzialbaukästen die Felder I+ bis S- und ggf. N+ einzeln abgleichen, um übergreifende Aspekte zu identifizieren und damit weiterzuarbeiten.
+
+2. Einen _erstrebenswerten Zustand_ auswählen und in die mittige Spalte hängen. Die damit verbundenen Akteure oder Akteursgruppen auf Klebezetteln in der linken Spalte vermerken.
+
+3. Neben den ausgewählten _erstrebenswerten Zustand_ verschiedene _hindernde Faktoren_ in der rechten Spalte zuordnen und ausprobieren, welche Kombinationen spannend sind. Was gehört zusammen? Nach Trial & Error Prinzip vorgehen. „Wie können wir WEM ermöglichen, WAS zu tun, OHNE dass ...“ mehrmals laut aussprechen und so anpassen, dass daraus eine runde Fragestellung entsteht. Erst dann notieren.
+
+<Hint>
+	<b>Check:</b> Enthält die Frage bereits eine spezifische Lösung? Ist die Frage
+	zu abstrakt und ohne Richtung? Falls ja, dann neue Kombinationen suchen.
+</Hint>
+
+4. Nach eigenem Ermessen Schritte **02 und 03** mehrmals wiederholen. Alle sinnvollen Varianten dokumentieren und mit etwas Abstand nochmals betrachten und verfeinern. Nicht kombinierbare Elemente können später im Prozess, z.B. bei der Ideenfindung, einbezogen werden.
+
+<Hint>
+	<b>Joker:</b> Falls vorab ein nützliches Prinzip identifiziert wurde, kann die
+	Variante „Wie können wir WEM ermöglichen, WAS zu tun, INDEM…“ angewandt
+	werden.
+</Hint>

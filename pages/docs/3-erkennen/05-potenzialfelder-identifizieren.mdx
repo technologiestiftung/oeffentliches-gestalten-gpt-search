@@ -1,0 +1,151 @@
+---
+sidebar_label: "Potenzialfelder identifizieren"
+sidebar_position: 6
+sidebar_class_name: "stage stage-5"
+image: "/img/social-erkennen.png"
+---
+
+import { Checkbox } from "@site/src/components/Checkbox";
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as PotenzialSteckbrief from "@site/src/assets/methods/potenzial-steckbrief.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Potenzialfelder identifizieren
+
+## Potenzialfelder präsentieren
+
+Nachdem wir mehrere Fragen formuliert haben, die uns die Richtung zu einer passenden Lösung weisen, veranschaulichen wir, welche Entwicklungsmöglichkeiten sich dadurch ergeben.
+
+Indem wir Potenzialfelder beschreiben, fassen wir die relevanten Zwischenergebnisse dieser Phase zusammen und decken themenspezifisch ungenutzte Chancen und mögliche Risiken auf. Basierend auf dem [Potenzialfeld-Steckbrief](#potenzial-steckbrief) können konkrete Empfehlungen, sowie sofort umsetzbare Maßnahmen abgeleitet werden. Das wiederum ermöglicht unserer Organisation, Energie und Ressourcen in Lösungen zu investieren, die positive Auswirkungen nicht nur für die Schlüsselakteure, sondern auch für sie selbst hat.
+
+Die Präsentation der Zwischenergebnisse aus den Phasen des Erkundens und Erkennens stellt einen wichtigen Meilenstein im Gesamtprozess dar. Dabei ist uns bewusst, dass wir möglicherweise Ergebnisse präsentieren, die außerhalb von gewohnten Denk- und Handlungsrahmen liegen.
+
+Nach der Vorstellung werden wir von unseren Mitspieler:innen, Verbündeten, Partner:innen, Kolleg:innen und Führungskräften erfahren, wie sie zu unserer Unternehmung stehen und was sie ggf. zur Weiterentwicklung beitragen können. Ihre Rückmeldungen nehmen wir neugierig auf und verdichten sie zu Vorschlägen, die wir in der weiteren Entwicklung berücksichtigen.
+
+## Checkliste: Präsentation
+
+Die Präsentation der Zwischenergebnisse wird erfolgreich, indem wir:
+
+<Checkbox
+	id="visueller-ueberblick"
+	label={
+		"einen kurzen und visuellen Überblick über die einzelnen Etappen unserer bisherige Unternehmung geben"
+	}
+/>
+
+<Checkbox
+	id="transparent-aufzeigen"
+	label={
+		"transparent aufzeigen, wie wir zu den Empfehlungen und sofortigen Maßnahmen gekommen sind"
+	}
+/>
+
+<Checkbox
+	id="mit-fotos"
+	label={
+		"mit Fotos, Zitaten oder Workshopmaterial eine einfache Geschichte erzählen, die über einen Projektbericht hinausgeht"
+	}
+/>
+
+<Checkbox
+	id="von-den-menschlichen"
+	label={
+		"von den menschlichen Begegnungen und unseren Erkenntnissen und Überraschungen berichten"
+	}
+/>
+
+<Checkbox
+	id="oeffentliche-organisationale"
+	label={
+		"öffentliche, organisationale und persönliche Mehrwerte aufzeigen, um Vorgesetzten Mut zur Unterstützung zu machen"
+	}
+/>
+
+<Checkbox
+	id="verbuendeten-partnerinnen"
+	label={
+		<>
+			Verbündeten, Partner:innen oder Mitarbeiter:innen die Gelegenheit geben,
+			unsere Arbeit zu diskutieren und Feedback zu geben, z.B. mit der{" "}
+			<i>Feedbackmatrix</i> oder{" "}
+			<a href="/buch/vorbereiten/arbeitsgrundlagen-schaffen#fünf-finger-feedback">
+				Fünf-Finger-Feedback
+			</a>
+		</>
+	}
+/>
+
+<Checkbox
+	id="nachvollziehen-warum"
+	label={
+		"nachvollziehen, warum etwas auf positive Resonanz stößt oder möglicherweise Reserviertheit erzeugt"
+	}
+/>
+
+<Checkbox
+	id="vor-und-nach-praes"
+	label={
+		<>
+			vor und nach der Präsentation soziale Interaktionen und den Netzwerkaufbau
+			zwischen den Anwesenden unterstützen, z.B. durch{" "}
+			<a href="/buch/erkunden/blinde-flecken-aufdecken#themengeleitetes-netzwerken">
+				Themengeleitetes Netzwerken
+			</a>
+		</>
+	}
+/>
+
+<Checkbox
+	id="unsere-arbeit"
+	label={
+		"unsere Arbeit im Team wertschätzen und feiern, was durch die Kooperation und Ausdauer entstanden ist"
+	}
+/>
+
+## Potenzial-Steckbrief
+
+<MethodSummary
+	title={PotenzialSteckbrief.frontMatter.title}
+	time={PotenzialSteckbrief.frontMatter.time}
+	attributes={PotenzialSteckbrief.frontMatter.attributes}
+	footer={PotenzialSteckbrief.frontMatter.note}
+	className="!mt-7"
+>
+	<PotenzialSteckbrief.default />
+</MethodSummary>
+
+<MethodCard
+	title={PotenzialSteckbrief.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[PotenzialSteckbrief.frontMatter.time]}
+	imageUrl={"/img/03_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/03_potenzial_steckbrief.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Bisherige Zwischenergebnisse und Material bereit legen. Vorlage als Struktur für die Erstellung von Präsentationsfolien nutzen.
+
+2. Von den [WKW-Fragen](/buch/erkennen/potenziale-eingrenzen#wie-können-wir-fragen) ausgehen. Alle sichten und ähnliche Fragen gruppieren. Je Gruppe einen Steckbrief verwenden. Entsprechende **WKW-Fragen** als Ausgangspunkt eintragen.
+
+3. Auf welchen Erkenntnissen und Daten beruhen die **WKW-Fragen**? Die markantesten Aspekte bei erstrebenswerten Zuständen, hindernden Faktoren und dazugehörigen Evidenzen eintragen. Falls nützliche Prinzipien ermittelt wurden, diese ebenfalls notieren.
+
+4. Bisherige Eintragungen des Steckbriefes auf Themenschwerpunkte, prägnante Problemstellungen und vielversprechende Optionen prüfen. Thema, Problem und Option im Sinnzusammenhang kurz beschreiben. Eingängigen Arbeitstitel finden, Metaphern und visuelle Sprache unterstützend nutzen. Potenzialfeld nummerieren.
+
+5. Abschließend überlegen, welche konkreten Empfehlungen und sofort umsetzbaren Maßnahmen sich daraus ergeben. [Entwicklungsmatrix](/buch/vorbereiten/ist-zustand-betrachten#entwicklungsmatrix) zur Unterstützung verwenden.
+
+6. Um weitere **WKW-Fragen** zu verarbeiten, Schritte **02 bis 05** wiederholen.
+
+7. Präsentation ansprechend und zielgruppenspezifisch vorbereiten. Alle Potenzial-Steckbriefe betrachten und überlegen, was das größte Interesse erzeugen könnte. Damit beginnen.

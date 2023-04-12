@@ -1,0 +1,228 @@
+---
+sidebar_label: "Ausprobieren lassen"
+sidebar_position: 4
+sidebar_class_name: "stage stage-3"
+image: "/img/social-erproben.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as TestverlaufPlanen from "@site/src/assets/methods/testverlauf-planen.md";
+import * as TestDokumentieren from "@site/src/assets/methods/test-dokumentieren.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+import { Checkbox } from "@site/src/components/Checkbox";
+
+# Ausprobieren lassen
+
+## In der Interaktion lernen
+
+Ähnlich wie bei der Gesprächssituation in Phase 3, muss die Testsituation gut vorbereitet werden, um von der Interaktion mit den Schlüssel­akteuren oder Anwender:innen maximal zu lernen.
+
+### Beteiligung sorgfältig vorbereiten
+
+Die Organisation der Testsituation beinhaltet [Vorgespräche](/buch/erkennen/rausgehen-menschen-treffen#vorgespräche-führen), die Auswahl der Tester:innen, eine freundliche Erinnerung vorab und das Unterzeichnen der [Einverständniserklärung](/arbeitsblatt/03_einverstaendniserklaerung.pdf) – falls Audio- oder Videoaufnahmen geplant sind. Um die damit verbundenen Daten nachvollziehbar aufzunehmen und auszuwerten, ist es ratsam, wieder anonyme Kürzel zu vergeben.
+
+### Als Team arbeiten
+
+Der Test wird durch mindestens zwei Personen geleitet. Eine Person moderiert, die andere dokumentiert. Pro Durchlauf sollten ein bis drei Tester:innen eingeladen werden. Ideal ist, die gleiche Anzahl Beobachter:innen aus dem Team einzubinden, die pro Testperson den [Test dokumentieren](/buch/erproben/ausprobieren-lassen#test-dokumentieren).
+
+### Logistik klären
+
+Der Vorbereitungsaufwand variiert je nach Prototypen- und Testformat. Für das Testen eines [Konzept-Prototyps](/buch/erproben/prototypen-erstellen#konzept-prototypen) sollte der Aufwand gering gehalten werden, um in diesem frühen Stadium die Erwartungen der Beteiligten gut zu managen.
+
+## Checkliste: Prototyp testen
+
+### Am Tag vor dem Test:
+
+<Checkbox
+	id="erinnerung"
+	label={"Tester:innen eine Erinnerung mit Uhrzeit & Ort senden."}
+/>
+
+<Checkbox
+	id="materialien"
+	label={"Benötigte Materialien und Prototyp vorbereiten."}
+/>
+
+<!--@dennis: hier link einfügen-->
+
+<Checkbox
+	id="testverlauf"
+	label={<a href="#testverlauf-planen"> Testverlauf planen </a>}
+/>
+
+<Checkbox
+	id="dokumentieren"
+	label={
+		"Rollen klären. Wer führt den Test durch, wer dokumentiert? Ggf. mit Kolleg:innen durchspielen."
+	}
+/>
+
+### Am Tag des Tests:
+
+<Checkbox
+	id="vorlagen"
+	label={
+		<>
+			Vorlagen von{" "}
+			<a href="pathname:///arbeitsblatt/03_einverstaendniserklaerung.pdf">
+				Einverständniserklärung
+			</a>{" "}
+			und{" "}
+			<a href="/buch/erproben/ausprobieren-lassen#test-dokumentieren">
+				Test dokumentieren
+			</a>{" "}
+			ausdrucken oder kopieren.
+		</>
+	}
+/>
+
+<Checkbox
+	id="testergebnis"
+	label={
+		"In wenigen Minuten beschreiben können, was die Tester:innen erwartet – ohne durch zu viele Details das Testergebnis zu verfälschen."
+	}
+/>
+
+<Checkbox
+	id="testverlauf"
+	label={
+		<>
+			Sich darauf einlassen, zu lernen. Feedback als Geschenk annehmen,
+			vertiefende Fragen stellen, nichts rechtfertigen oder umfassend erklären,
+			darüber hinaus{" "}
+			<a href="/buch/erkennen/gespraechsbasis-erstellen#gesprächsgrundlagen">
+				Gesprächsgrundlagen
+			</a>{" "}
+			als Inspiration für die Interaktion mit den Testpersonen nutzen.
+		</>
+	}
+/>
+
+<Checkbox id="willkommen" label={"Tester:innen willkommen heißen."} />
+
+<Checkbox id="testen" label={"Testen!"} />
+
+### Nach dem Test:
+
+<Checkbox
+	id="auswerten"
+	label={
+		<a href="/buch/erproben/lernen-anpassen#test-auswerten">Test auswerten.</a>
+	}
+/>
+
+<Checkbox
+	id="nachgang"
+	label={
+		"Im Nachgang ein kleines Dankeschön oder eine Einladung zur Präsentation der Ergebnisse an Tester:innen versenden."
+	}
+/>
+
+## Testverlauf planen
+
+<MethodSummary
+	title={TestverlaufPlanen.frontMatter.title}
+	time={TestverlaufPlanen.frontMatter.time}
+	attributes={TestverlaufPlanen.frontMatter.attributes}
+	footer={TestverlaufPlanen.frontMatter.note}
+	className="!mt-7"
+>
+	<TestverlaufPlanen.default />
+</MethodSummary>
+
+<MethodCard
+	title={TestverlaufPlanen.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[TestverlaufPlanen.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_testverlauf_planen.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Vorlage auf ein größeres Stück Papier übertragen.
+
+2. Anhand der Stichpunkte entlang der Wegroute überlegen:
+
+**Interaktion:** Wann kommt wer zum Einsatz? Welche Form der Interaktion ist an welchen Punkten angebracht?
+
+**Rollen:** Rollen klären. Wer führt den Test durch, wer dokumentiert? Ggf. mit Kolleg:innen durchspielen.
+
+**Zeitrahmen:** Wie lang soll das Testen dauern?
+
+**Material:** Was wird an Material benötigt, um:
+
+- den Raum einzurichten?
+- den Weg zum Raum ggf. umzugestalten?
+- den Test durchzuführen?
+
+**Informationen:** Was wird an Informationen benötigt, um:
+
+- den Test zu kommunizieren?
+- die Tester:innen vorzubereiten?
+
+**Fragen:** Welche Fragen sollen beantwortet werden? Siehe Hypothesen bei [Testbasis zusammenstellen](http://www.citylab-berlin.org/handbuch "Testbasis zusammenstellen"). Impulsfragen aus der Vorlage nutzen und ggf. anpassen. Schlusspunkt überlegen. Zum Beispiel um die eigene Zusammen­fassung der wichtigsten Aspekten bitten, sich bedanken und ggf. weitere Einbindung anbieten.
+
+3. Kurze Beschreibung zum Testen im Kontext der Unternehmung erstellen. Anschreiben verfassen, um Tester:innen zu kontaktieren.
+
+4. Arbeitsmaterialien für die Testpersonen zusammenstellen, z.B. Klemmbrett mit Papier, Stift, Klebezettel.
+
+## Test dokumentieren
+
+<MethodSummary
+	title={TestDokumentieren.frontMatter.title}
+	time={TestDokumentieren.frontMatter.time}
+	attributes={TestDokumentieren.frontMatter.attributes}
+	footer={TestDokumentieren.frontMatter.note}
+>
+	<TestDokumentieren.default />
+</MethodSummary>
+
+<MethodCard
+	title={TestDokumentieren.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[TestDokumentieren.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_test_dokumentieren.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Vor, während und nach dem Test als Team arbeiten. Rollen verteilen. Bei mehreren Testpersonen pro Tester:in Beobachter:in bestimmen, die je eine Dokumentationsvorlage nutzt.
+
+2. Moderierende Person führt durch den Testlauf anhand [Testverlauf planen](http://www.citylab-berlin.org/handbuch "Testverlauf planen"): Tester:innen willkommen heißen (1), den Testhintergrund erläutern (2) und die Teilnehmer:innen auf ihre Rolle als Tester:innen einstimmen (3). Ggf. Rückfragen zum Vorgehen oder Verständnisfragen zur Testsituation beantworten. An die [Einverständniserklärung](http://www.citylab-berlin.org/handbuch "Einverständniserklärung") bzw. Aufnahme denken, auf Anonymisierung hinweisen. Offenheit herstellen.
+
+3. Testsituation anmoderieren und starten (4). Die Tester:innen mit dem Prototyp interagieren lassen. Dokumentierende Personen beobachten und notieren Interaktion und Verhalten (5). Auf Körpersprache, Mimik, Tonfall und Wortwahl achten. Die Vorlage nutzen, um Beobachtungen zu erfassen:
+
+- Was funktioniert?
+
+- Wobei gibt es Fragen?
+
+- Welche neuen Ideen gibt es?
+
+- Was funktioniert nicht?
+
+4. Ehrliche Rückmeldung moderieren (6), Kernfragen zum Prototyp (7) und zum Konzept (8) stellen, um tiefliegende Gedanken der Tester:innen zu verstehen. Dokumentierende Personen machen sich in den Feldern A,B,C und D weitere Notizen. Besonders interessant sind Originalzitate.
+
+5. Testsituation abmoderieren und beenden (9). Notizen vervollständigen und abschließend eine/n Schlüsselsatz oder -beobachtung formulieren.

@@ -1,0 +1,35 @@
+---
+title: "Ausblick"
+hide_title: true
+image: "/img/social-ausblick.png"
+description: "Wir alle haben Talent. Wie wir es nutzen macht den Unterschied. - Stevie Wonder"
+---
+
+import { PhaseHero } from "@site/src/components/PhaseHero";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+
+<PhaseHero
+	title="Ausblick"
+	quote="Wir alle haben Talent. Wie wir es nutzen macht den Unterschied."
+	quoteAuthor="Stevie Wonder"
+	imageUrl="/img/07_buch.svg"
+	className="mt-8 pb-20"
+/>
+
+<MethodCard
+	title={"Prinzipien"}
+	surtitle="Öffentliches Gestalten"
+	imageUrl={"/img/steering-wheel.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/07_prinzipien.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			Poster
+		</Link>
+	}
+/>

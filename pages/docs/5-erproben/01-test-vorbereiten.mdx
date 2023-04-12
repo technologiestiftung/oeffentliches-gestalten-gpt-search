@@ -1,0 +1,102 @@
+---
+sidebar_label: " Test vorbereiten"
+sidebar_position: 2
+sidebar_class_name: "stage stage-1"
+image: "/img/social-erproben.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as TestbasisZusammenstellen from "@site/src/assets/methods/testbasis-zusammenstellen.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Test vorbereiten
+
+## Ideen (be)greifbar machen
+
+Ausgestattet mit einer vielversprechenden Idee, starten wir in das Ausprobieren. Die schnelle und einfache Formgebung konkretisiert unseren Lösungsansatz und ermöglicht uns das Testen.
+
+### Neugierig experimentieren
+
+Im Alltag probieren wir ständig aus, wie etwas schmeckt, sich anfühlt oder welche Reaktionen es hervorruft. Prototyping basiert genau auf diesem neugierigen Prinzip in Kombination mit einem strukturierten Vorgehen. Indem frühzeitig festgestellt wird, was wie funktioniert, kann die Entwicklung der Idee werteorientiert geschärft und ressourcenschonend verworfen oder vorangetrieben werden. Die <a href="#grundlagen-des-prototyping">Grundlagen des Prototyping</a> zeigen, in welchen Dimensionen und durch welche bewährten Formate dieses schnelle Lernen und Anpassen möglich ist.
+
+### Ideenkonzept erlebbar machen
+
+Um bei der Entwicklung von Lösungen nicht nur unserer Intuition zu folgen, erheben wir durch das Testen von Prototypen qualitative und quantitative Daten, die evidenzbasierte Entscheidungen unterstützen. Bevor wir mit dem Erstellen eines Prototyps beginnen, planen wir unser Vorgehen für den Test mit der Vorlage <a href="#testbasis-zusammenstellen">Testbasis zusammenstellen</a>.
+
+## Grundlagen des Prototyping
+
+Fast alle öffentlichen Handlungsmuster der Verwaltung können erlebbar umgestaltet und in unterschiedlichen Gestaltungsordnungen getestet werden (nach Buchanan, 2001):
+
+- **Kommunikation:** Zeichen, Visualisierungen, einfache Sprache
+- **Konstruktion:** Produkte, Räume, Mobiliar, Hardware
+- **Interaktion:** Dienstleistungen, Prozesse, Software
+- **Integration:** Organisationsstrukturen, Gesetze, Systeme
+
+### Günstiger, schneller und besser zum Ziel kommen
+
+Die Notwendigkeit strukturiert zu experimentieren, wird im öffentlichen Sektor in Zukunft steigen. Denn insbesondere bei komplexen Problemstellungen können durch die Arbeit mit Prototypen wichtige Einsichten und Datengrundlagen entstehen. Statt eine Lösung teuer umzusetzen, kann sie so zuerst validiert werden. Auch können dadurch rechtliche Anpassungen besser vorbereitet und durchgeführt werden.
+
+### Die Bundesregierung unterstützt dieses Vorgehen:
+
+<!--zitat aber anders als die zitate auf cover seiten-->
+
+"Um Praxistauglichkeit und Wirksamkeit von Regelungsalternativen besser einschätzen zu können, wird die Bundesregierung diese in geeigneten Fällen mit betroffenen […] Personen/Organisationen [...] praktisch erproben, z.B. durch Planspiele, Simulationen oder Modellversuche. […] Erst danach sollen entsprechende Regelungsentwürfe von der Bundesregierung beschlossen werden."
+
+_Arbeitsprogramm Bessere Rechtsetzung, 2018_
+
+<Link
+	className="text-magenta-500 underline"
+	href={"pathname:///arbeitsblatt/05_grundlagen_prototyping.pdf"}
+	icon={<EditIcon className="w-3 h-3 text-inherit" />}
+>
+	Grundlagen des Prototyping
+</Link>
+
+## Testbasis zusammenstellen
+
+<MethodSummary
+	title={TestbasisZusammenstellen.frontMatter.title}
+	time={TestbasisZusammenstellen.frontMatter.time}
+	attributes={TestbasisZusammenstellen.frontMatter.attributes}
+	footer={TestbasisZusammenstellen.frontMatter.note}
+	className="!mt-7"
+>
+	<TestbasisZusammenstellen.default />
+</MethodSummary>
+
+<MethodCard
+	title={TestbasisZusammenstellen.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[TestbasisZusammenstellen.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_testbasis.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Vorlage groß übertragen. Material bereitlegen. Für die Bearbeitung dem vorgeschlagenen Ablauf folgen und die Impulse in den einzelnen Feldern beantworten. Stichpunkte notieren. In den weiteren Etappen werden diese grundlegenden Gedanken methodisch ausgearbeitet.
+
+2. Mit dem Bereich _Prototyp-Entwicklung_ beginnen. Zuerst kurz die zu testende Idee beschreiben, um den Rahmen für die weitere Erarbeitung abzustecken (1). Darauf basierend Testhypothesen formulieren, um zu klären, welche Funktionen mit dem Prototyp erprobt werden sollen (2).
+
+3. Bezogen auf die zu testenden Komponenten überlegen, wer Teil der Testgruppe sein sollte. Neben bisherigen Schlüsselakteuren auch Personen mit stark ausgeprägten oder extremen Bedürfnissen einbeziehen. Diese Randgruppen können die Spezifikationen für den Prototyp bestimmen und den Weg zu einem geeigneten Format weisen (3). Eckpunkte für den [Konzept-Prototyp](/buch/erproben/prototypen-erstellen#konzept-prototypen) entwickeln, sie sind eine wichtige Grundlage für ein effektives Prototyping (4).
+
+4. In den Bereich _Test-Organisation_ wechseln. Zunächst Testsituation skizzieren. In welchem Kontext können die Tester:innen am authentischsten Rückmeldung geben? Situation und Umgebung beschreiben (5). Darauf bezogen die Umsetzung planen (6).
+
+5. Notwendige Ressourcen bestimmen (7). Überlegen, wer Kontakt zu Personen aus der definierten Testgruppe besitzt. Ähnlich wie bei den [Vorgesprächen](/buch/erkennen/rausgehen-menschen-treffen#vorgespräche-führen) in _Phase 3 Verbündete & Partner:innen einbeziehen_, um Tester:innen zu rekrutieren.
+
+<Hint>
+	<b>Hinweis:</b> Im Test mit Randgruppen lassen sich Aspekte untersuchen, die
+	im Umkehrschluss zu einer Lösung für alle beitragen.
+</Hint>

@@ -1,0 +1,80 @@
+---
+sidebar_label: "Untersuchungsfokus setzen"
+sidebar_position: 6
+sidebar_class_name: "stage stage-5"
+image: "/img/social-erkunden.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as Lagebericht from "@site/src/assets/methods/lagebericht.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+
+# Untersuchungsfokus setzen
+
+## Erkenntnisse zusammenfassen
+
+Wir haben als Team einen Erkenntnisprozess durchlaufen, der für Außenstehende nur schwer nachvollziehbar ist. Jetzt ist ein guter Zeitpunkt, um Vorgesetzten einen Zwischenstand zu kommunizieren. Die Formulierungen dafür werden uns außerdem bei der Rekrutierung von Gesprächspartner:innen unterstützen.
+
+### Bisherige Ergebnisse miteinander verbinden
+
+Mit den Ergebnissen der [Baumanalyse](/buch/erkunden/problemverstaendnis-schaerfen#baumanalyse) und [Akteure kartieren](/buch/erkunden/system-akteure-verbinden#akteure-kartieren) sind Grundlagen vorhanden, um den genauen Fokus der Untersuchung in _Phase 3_ zu formulieren. Basierend auf dem bisherigen Wissensstand und den identifizierten Annahmen bestimmen wir gemeinsam, was noch herausgefunden werden muss.
+
+Die Zusammenfassung des umfassenden Wissens erleichtert die interne und externe Kommunikation. Durch die Berichterstattung entsteht eine Verlässlichkeit in der Kommunikation zwischen Kernteam und Führungskräften. Das Kommunikationsformat kann mit den Entscheidungsträger:innen abgestimmt werden.
+
+Die einzige Vorgabe für die Erstellung des [Lageberichts](#lagebericht) ist, dass alle Aspekte beschrieben werden ohne eine bestimmte Lösung vorzugeben. Unabhängig davon, ob die Unternehmung auf Eigeninitiative beruht oder durch Vorgesetzte in Auftrag gegeben wurde, ist dies zu beachten.
+
+<img
+	src="/img/02_erkenntnisse_zusammenfassen.svg"
+	className="w-64 mx-auto aspect-square"
+	aria-hidden
+/>
+
+## Lagebericht
+
+<MethodSummary
+	title={Lagebericht.frontMatter.title}
+	time={Lagebericht.frontMatter.time}
+	attributes={Lagebericht.frontMatter.attributes}
+	footer={Lagebericht.frontMatter.note}
+>
+	<Lagebericht.default />
+</MethodSummary>
+
+<MethodCard
+	title={Lagebericht.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[Lagebericht.frontMatter.time]}
+	imageUrl={"/img/02_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/02_lagebericht.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+Der **Lagebericht** fasst bisherige Zwischenergebnisse der _Erkundungsphase_ zusammen. Alle Dokumentationen werden so zugänglich und in Zusammenhang gebracht. Beim Erarbeiten an die **STORY** aus dem [Entwicklungsplan](/buch/vorbereiten/unternehmung-beginnen#entwicklungsplan) anschließen und ggf. das gleiche Präsentationsformat nutzen und visuell arbeiten.
+
+1. Die Essenzen der bisherigen Wissensarbeit ins Gedächtnis rufen.
+
+2. Die erste Frage des Untersuchungsfokus vorerst mündlich und laut ausgesprochen beantworten. Auf präzise und klare Sprache achten. Im Team die Antworten wiederholen, schärfen, aufschreiben und immer wieder umschreiben, um auf den Punkt zu kommen.
+
+3. Vorgehen aus Schritt **02** für alle weiteren Fragen des Untersuchungsfokus wiederholen.
+
+4. **Lagebericht** vervollständigen. Dazu Textbausteine des Untersuchungsfokus in den Lagebericht einbetten.
+
+5. Inhalte nutzen, um eine gelungene Präsentation zu erstellen, die auf Resonanz stößt.
+
+<Hint>
+	<b>Hinweis:</b> Falls Widerstände oder Bedenken im Verlauf des Prozesses
+	auftauchen, können diese nachträglich aufgenommen werden.
+</Hint>

@@ -1,0 +1,88 @@
+---
+sidebar_label: "Lernen und anpassen"
+sidebar_position: 5
+sidebar_class_name: "stage stage-4"
+image: "/img/social-erproben.png"
+---
+
+import { MethodSummary } from "@site/src/components/MethodSummary";
+import * as TestAuswerten from "@site/src/assets/methods/test-auswerten.md";
+import { MethodCard } from "@site/src/components/MethodCard";
+import { Link } from "@site/src/components/Link";
+import EditIcon from "@site/static/img/icons/edit.svg";
+import { Hint } from "@site/src/components/Hint";
+import { Checkbox } from "@site/src/components/Checkbox";
+
+# Lernen und anpassen
+
+## Von den Testresultaten lernen
+
+Die Testsituation war durch viele unterschiedliche Eindrücke geprägt. Wir haben die Tests umfassend dokumentiert. Damit sind genügend Daten vorhanden, die es nun auszuwerten gilt, um die Erkenntnisse in die Weiterentwicklung des Lösungskerns einzuarbeiten.
+
+### Den Test reflektiert betrachten
+
+Ähnlich wie bei der Gesprächsauswertung benötigt die Auswertung der Rückmeldungen unserer Tester:innen einen Erkenntnisrahmen. Indem wir die Beobachtungen und Originalzitate sortieren und verdichten, entstehen Muster, die uns ermöglichen, besser zu verstehen, welche kleineren Anpassungen oder größeren Veränderungen unsere Lösung benötigt.
+
+### Die Lösung auf die nächste Stufe heben
+
+Die Auswertung der Testresultate ist eine kollektive Denkleistung aller Beteiligten unseres Teams. Dabei geht es nicht um die Verteidigung des entwickelten Prototyps, sondern um systematische Schlussfolgerungen. Aus ihnen lassen sich nächste Schritte und konkrete Maßnahmen zur Verbesserung der Lösung ableiten. Mit der Vorlage [Test auswerten](#test-auswerten) gelingt das Strukturieren der Testergebnisse auf einfache Art und Weise. Sobald wir identifiziert haben, was den Tester:innen am meisten an unserer Idee gefällt, stellen wir sicher, dass dieses Wissen in der weiteren Entwicklung unserer Lösung Priorität bekommt und verstärkt wird.
+
+### Scheitern gehört zum Erfolg
+
+Neben dem positiven Feedback interessiert uns besonders, was nicht funktioniert hat oder auf Widerstand gestoßen ist. Diese Aspekte haben wir in der Testsituation hinterfragt, um besser zu verstehen, warum jemandem etwas nicht gefallen hat. Im Gespräch mit den Tester:innen haben wir entdeckt, welche Verbesserungen sie sich wünschen und wie sie die weitere Entwicklung angehen würden. Diese Vorschläge nehmen wir mit Neugier auf und stellen sicher, dass sie in die nächste Entwicklungsstufe integriert werden und uns dabei helfen, den Prototyp dahingehend zu verbessern.
+
+### Kreative Zerstörung
+
+Um diese möglicherweise ernüchternde Aufgabe mit Neugier und Freude zu meistern, werden wir wieder kreativ. Vor oder in der Auswertung können Warm-ups die Stimmung wieder heben. Das Arbeiten im Ja-Und-Modus oder eine Runde [Kreatives Aikido](/buch/entwerfen/viele-ideen-entwickeln#kreativer-radschlag) unterstützen spielerisch die Ableitung von Schlussfolgerungen oder den nächsten Schritten.
+
+## Test auswerten
+
+<MethodSummary
+	title={TestAuswerten.frontMatter.title}
+	time={TestAuswerten.frontMatter.time}
+	attributes={TestAuswerten.frontMatter.attributes}
+	footer={TestAuswerten.frontMatter.note}
+>
+	<TestAuswerten.default />
+</MethodSummary>
+
+<MethodCard
+	title={TestAuswerten.frontMatter.title}
+	surtitle="Arbeitsblatt"
+	attributes={[TestAuswerten.frontMatter.time]}
+	imageUrl={"/img/05_hero.svg"}
+	className="mt-5"
+	footer={
+		<Link
+			className="text-magenta-500 underline"
+			href={"pathname:///arbeitsblatt/05_test_auswerten.pdf"}
+			icon={<EditIcon className="w-3 h-3 text-inherit" />}
+		>
+			PDF-Vorlage
+		</Link>
+	}
+/>
+
+### Vorgehen
+
+1. Vorlage groß übertragen und Material bereit legen. Situation des Tests erneut vergegenwärtigen. Dafür Dokumentationen vom Testlauf nutzen.
+
+2. <b>WAS?</b> Impulsfragen im Feld A nutzen, um in Stillarbeit den Test zu reflektieren.
+   Wichtigste Aspekte auf Klebezettel schreiben (2 min). Jede Person stellt das Aufgeschriebene
+   vor und hängt die Zettel in den entsprechenden Abschnitt in Feld A (1 min pro
+   Person). Gemeinsam nach Ähnlichkeiten suchen und Klebezettel in Feld A entsprechend
+   zusammenhängen (5 min).
+
+3. <b>WAS DANN?</b> Muster anschauen und allein überlegen, was sich daraus ableiten
+   lässt. Impulsfragen im Feld B nutzen und sich ggf. von liebgewonnen Aspekten herzlich
+   verabschieden. Wichtigste Aspekte auf Klebezettel schreiben (2 min). Jede Person
+   stellt das Aufgeschriebene vor und hängt die Zettel in den entsprechenden Bereich
+   der Matrix in Feld B (2 min pro Person). Sobald alle Zettel hängen, ähnliche Aspekte
+   in den inneren Teil der Felder gruppieren.
+
+4. <b>WAS JETZT?</b> Muster anschauen und allein überlegen, was das für die weitere
+   Entwicklung bedeutet. Impulsfragen in Feld C nutzen. Jede Person stellt das Aufgeschriebene
+   vor und hängt die Zettel in den entsprechenden Abschnitt in Feld C (2 min pro
+   Person).
+
+5. Alle Ergebnisse dokumentieren und für die weitere Bearbeitung im [MVP-Canvas](/buch/erproben/nutzen-validieren#mvp-canvas) aufbewahren.
