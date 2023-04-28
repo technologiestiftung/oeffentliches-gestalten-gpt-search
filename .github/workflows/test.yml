@@ -30,9 +30,6 @@ jobs:
     name: semantic-release
     needs: [build]
     runs-on: ubuntu-latest
-    outputs:
-      new-release-published: ${{ steps.semantic-release.outputs.new_release_published }}
-      new-release-version: ${{ steps.semantic-release.outputs.new_release_version }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -40,10 +37,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm ci
-      - id: semantic-release
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          semantic_version: 18
+      - run: |
+          npm ci
+          npx semantic-release --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
