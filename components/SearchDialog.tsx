@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +18,7 @@ import {
 	Search,
 	Wand,
 } from "lucide-react";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 function promptDataReducer(
 	state: any[],
@@ -63,7 +62,9 @@ function promptDataReducer(
 	return [...current];
 }
 
-export function SearchDialog() {
+export const SearchDialog: React.FC<{ csrfToken: string }> = ({
+	csrfToken,
+}) => {
 	const [open, setOpen] = React.useState(false);
 	const [search, setSearch] = React.useState<string>("");
 	const [question, setQuestion] = React.useState<string>("");
@@ -114,7 +115,6 @@ export function SearchDialog() {
 			dispatchPromptData({ index: promptIndex, answer: undefined, query });
 			setHasError(false);
 			setIsLoading(true);
-
 			const response = await fetch("/api/vector-search", {
 				method: "POST",
 				headers: {
@@ -122,13 +122,13 @@ export function SearchDialog() {
 					apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
 					Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
 				},
-				body: JSON.stringify({ query }),
+				body: JSON.stringify({ query, csrf_token: csrfToken }),
 			});
 
 			if (!response.ok) {
 				setIsLoading(false);
 				setHasError(true);
-				console.error(await response.json());
+				console.error(await response.text());
 				return;
 			}
 			const data = response.body;
@@ -155,60 +155,6 @@ export function SearchDialog() {
 				});
 			}
 			setIsLoading(false);
-
-			// const eventSource = new SSE(`api/vector-search`, {
-			// 	headers: {
-			// 		apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
-			// 		Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-			// 		"Content-Type": "application/json",
-			// 	},
-			// 	payload: JSON.stringify({ query }),
-			// });
-
-			// function handleError<T>(err: T) {
-			// 	setIsLoading(false);
-			// 	setHasError(true);
-			// 	console.error(err);
-			// }
-
-			// eventSource.addEventListener("error", handleError);
-			// eventSource.addEventListener("message", (e: any) => {
-			// 	try {
-			// 		setIsLoading(false);
-
-			// 		if (e.data === "[DONE]") {
-			// 			setPromptIndex((x) => {
-			// 				return x + 1;
-			// 			});
-			// 			return;
-			// 		}
-
-			// 		const completionResponse: CreateChatCompletionResponse = JSON.parse(
-			// 			e.data
-			// 		);
-			// 		console.log(completionResponse);
-			// 		const text = completionResponse.choices[0].message?.content ?? "";
-
-			// 		setAnswer((answer) => {
-			// 			const currentAnswer = answer ?? "";
-
-			// 			dispatchPromptData({
-			// 				index: promptIndex,
-			// 				answer: currentAnswer + text,
-			// 			});
-
-			// 			return (answer ?? "") + text;
-			// 		});
-			// 	} catch (err) {
-			// 		handleError(err);
-			// 	}
-			// });
-
-			// eventSource.stream();
-
-			// eventSourceRef.current = eventSource;
-
-			// setIsLoading(true);
 		},
 		[promptIndex, promptData]
 	);
@@ -263,6 +209,8 @@ export function SearchDialog() {
 					</DialogHeader>
 
 					<form onSubmit={handleSubmit}>
+						<input type="hidden" name="csrf_token" value={csrfToken} />
+
 						<div className="grid gap-4 py-4 text-slate-700">
 							{question && (
 								<div className="flex gap-4">
@@ -345,4 +293,4 @@ export function SearchDialog() {
 			</Dialog>
 		</>
 	);
-}
+};

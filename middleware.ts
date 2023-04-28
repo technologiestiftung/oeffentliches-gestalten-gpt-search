@@ -1,24 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
+import csrf from "edge-csrf";
 
-export const config = {
-	matcher: ["/"],
-};
+// initalize protection function
+const csrfProtect = csrf({
+	cookie: {
+		name: "csrf-handbuch-gpt",
+		secure: process.env.NODE_ENV === "production",
+	},
+});
 
-export function middleware(req: NextRequest): NextResponse {
-	const basicAuth = req.headers.get("authorization");
-	const url = req.nextUrl;
-	if (basicAuth) {
-		const authValue = basicAuth.split(" ")[1];
-		const [user, pwd] = atob(authValue).split(":");
+export async function middleware(req: NextRequest) {
+	const response = NextResponse.next();
 
-		if (
-			user === process.env.NEXT_SECRET_BASIC_AUTH_USER &&
-			pwd === process.env.NEXT_SECRET_BASIC_AUTH_PASSWORD
-		) {
-			return NextResponse.next();
-		}
+	// csrf protection
+	const csrfError = await csrfProtect(req, response);
+
+	// check result
+	if (csrfError) {
+		return new NextResponse("invalid csrf token", { status: 403 });
 	}
-	url.pathname = "/api/auth";
 
-	return NextResponse.rewrite(url);
+	return response;
 }

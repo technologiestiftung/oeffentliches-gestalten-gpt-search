@@ -1,11 +1,21 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { SearchDialog } from "@/components/SearchDialog";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
+import React from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+export const getServerSideProps: GetServerSideProps = async (context) => {
+	const csrfToken = context.req.headers["x-csrf-token"] ?? "missing";
+	if (csrfToken === "missing") {
+		throw new Error("Invalid CSRF token");
+	}
 
-export default function Home() {
+	return { props: { csrfToken } };
+};
+
+const Home: React.FC<
+	InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ csrfToken }) => {
 	return (
 		<>
 			<Head>
@@ -19,9 +29,11 @@ export default function Home() {
 			</Head>
 			<main className={styles.main}>
 				<div className={styles.center}>
-					<SearchDialog />
+					<SearchDialog csrfToken={csrfToken} />
 				</div>
 			</main>
 		</>
 	);
-}
+};
+
+export default Home;

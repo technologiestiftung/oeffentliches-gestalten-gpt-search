@@ -20,6 +20,7 @@
 		"clsx": "1.2.1",
 		"cmdk": "0.2.0",
 		"common-tags": "1.8.2",
+		"edge-csrf": "1.0.3",
 		"eslint": "8.38.0",
 		"eslint-config-next": "13.3.0",
 		"eventsource-parser": "1.0.0",
