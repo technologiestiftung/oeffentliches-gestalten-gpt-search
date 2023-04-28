@@ -42,6 +42,7 @@
 		"unist-util-filter": "4.0.1"
 	},
 	"devDependencies": {
+		"@technologiestiftung/semantic-release-config": "1.2.1",
 		"@types/common-tags": "1.8.1",
 		"@types/estree": "1.0.0",
 		"@types/mdast": "3.0.11",
