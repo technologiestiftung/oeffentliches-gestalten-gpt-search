@@ -1,6 +1,6 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import { SearchDialog } from "@/components/SearchDialog";
+import styles from "../styles/Home.module.css";
+import { SearchDialog } from "../components/SearchDialog";
 
 export default function Home() {
 	return (
