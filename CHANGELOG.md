@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/technologiestiftung/oeffentliches-gestalten-ai-search-poc/compare/v1.0.0...v1.1.0) (2023-04-29)
+
+
+### Bug Fixes
+
+* downgrade next to 13.2.x to use edge-csrf ([5d6e483](https://github.com/technologiestiftung/oeffentliches-gestalten-ai-search-poc/commit/5d6e483a503a752535378fd9c9f369ca5e4a1d81))
+
+
+### Features
+
+* **csrf:** Adds csrf protection to api ([8bc613c](https://github.com/technologiestiftung/oeffentliches-gestalten-ai-search-poc/commit/8bc613c8e05ed0f5d83df3ccab837cc433afb1cd))
+
 # 1.0.0 (2023-04-28)
 
 
