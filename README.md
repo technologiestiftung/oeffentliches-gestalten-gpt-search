@@ -35,3 +35,5 @@ Or restore the `embeddings.dump` using tools like pgadmin.
 ## TODO
 
 - [ ] Regenerate embeddings there where some errors with the source files on the first generation
+- [ ] Add CSRF protection
+- [ ] Add rate limiting

@@ -1,8 +1,21 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { SearchDialog } from "../components/SearchDialog";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
+import React from "react";
 
-export default function Home() {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+	const csrfToken = context.res.getHeader("x-csrf-token") ?? "missing";
+	if (csrfToken === "missing") {
+		throw new Error("Invalid CSRF token");
+	}
+
+	return { props: { csrfToken } };
+};
+
+const Home: React.FC<
+	InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ csrfToken }) => {
 	return (
 		<>
 			<Head>
@@ -17,9 +30,11 @@ export default function Home() {
 			<main className={styles.main}>
 				<h1 className={styles.title}>Handbuch GPT Search</h1>
 				<div className={styles.center}>
-					<SearchDialog />
+					<SearchDialog csrfToken={csrfToken} />
 				</div>
 			</main>
 		</>
 	);
-}
+};
+
+export default Home;
