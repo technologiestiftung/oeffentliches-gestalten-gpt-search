@@ -1,13 +1,13 @@
 import * as React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import {
 	Dialog,
 	DialogContent,
 	DialogFooter,
 	DialogHeader,
 	DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+} from "./ui/dialog";
+import { Input } from "./ui/input";
 
 import {
 	X,

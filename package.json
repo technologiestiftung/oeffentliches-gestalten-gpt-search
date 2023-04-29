@@ -7,14 +7,15 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"embeddings": "tsx lib/generate-embeddings.ts"
+		"embeddings": "tsx lib/generate-embeddings.ts",
+		"test": "vitest",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
 		"@radix-ui/react-dialog": "1.0.3",
 		"@radix-ui/react-label": "2.0.1",
 		"@supabase/supabase-js": "2.20.0",
-		"@types/node": "18.15.11",
-		"@types/react": "18.0.35",
 		"@types/react-dom": "18.0.11",
 		"class-variance-authority": "0.5.2",
 		"clsx": "1.2.1",
@@ -43,16 +44,31 @@
 		"unist-util-filter": "4.0.1"
 	},
 	"devDependencies": {
+		"@storybook/addon-essentials": "7.0.7",
+		"@storybook/addon-interactions": "7.0.7",
+		"@storybook/addon-links": "7.0.7",
+		"@storybook/blocks": "7.0.7",
+		"@storybook/nextjs": "7.0.7",
+		"@storybook/react": "7.0.7",
+		"@storybook/testing-library": "^0.0.14-next.2",
 		"@technologiestiftung/semantic-release-config": "1.2.1",
+		"@testing-library/react": "14.0.0",
 		"@types/common-tags": "1.8.1",
 		"@types/estree": "1.0.0",
 		"@types/mdast": "3.0.11",
+		"@types/node": "18.16.2",
+		"@types/react": "18.2.0",
+		"@vitejs/plugin-react": "4.0.0",
 		"autoprefixer": "10.4.14",
 		"dotenv": "16.0.3",
 		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-storybook": "0.6.11",
+		"jsdom": "21.1.1",
 		"postcss": "8.4.21",
 		"prettier": "2.8.7",
+		"storybook": "7.0.7",
 		"tailwindcss": "3.3.1",
-		"tsx": "3.12.6"
+		"tsx": "3.12.6",
+		"vitest": "0.30.1"
 	}
 }

@@ -1,6 +1,6 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import { SearchDialog } from "@/components/SearchDialog";
+import styles from "../styles/Home.module.css";
+import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
 
@@ -28,6 +28,7 @@ const Home: React.FC<
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className={styles.main}>
+				<h1 className={styles.title}>Handbuch GPT Search</h1>
 				<div className={styles.center}>
 					<SearchDialog csrfToken={csrfToken} />
 				</div>
