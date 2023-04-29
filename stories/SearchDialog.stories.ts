@@ -19,6 +19,5 @@ type Story = StoryObj<typeof SearchDialog>;
 export const Primary: Story = {
 	args: {
 		csrfToken: "missing",
-		label: "Search",
 	},
 };
