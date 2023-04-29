@@ -1,9 +1,6 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { SearchDialog } from "@/components/SearchDialog";
-
-const inter = Inter({ subsets: ["latin"] });
+import styles from "../styles/Home.module.css";
+import { SearchDialog } from "../components/SearchDialog";
 
 export default function Home() {
 	return (
@@ -18,6 +15,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className={styles.main}>
+				<h1 className={styles.title}>Handbuch GPT Search</h1>
 				<div className={styles.center}>
 					<SearchDialog />
 				</div>

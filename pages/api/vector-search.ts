@@ -2,9 +2,9 @@ import type { NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { codeBlock, oneLine } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
-import { ApplicationError, UserError } from "@/lib/errors";
+import { ApplicationError, UserError } from "../../lib/errors";
 import { CreateChatCompletionRequest } from "openai";
-import { OpenAIStream } from "@/lib/openai-stream";
+import { OpenAIStream } from "../../lib/openai-stream";
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood.
 export const config = {
