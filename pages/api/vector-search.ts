@@ -5,7 +5,7 @@ import { ApplicationError, UserError } from "@/lib/errors";
 import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "@/lib/openai-stream";
 import { NextRequest } from "next/server";
-// OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood.
+// OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
 	runtime: "edge",
 };
@@ -41,7 +41,6 @@ export default async function handler(req: NextRequest) {
 				}
 
 				const { query } = requestData;
-				console.log(requestData);
 
 				if (!query) {
 					throw new UserError("Missing query in request data");
@@ -157,30 +156,8 @@ export default async function handler(req: NextRequest) {
 					stream: true,
 				};
 
-				// const response = await fetch("https://api.openai.com/v1/chat/completions", {
-				// 	method: "POST",
-				// 	headers: {
-				// 		Authorization: `Bearer ${openAiKey}`,
-				// 		"Content-Type": "application/json",
-				// 	},
-				// 	body: JSON.stringify(completionOptions),
-				// });
-
 				const stream = await OpenAIStream(completionOptions, openAiKey);
-				// return res.send(stream);
 				return new Response(stream);
-				// if (!response.ok) {
-				// 	const error = await response.json();
-				// 	console.error(error);
-				// 	throw new ApplicationError("Failed to generate completion", error);
-				// }
-
-				// Proxy the streamed SSE response from OpenAI
-				// return new Response(response.body, {
-				// 	headers: {
-				// 		"Content-Type": "text/event-stream",
-				// 	},
-				// });
 			} catch (err: unknown) {
 				if (err instanceof UserError) {
 					return new Response(
@@ -214,7 +191,6 @@ export default async function handler(req: NextRequest) {
 			}
 		}
 		default:
-			// return res.status(405).json({ error: "Method not allowed" });
 			return new Response("Method not allowed", {
 				status: 405,
 			});
