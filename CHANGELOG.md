@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.1.0...v1.2.0) (2023-05-02)
+
+
+### Features
+
+* **rate limit:** Adds setup to limit the api ([52e232a](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/52e232a0cb2fda6cf073f7f34d36eb38cb4104df))
+
 # [1.1.0](https://github.com/technologiestiftung/oeffentliches-gestalten-ai-search-poc/compare/v1.0.0...v1.1.0) (2023-04-29)
 
 
