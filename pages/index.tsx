@@ -16,6 +16,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Home: React.FC<
 	InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ csrfToken }) => {
+	const [loading, setLoading] = React.useState(false);
+	const [state, setState] = React.useState<any>({
+		path: "/api/ping",
+		latency: null,
+		status: null,
+		headers: {
+			"X-upstash-latency": "",
+			"X-RateLimit-Limit": "",
+			"X-RateLimit-Remaining": "",
+			"X-RateLimit-Reset": "",
+		},
+		data: null,
+	});
+
 	return (
 		<>
 			<Head>
@@ -32,6 +46,54 @@ const Home: React.FC<
 				<div className={styles.center}>
 					<SearchDialog csrfToken={csrfToken} />
 				</div>
+				<button
+					type="button"
+					className="px-4 py-2 font-bold text-black bg-blue-500 rounded hover:bg-blue-700"
+					onClick={(e) => {
+						console.log("clicked");
+						const handleRequest = async () => {
+							console.log("requesting");
+							const start = Date.now();
+							setLoading(true);
+
+							try {
+								const res = await fetch("/api/ping");
+								setState({
+									path: "/api/ping",
+									latency: `~${Math.round(Date.now() - start)}ms`,
+									status: `${res.status}`,
+									headers: {
+										"X-upstash-latency": `${res.headers.get(
+											"X-upstash-latency"
+										)}ms`,
+										"X-RateLimit-Limit": res.headers.get("X-RateLimit-Limit"),
+										"X-RateLimit-Remaining": res.headers.get(
+											"x-RateLimit-Remaining"
+										),
+										"X-RateLimit-Reset": res.headers.get("x-RateLimit-Reset"),
+									},
+									data: res.headers
+										.get("Content-Type")
+										?.includes("application/json")
+										? await res.json()
+										: null,
+								});
+							} finally {
+								setLoading(false);
+							}
+						};
+						handleRequest().catch(console.error);
+					}}
+				>
+					ping rate limited
+				</button>
+				<pre
+					className={`text-black border border-accents-2 rounded-md bg-white overflow-x-auto p-6 transition-all ${
+						loading ? ` opacity-50` : ""
+					}`}
+				>
+					{JSON.stringify(state, null, 2)}
+				</pre>
 			</main>
 		</>
 	);
