@@ -117,6 +117,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 			setIsLoading(true);
 			const response = await fetch("/api/vector-search", {
 				method: "POST",
+				credentials: "same-origin",
 				headers: {
 					"Content-Type": "application/json",
 					apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",

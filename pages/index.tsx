@@ -3,19 +3,18 @@ import styles from "../styles/Home.module.css";
 import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
+import { useCookies, Cookies } from "react-cookie";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	const csrfToken = context.res.getHeader("x-csrf-token") ?? "missing";
-	if (csrfToken === "missing") {
-		throw new Error("Invalid CSRF token");
-	}
-
-	return { props: { csrfToken } };
+	const cookies = new Cookies(context.req.headers.cookie);
+	const csrfToken = cookies.get("csrf") ?? "";
+	return { props: { csrf: csrfToken } };
 };
 
 const Home: React.FC<
 	InferGetServerSidePropsType<typeof getServerSideProps>
-> = ({ csrfToken }) => {
+> = ({ csrf }) => {
+	const [cookie] = useCookies(["csrf"]);
 	const [loading, setLoading] = React.useState(false);
 	const [state, setState] = React.useState<any>({
 		path: "/api/ping",
@@ -29,6 +28,38 @@ const Home: React.FC<
 		},
 		data: null,
 	});
+
+	// calling the getcookie function to retrieve the csrf key's value
+	// const csrf = getCookie("csrf");
+
+	// onsubmit we are validating the csrf cookie and the csrf hidden input match
+	const validate = async (e: any) => {
+		e.preventDefault();
+
+		console.log(cookie.csrf);
+		console.log(csrf);
+		console.log(e.target.elements);
+
+		if (cookie.csrf === csrf) {
+			// double submit passed
+			console.log("csrf matches");
+		} else {
+			// double submit failed
+			console.log("csrf does not match");
+		}
+
+		const response = await fetch("/api/ping", {
+			credentials: "same-origin",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+		if (!response.ok) {
+			console.log(await response.text());
+		} else {
+			console.log(await response.json());
+		}
+	};
 
 	return (
 		<>
@@ -44,8 +75,26 @@ const Home: React.FC<
 			<main className={styles.main}>
 				<h1 className={styles.title}>Handbuch GPT Search</h1>
 				<div className={styles.center}>
-					<SearchDialog csrfToken={csrfToken} />
+					<SearchDialog csrfToken={cookie.csrf} />
 				</div>
+				<form onSubmit={validate} method="post">
+					<input
+						type="hidden"
+						name="csrfToken"
+						id="csrfToken"
+						value={cookie.csrf}
+					/>
+					<input
+						id="email"
+						placeholder="email@example.org"
+						type="email"
+						autoComplete="email"
+						required
+						value={"foo@bar.com"}
+						readOnly
+					/>
+					<button type="submit">submit</button>
+				</form>
 				<button
 					type="button"
 					className="px-4 py-2 font-bold text-black bg-blue-500 rounded hover:bg-blue-700"
