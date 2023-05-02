@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.2.0...v1.2.1) (2023-05-02)
+
+
+### Bug Fixes
+
+* **csrf:** Only demand csrf token on api ([c09b195](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/c09b195af9cde04a306147b63afab6dc0ec49768))
+* **csrf:** Should work now ([55b0a03](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/55b0a0316f43ece21b15c18e430552acd1a179a2))
+
 # [1.2.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.1.0...v1.2.0) (2023-05-02)
 
 
