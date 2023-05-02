@@ -9,6 +9,10 @@ const csrfProtect = csrf({
 	},
 });
 
+export const config = {
+	matcher: "/api/vector-search",
+};
+
 export async function middleware(req: NextRequest) {
 	const response = NextResponse.next();
 
