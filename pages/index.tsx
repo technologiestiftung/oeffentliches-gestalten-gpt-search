@@ -77,7 +77,7 @@ const Home: React.FC<
 				<div className={styles.center}>
 					<SearchDialog csrfToken={cookie.csrf} />
 				</div>
-				<form onSubmit={validate} method="post">
+				{/* <form onSubmit={validate} method="post">
 					<input
 						type="hidden"
 						name="csrfToken"
@@ -94,8 +94,8 @@ const Home: React.FC<
 						readOnly
 					/>
 					<button type="submit">submit</button>
-				</form>
-				<button
+				</form> */}
+				{/* <button
 					type="button"
 					className="px-4 py-2 font-bold text-black bg-blue-500 rounded hover:bg-blue-700"
 					onClick={(e) => {
@@ -135,14 +135,14 @@ const Home: React.FC<
 					}}
 				>
 					ping rate limited
-				</button>
-				<pre
+				</button> */}
+				{/* <pre
 					className={`text-black border border-accents-2 rounded-md bg-white overflow-x-auto p-6 transition-all ${
 						loading ? ` opacity-50` : ""
 					}`}
 				>
 					{JSON.stringify(state, null, 2)}
-				</pre>
+				</pre> */}
 			</main>
 		</>
 	);
