@@ -6,7 +6,7 @@ import React from "react";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	console.log("in getServerSideProps", context.res.getHeaders());
-	const csrfToken = context.res.getHeader("x-csrf-token") ?? "missing";
+	const csrfToken = context.res.getHeader("X-CSRF-Token") ?? "missing";
 	if (csrfToken === "missing") {
 		throw new Error("Invalid CSRF token");
 	}
