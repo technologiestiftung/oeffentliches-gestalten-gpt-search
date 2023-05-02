@@ -5,6 +5,7 @@ import { ApplicationError, UserError } from "../../lib/errors";
 import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "../../lib/openai-stream";
 import { NextRequest } from "next/server";
+import { ipRateLimit } from "../../lib/ip-rate-limit";
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
 	runtime: "edge",
@@ -15,6 +16,9 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 export default async function handler(req: NextRequest) {
+	// TODO: Find out why the types are going south here
+	const resRateLimit = await ipRateLimit(req);
+	if (resRateLimit.status !== 200) return resRateLimit;
 	switch (req.method) {
 		case "POST": {
 			try {
