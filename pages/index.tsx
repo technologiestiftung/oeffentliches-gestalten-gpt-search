@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
@@ -71,18 +72,36 @@ const Home: React.FC<
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
+			{/* <header className="z-10 border-b border-blue-200 h-7 bg-blue-50"></header> */}
 			<main
 				className={
 					"flex flex-col justify-center items-center min-h-screen m-3 sm:m-0"
 				}
 			>
-				<h1 className={"text-3xl pb-6 sm:text-5xl text-left"}>
-					Handbuch GPT Suche
+				<h1 className={"text-5xl pb-6 sm:text-5xl !text-left"}>
+					Handbuch OpenAI Suche
 				</h1>
 				<div>
 					<SearchDialog csrfToken={cookie.csrf} />
 				</div>
 			</main>
+			{/* <footer className="z-10 border-t border-blue-200 h-7 bg-blue-50">
+				<div className="grid grid-cols-12 px-6 py-12 gap-y-14">
+					<div className="col-span-12 lg:col-start-2 md:col-span-6 lg:col-span-4">
+						<p className="mb-4 text-sm">
+							Entstanden durch die Zusammenarbeit von
+						</p>
+						<div className="flex flex-wrap gap-x-3 gap-y-6">
+							<a href="https://citylab-berlin.org">
+								<img src="http://placekitten.com/200/100" alt="kitten" />
+							</a>
+							<a href="https://www.politicsfortomorrow.eu/">
+								<img src="http://placekitten.com/200/100" alt="kitten" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</footer> */}
 		</>
 	);
 };
