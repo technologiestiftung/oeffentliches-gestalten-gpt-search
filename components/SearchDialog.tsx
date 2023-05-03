@@ -1,9 +1,5 @@
 import * as React from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-
-import { X, Loader, User, Frown, Wand } from "lucide-react";
-
+import Spinner from "./Spinner";
 function promptDataReducer(
 	state: any[],
 	action: {
@@ -125,78 +121,78 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 
 	return (
 		<>
-			<div className="">
-				<form onSubmit={handleSubmit}>
-					<input type="hidden" name="csrf_token" value={csrfToken} />
-
-					<div className="grid gap-4 py-4 text-slate-700">
-						{question && (
-							<div className="flex gap-4">
-								<span className="flex items-center justify-center">
-									<User width={18} />{" "}
-								</span>
-								<p className="mt-0.5 font-semibold text-slate-700 dark:text-slate-100">
-									{question}
-								</p>
-							</div>
-						)}
-
-						{isLoading && <div className="relative flex ">{"-"}</div>}
-
-						{hasError && (
-							<div className="flex items-center gap-4">
-								<span className="flex items-center justify-center"></span>
-								<span className="">
-									Ups. Da ist was schief gelaufen. Probier es noch einmal
-								</span>
-							</div>
-						)}
-
-						{answer && !hasError ? (
-							<div className="flex items-center ">
-								<span className="flex items-center justify-center">
-									<Wand width={18} className="text-white" />
-								</span>
-								<h3 className="font-semibold">Antwort:</h3>
-								{answer}
-							</div>
-						) : null}
-
-						<div className="">
-							<input
-								placeholder="Stell ein Frage…"
-								name="search"
-								value={search}
-								onChange={(e) => setSearch(e.target.value)}
-								className="col-span-3"
-							/>
-						</div>
-						<div className="">
-							Versuch doch mal:{" "}
-							<button
-								type="button"
-								className=""
-								onClick={(_) =>
-									setSearch(
-										"Wann wurde das Handbuch Öffentliches Gestalten entwickelt?"
-									)
-								}
-							>
-								Wann wurde das Handbuch Öffentliches Gestalten entwickelt?
-							</button>
+			<form onSubmit={handleSubmit} className={`flex flex-col max-w-md`}>
+				{isLoading && (
+					<div className={"flex items-center justify-left"}>
+						<div className="inline-flex items-center px-4 py-2 transition duration-150 ease-in-out ">
+							<Spinner />
+							Ich lese mal schnell das Handbuch...
 						</div>
 					</div>
-					<div>
-						<button
-							type="submit"
-							className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-						>
-							Fragen
-						</button>
+				)}
+				{question && (
+					<div className={`flex flex-row pb-4`}>
+						{/* <h3 className="font-semibold">Frage:</h3> */}
+
+						<p className="">
+							<strong>Frage: </strong>
+							{question}
+						</p>
 					</div>
-				</form>
-			</div>
-			{/* </Dialog> */}
+				)}
+				{hasError && (
+					<div className={"flex flex-row pb-4"}>
+						<span className="">
+							Ups. Da ist was schief gelaufen. Lad die Seite nochmal neu und
+							probier es noch einmal!
+						</span>
+					</div>
+				)}
+				{answer && !hasError ? (
+					<div className={"flex flex-row pb-4"}>
+						<p>
+							<strong>Antwort:</strong> {answer}
+						</p>
+					</div>
+				) : null}
+
+				<div className={"flex flex-row pb-4"}>
+					<textarea
+						id="search"
+						placeholder="Stell ein Frage…"
+						rows={5}
+						name="search"
+						value={search}
+						onChange={(e) => setSearch(e.target.value)}
+						className="w-full px-3 py-2 leading-tight text-gray-700 border shadow appearance-none focus:outline-none focus:shadow-outline"
+					/>
+				</div>
+
+				<div className={"flex flex-row pb-4"}>
+					<span className="pr-2 text-sm italic text-left text-blue-500">
+						Versuch doch mal:{" "}
+					</span>
+					<button
+						type="button"
+						className="pr-2 text-sm italic text-left text-blue-500 hover:text-blue-900"
+						onClick={(_) =>
+							setSearch(
+								"Wann wurde das Handbuch Öffentliches Gestalten entwickelt?"
+							)
+						}
+					>
+						Wann wurde das Handbuch Öffentliches Gestalten entwickelt?
+					</button>
+				</div>
+				<div className={`flex items-end ml-auto flex-row pb-4`}>
+					<button
+						type="submit"
+						className="mt-5 w-max px-4 py-1.5 transition-colors bg-magenta-500 hover:bg-white text-white hover:text-blue-500 !font-bold hover:!no-underline"
+					>
+						Fragen
+					</button>
+				</div>
+			</form>
 		</>
 	);
 };
