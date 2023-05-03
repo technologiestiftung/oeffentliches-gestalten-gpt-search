@@ -1,13 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { codeBlock, oneLine } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
-import { ApplicationError, UserError } from "../../lib/errors";
+import { ApplicationError, AuthError, UserError } from "../../lib/errors";
 import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "../../lib/openai-stream";
 import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
-import { AuthError, verifyCookie } from "../../lib/auth";
+import { verifyCookie } from "../../lib/auth";
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
