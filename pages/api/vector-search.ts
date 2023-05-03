@@ -177,7 +177,7 @@ export default async function handler(req: NextRequest) {
     `;
 
 				const completionOptions: CreateChatCompletionRequest = {
-					model: "gpt-4",
+					model: "gpt-3.5-turbo",
 					messages: [
 						{
 							role: "system",
