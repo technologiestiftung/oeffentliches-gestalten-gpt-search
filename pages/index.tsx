@@ -64,7 +64,7 @@ const Home: React.FC<
 	return (
 		<>
 			<Head>
-				<title>Handbuch OpenAI Suche</title>
+				<title>Handbuch GPT Suche</title>
 				<meta
 					name="description"
 					content="Handbuch Öffentliches Gestalten OpenAI Suche"
@@ -79,7 +79,7 @@ const Home: React.FC<
 				}
 			>
 				<h1 className={"text-5xl pb-6 sm:text-5xl !text-left"}>
-					Handbuch OpenAI Suche
+					Handbuch GPT Suche
 				</h1>
 				<div>
 					<SearchDialog csrfToken={cookie.csrf} />
