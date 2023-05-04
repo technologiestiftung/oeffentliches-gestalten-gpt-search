@@ -1,7 +1,8 @@
 import type { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
-import { AuthError, verifyCookie } from "../../lib/auth";
+import { verifyCookie } from "../../lib/auth";
+import { AuthError } from "../../lib/errors";
 export const config = {
 	runtime: "edge",
 };

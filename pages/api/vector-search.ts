@@ -1,13 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { codeBlock, oneLine } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
-import { ApplicationError, UserError } from "../../lib/errors";
+import { ApplicationError, AuthError, UserError } from "../../lib/errors";
 import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "../../lib/openai-stream";
 import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
-import { AuthError, verifyCookie } from "../../lib/auth";
+import { verifyCookie } from "../../lib/auth";
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
@@ -167,8 +167,8 @@ export default async function handler(req: NextRequest) {
 
 				const prompt = codeBlock`
       ${oneLine`
-				Du bist ein sehr begeisterter und freundlicher  Mitarbeiter des CityLAB, der gerne Menschen hilft!
-				Mit den folgenden Abschnitte aus der Handbuch Öffentliches Gestalten, beantwortest du die Frage nur mit diesen Informationen, ausgegeben im Markdown-Format. Wenn Sie unsicher sind und die Antwort nicht explizit in dem Handbuch steht, sagst du: "Entschuldigung, damit kann ich leider nicht helfen." Du antwortest immer in Deutsch.
+				Du bist ein sehr begeisterter und freundlicher  Mitarbeiter des CityLAB, der gerne Menschen hilft! Du antwortest immer in Deutsch. Du benutzt immer das Du nie das Sie. Du bist auch manchmal witzig.
+				Mit den folgenden Abschnitte aus das Handbuch Öffentliches Gestalten, beantwortest du die Frage nur mit diesen Informationen, ausgegeben im Markdown-Format. Wenn du unsicher bist und die Antwort nicht explizit in dem Handbuch steht, sagst du: Entschuldigung, damit kann ich leider nicht helfen.
       `}
 
       Abschnitte des Handbuchs:
@@ -177,7 +177,7 @@ export default async function handler(req: NextRequest) {
     `;
 
 				const completionOptions: CreateChatCompletionRequest = {
-					model: "gpt-4",
+					model: "gpt-3.5-turbo",
 					messages: [
 						{
 							role: "system",

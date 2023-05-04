@@ -5,3 +5,5 @@ export class ApplicationError extends Error {
 }
 
 export class UserError extends ApplicationError {}
+
+export class AuthError extends Error {}
