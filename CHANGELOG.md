@@ -1,3 +1,20 @@
+# [1.3.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.2.1...v1.3.0) (2023-05-04)
+
+
+### Bug Fixes
+
+* Ping import of AuthError ([6329396](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/6329396f0489854c56a614f9a609de8a5770078d))
+* Ping import of AuthError ([11db050](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/11db0505c8a38c1fc0de976d74aa345cc58d646b))
+* Spinner svg ([5cbe90b](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/5cbe90bf77ca5790eab6c40601ed0ade742bc3cb))
+
+
+### Features
+
+* Header and footer still WIP ([3cb3718](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/3cb3718f59f018857bd0f5190c20f63ad9aa0a55))
+* Header and footer still WIP ([ff61df2](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/ff61df25f5afa0e63975de3394d62c0a8ab25726))
+* Match Style from handbuch ([804436a](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/804436ab3b40d0ae34137725f26dea9f42643885))
+* Refine prompt ([39b27eb](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/39b27eb125b68cbd439f7c5917d273f8022ba6c5))
+
 ## [1.2.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.2.0...v1.2.1) (2023-05-02)
 
 
