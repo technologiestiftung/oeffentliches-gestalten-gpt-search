@@ -3,5 +3,6 @@ export class ApplicationError extends Error {
 		super(message);
 	}
 }
+export class AuthError extends Error {}
 
 export class UserError extends ApplicationError {}
