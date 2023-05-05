@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import dotenv from "dotenv";
 import { ObjectExpression } from "estree";
 import GithubSlugger from "github-slugger";
 import { Content, Root } from "mdast";
@@ -16,8 +15,12 @@ import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { inspect } from "node:util";
-
-dotenv.config();
+import {
+	MDX_DOCS_PATH,
+	NEXT_PUBLIC_SUPABASE_URL,
+	OPENAI_KEY,
+	SUPABASE_SERVICE_ROLE_KEY,
+} from "./dotenv";
 
 const ignoredFiles = ["pages/404.mdx"];
 
@@ -287,20 +290,9 @@ async function generateEmbeddings() {
 	const args = process.argv.slice(2);
 	const shouldRefresh = args.includes("--refresh");
 
-	if (
-		!process.env.NEXT_PUBLIC_SUPABASE_URL ||
-		!process.env.SUPABASE_SERVICE_ROLE_KEY ||
-		!process.env.OPENAI_KEY ||
-		!process.env.MDX_DOCS_PATH
-	) {
-		return console.log(
-			"Environment variables NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, MDX_DOCS_PATH, and OPENAI_KEY are required: skipping embeddings generation"
-		);
-	}
-
 	const supabaseClient = createClient(
-		process.env.NEXT_PUBLIC_SUPABASE_URL,
-		process.env.SUPABASE_SERVICE_ROLE_KEY,
+		NEXT_PUBLIC_SUPABASE_URL,
+		SUPABASE_SERVICE_ROLE_KEY,
 		{
 			auth: {
 				persistSession: false,
@@ -310,7 +302,7 @@ async function generateEmbeddings() {
 	);
 
 	const embeddingSources: EmbeddingSource[] = [
-		...(await walk(process.env.MDX_DOCS_PATH))
+		...(await walk(MDX_DOCS_PATH))
 			.filter(({ path }) => /\.mdx?$/.test(path))
 			.filter(({ path }) => !ignoredFiles.includes(path))
 			.map((entry) => new MarkdownEmbeddingSource("guide", entry.path)),
@@ -444,7 +436,7 @@ async function generateEmbeddings() {
 
 				try {
 					const configuration = new Configuration({
-						apiKey: process.env.OPENAI_KEY,
+						apiKey: OPENAI_KEY,
 					});
 					const openai = new OpenAIApi(configuration);
 

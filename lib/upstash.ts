@@ -1,3 +1,5 @@
+import { UPSTASH_REST_API_DOMAIN, UPSTASH_REST_API_TOKEN } from "./dotenv";
+
 /**
  * Upstash REST and Edge API utils.
  * Note: taken from https://github.com/vercel/examples/tree/main/edge-functions/api-rate-limit
@@ -35,8 +37,8 @@ export async function upstashRest(
 	args: any[],
 	options?: { pipeline: boolean }
 ) {
-	const domain = process.env.UPSTASH_REST_API_DOMAIN;
-	const token = process.env.UPSTASH_REST_API_TOKEN;
+	const domain = UPSTASH_REST_API_DOMAIN;
+	const token = UPSTASH_REST_API_TOKEN;
 
 	if (!domain || !token) {
 		throw new Error("Missing required Upstash credentials of the REST API");
@@ -51,8 +53,8 @@ export async function upstashRest(
 }
 
 export async function upstashEdge(args: any[]) {
-	const domain = process.env.UPSTASH_EDGE_API_DOMAIN;
-	const token = process.env.UPSTASH_EDGE_API_TOKEN;
+	const domain = UPSTASH_REST_API_DOMAIN;
+	const token = UPSTASH_REST_API_TOKEN;
 
 	if (!domain || !token) {
 		throw new Error("Missing required Upstash credentials of the Edge API");

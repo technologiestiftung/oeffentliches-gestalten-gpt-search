@@ -33,7 +33,7 @@ export async function middleware(request: NextRequest) {
 // const csrfProtect = csrf({
 // 	cookie: {
 // 		name: "csrf-handbuch-gpt",
-// 		secure: process.env.NODE_ENV === "production",
+// 		secure: NODE_ENV === "production",
 // 	},
 // });
 
