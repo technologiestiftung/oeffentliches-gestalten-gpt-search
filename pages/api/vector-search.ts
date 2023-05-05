@@ -8,7 +8,6 @@ import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
-import { Database } from "../../types/database";
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {

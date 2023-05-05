@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
@@ -64,7 +64,7 @@ const Home: React.FC<
 	return (
 		<>
 			<Head>
-				<title>Handbuch OpenAI Suche</title>
+				<title>Handbuch GPT Suche</title>
 				<meta
 					name="description"
 					content="Handbuch Öffentliches Gestalten OpenAI Suche"
@@ -72,78 +72,36 @@ const Home: React.FC<
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className={styles.main}>
-				<h1 className={styles.title}>Handbuch GPT Search</h1>
-				<div className={styles.center}>
+			{/* <header className="z-10 border-b border-blue-200 h-7 bg-blue-50"></header> */}
+			<main
+				className={
+					"flex flex-col justify-center items-center min-h-screen m-3 sm:m-0"
+				}
+			>
+				<h1 className={"text-5xl pb-6 sm:text-5xl !text-left"}>
+					Handbuch GPT Suche
+				</h1>
+				<div>
 					<SearchDialog csrfToken={cookie.csrf} />
 				</div>
-				<form onSubmit={validate} method="post">
-					<input
-						type="hidden"
-						name="csrfToken"
-						id="csrfToken"
-						value={cookie.csrf}
-					/>
-					<input
-						id="email"
-						placeholder="email@example.org"
-						type="email"
-						autoComplete="email"
-						required
-						value={"foo@bar.com"}
-						readOnly
-					/>
-					<button type="submit">submit</button>
-				</form>
-				<button
-					type="button"
-					className="px-4 py-2 font-bold text-black bg-blue-500 rounded hover:bg-blue-700"
-					onClick={(e) => {
-						console.log("clicked");
-						const handleRequest = async () => {
-							console.log("requesting");
-							const start = Date.now();
-							setLoading(true);
-
-							try {
-								const res = await fetch("/api/ping");
-								setState({
-									path: "/api/ping",
-									latency: `~${Math.round(Date.now() - start)}ms`,
-									status: `${res.status}`,
-									headers: {
-										"X-upstash-latency": `${res.headers.get(
-											"X-upstash-latency"
-										)}ms`,
-										"X-RateLimit-Limit": res.headers.get("X-RateLimit-Limit"),
-										"X-RateLimit-Remaining": res.headers.get(
-											"x-RateLimit-Remaining"
-										),
-										"X-RateLimit-Reset": res.headers.get("x-RateLimit-Reset"),
-									},
-									data: res.headers
-										.get("Content-Type")
-										?.includes("application/json")
-										? await res.json()
-										: null,
-								});
-							} finally {
-								setLoading(false);
-							}
-						};
-						handleRequest().catch(console.error);
-					}}
-				>
-					ping rate limited
-				</button>
-				<pre
-					className={`text-black border border-accents-2 rounded-md bg-white overflow-x-auto p-6 transition-all ${
-						loading ? ` opacity-50` : ""
-					}`}
-				>
-					{JSON.stringify(state, null, 2)}
-				</pre>
 			</main>
+			{/* <footer className="z-10 border-t border-blue-200 h-7 bg-blue-50">
+				<div className="grid grid-cols-12 px-6 py-12 gap-y-14">
+					<div className="col-span-12 lg:col-start-2 md:col-span-6 lg:col-span-4">
+						<p className="mb-4 text-sm">
+							Entstanden durch die Zusammenarbeit von
+						</p>
+						<div className="flex flex-wrap gap-x-3 gap-y-6">
+							<a href="https://citylab-berlin.org">
+								<img src="http://placekitten.com/200/100" alt="kitten" />
+							</a>
+							<a href="https://www.politicsfortomorrow.eu/">
+								<img src="http://placekitten.com/200/100" alt="kitten" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</footer> */}
 		</>
 	);
 };

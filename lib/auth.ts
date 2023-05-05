@@ -1,8 +1,7 @@
 //  based on
 // https://github.com/vercel/examples/blob/main/edge-middleware/jwt-authentication/middleware.ts
 import { jwtVerify } from "jose";
-
-export class AuthError extends Error {}
+import { AuthError } from "./errors";
 
 export async function verifyCookie(token: string) {
 	if (!token) throw new AuthError("Missing token");
