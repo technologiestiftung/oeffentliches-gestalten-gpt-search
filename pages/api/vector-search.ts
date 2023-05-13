@@ -8,15 +8,17 @@ import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
+import {
+	NEXT_PUBLIC_SUPABASE_URL,
+	OPENAI_KEY,
+	OPENAI_MODEL,
+	SUPABASE_SERVICE_ROLE_KEY,
+} from "../../lib/dotenv";
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
 	runtime: "edge",
 };
-
-const openAiKey = process.env.OPENAI_KEY;
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 export default async function handler(req: NextRequest) {
 	// TODO: Find out why the types are going south here
@@ -52,17 +54,17 @@ export default async function handler(req: NextRequest) {
 	switch (req.method) {
 		case "POST": {
 			try {
-				if (!openAiKey) {
+				if (!OPENAI_KEY) {
 					throw new ApplicationError("Missing environment variable OPENAI_KEY");
 				}
 
-				if (!supabaseUrl) {
+				if (!NEXT_PUBLIC_SUPABASE_URL) {
 					throw new ApplicationError(
 						"Missing environment variable SUPABASE_URL"
 					);
 				}
 
-				if (!supabaseServiceKey) {
+				if (!SUPABASE_SERVICE_ROLE_KEY) {
 					throw new ApplicationError(
 						"Missing environment variable SUPABASE_SERVICE_ROLE_KEY"
 					);
@@ -81,8 +83,8 @@ export default async function handler(req: NextRequest) {
 				}
 
 				const supabaseClient = createClient<Database>(
-					supabaseUrl,
-					supabaseServiceKey
+					NEXT_PUBLIC_SUPABASE_URL,
+					SUPABASE_SERVICE_ROLE_KEY
 				);
 
 				// Moderate the content to comply with OpenAI T&C
@@ -92,7 +94,7 @@ export default async function handler(req: NextRequest) {
 					{
 						method: "POST",
 						headers: {
-							Authorization: `Bearer ${openAiKey}`,
+							Authorization: `Bearer ${OPENAI_KEY}`,
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
@@ -115,7 +117,7 @@ export default async function handler(req: NextRequest) {
 					{
 						method: "POST",
 						headers: {
-							Authorization: `Bearer ${openAiKey}`,
+							Authorization: `Bearer ${OPENAI_KEY}`,
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
@@ -207,7 +209,7 @@ export default async function handler(req: NextRequest) {
 
 				console.log(prompt);
 				const completionOptions: CreateChatCompletionRequest = {
-					model: "gpt-3.5-turbo",
+					model: OPENAI_MODEL,
 					messages: [
 						{
 							role: "system",
@@ -220,7 +222,7 @@ export default async function handler(req: NextRequest) {
 					stream: true,
 				};
 
-				const stream = await OpenAIStream(completionOptions, openAiKey);
+				const stream = await OpenAIStream(completionOptions, OPENAI_KEY);
 				return new Response(stream);
 			} catch (err: unknown) {
 				if (err instanceof UserError) {

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { SignJWT } from "jose";
-import { getJwtSecretKey } from "./lib/auth";
+import { JWT_SECRET } from "./lib/dotenv";
 export async function middleware(request: NextRequest) {
 	let response = NextResponse.next();
 	let cookie = request.cookies.get("csrf");
@@ -14,7 +14,7 @@ export async function middleware(request: NextRequest) {
 			.setJti(uuidv4())
 			.setIssuedAt()
 			.setExpirationTime("2h")
-			.sign(new TextEncoder().encode(getJwtSecretKey()));
+			.sign(new TextEncoder().encode(JWT_SECRET));
 
 		response.cookies.set("csrf", token, {
 			httpOnly: false,

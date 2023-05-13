@@ -1,5 +1,6 @@
 import * as React from "react";
 import Spinner from "./Spinner";
+import { NEXT_PUBLIC_SUPABASE_ANON_KEY } from "../lib/dotenv";
 function promptDataReducer(
 	state: any[],
 	action: {
@@ -72,8 +73,8 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 				credentials: "same-origin",
 				headers: {
 					"Content-Type": "application/json",
-					apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
-					Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+					apikey: NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
+					Authorization: `Bearer ${NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
 				},
 				body: JSON.stringify({ query, csrf_token: csrfToken }),
 			});
