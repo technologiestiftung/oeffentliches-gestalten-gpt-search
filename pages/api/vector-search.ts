@@ -8,6 +8,7 @@ import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
+import { Database } from "../../types/database";
 import {
 	NEXT_PUBLIC_SUPABASE_URL,
 	OPENAI_KEY,
