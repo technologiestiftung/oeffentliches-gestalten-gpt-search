@@ -9,12 +9,13 @@ import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
 import { Database } from "../../types/database";
-import {
+import { getEnvs } from "../../lib/dotenv";
+const {
 	NEXT_PUBLIC_SUPABASE_URL,
 	OPENAI_KEY,
 	OPENAI_MODEL,
 	SUPABASE_SERVICE_ROLE_KEY,
-} from "../../lib/dotenv";
+} = getEnvs();
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
