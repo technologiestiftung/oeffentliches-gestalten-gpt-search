@@ -3,9 +3,9 @@
 import { jwtVerify } from "jose";
 import { AuthError, EnvError } from "./errors";
 const JWT_SECRET = process.env.JWT_SECRET;
-if (!JWT_SECRET) throw new EnvError("JWT_SECRET");
 
 export async function verifyCookie(token: string) {
+	if (!JWT_SECRET) throw new EnvError("JWT_SECRET");
 	if (!token) throw new AuthError("Missing token");
 	try {
 		const verified = await jwtVerify(

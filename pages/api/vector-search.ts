@@ -16,15 +16,9 @@ import { verifyCookie } from "../../lib/auth";
 import { Database } from "../../types/database";
 
 const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-if (NEXT_PUBLIC_SUPABASE_URL === undefined)
-	throw new EnvError("NEXT_PUBLIC_SUPABASE_URL");
 const OPENAI_KEY = process.env.OPENAI_KEY;
-if (OPENAI_KEY === undefined) throw new EnvError("OPENAI_KEY");
 const OPENAI_MODEL = process.env.OPENAI_MODEL;
-if (OPENAI_MODEL === undefined) throw new EnvError("OPENAI_MODEL");
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (SUPABASE_SERVICE_ROLE_KEY === undefined)
-	throw new EnvError("SUPABASE_SERVICE_ROLE_KEY");
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
@@ -32,6 +26,13 @@ export const config = {
 };
 
 export default async function handler(req: NextRequest) {
+	if (NEXT_PUBLIC_SUPABASE_URL === undefined)
+		throw new EnvError("NEXT_PUBLIC_SUPABASE_URL");
+	if (OPENAI_KEY === undefined) throw new EnvError("OPENAI_KEY");
+	if (OPENAI_MODEL === undefined) throw new EnvError("OPENAI_MODEL");
+	if (SUPABASE_SERVICE_ROLE_KEY === undefined)
+		throw new EnvError("SUPABASE_SERVICE_ROLE_KEY");
+
 	// TODO: Find out why the types are going south here
 	const resRateLimit = await ipRateLimit(req);
 	if (resRateLimit.status !== 200) return resRateLimit;

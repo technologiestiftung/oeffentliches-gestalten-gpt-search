@@ -1,11 +1,7 @@
 import { EnvError } from "./errors";
 
 const UPSTASH_REST_API_DOMAIN = process.env.UPSTASH_REST_API_DOMAIN;
-if (UPSTASH_REST_API_DOMAIN === undefined)
-	throw new EnvError("UPSTASH_REST_API_DOMAIN");
 const UPSTASH_REST_API_TOKEN = process.env.UPSTASH_REST_API_TOKEN;
-if (UPSTASH_REST_API_TOKEN === undefined)
-	throw new EnvError("UPSTASH_REST_API_TOKEN");
 
 /**
  * Upstash REST and Edge API utils.
@@ -44,6 +40,10 @@ export async function upstashRest(
 	args: any[],
 	options?: { pipeline: boolean }
 ) {
+	if (UPSTASH_REST_API_DOMAIN === undefined)
+		throw new EnvError("UPSTASH_REST_API_DOMAIN");
+	if (UPSTASH_REST_API_TOKEN === undefined)
+		throw new EnvError("UPSTASH_REST_API_TOKEN");
 	const domain = UPSTASH_REST_API_DOMAIN;
 	const token = UPSTASH_REST_API_TOKEN;
 
@@ -60,6 +60,10 @@ export async function upstashRest(
 }
 
 export async function upstashEdge(args: any[]) {
+	if (UPSTASH_REST_API_DOMAIN === undefined)
+		throw new EnvError("UPSTASH_REST_API_DOMAIN");
+	if (UPSTASH_REST_API_TOKEN === undefined)
+		throw new EnvError("UPSTASH_REST_API_TOKEN");
 	const domain = UPSTASH_REST_API_DOMAIN;
 	const token = UPSTASH_REST_API_TOKEN;
 

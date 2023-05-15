@@ -4,8 +4,7 @@ import ReactMarkdown from "react-markdown";
 import SourceLink from "./SourceLink";
 import { EnvError } from "../lib/errors";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-if (NEXT_PUBLIC_SUPABASE_ANON_KEY === undefined)
-	throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
+
 function promptDataReducer(
 	state: any[],
 	action: {
@@ -51,6 +50,9 @@ function promptDataReducer(
 export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 	csrfToken,
 }) => {
+	if (NEXT_PUBLIC_SUPABASE_ANON_KEY === undefined)
+		throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
+
 	const [search, setSearch] = React.useState<string>("");
 	const [question, setQuestion] = React.useState<string>("");
 	const [answer, setAnswer] = React.useState<string | undefined>("");

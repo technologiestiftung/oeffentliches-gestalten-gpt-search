@@ -5,8 +5,8 @@ import type { NextRequest } from "next/server";
 import { SignJWT } from "jose";
 import { EnvError } from "./lib/errors";
 const JWT_SECRET = process.env.JWT_SECRET;
-if (!JWT_SECRET) throw new EnvError("JWT_SECRET");
 export async function middleware(request: NextRequest) {
+	if (!JWT_SECRET) throw new EnvError("JWT_SECRET");
 	let response = NextResponse.next();
 	let cookie = request.cookies.get("csrf");
 
