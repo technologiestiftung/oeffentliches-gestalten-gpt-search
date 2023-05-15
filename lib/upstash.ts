@@ -1,5 +1,4 @@
-import { getEnvs } from "./dotenv";
-const { UPSTASH_REST_API_DOMAIN, UPSTASH_REST_API_TOKEN } = getEnvs();
+import { UPSTASH_REST_API_DOMAIN, UPSTASH_REST_API_TOKEN } from "./dotenv";
 
 /**
  * Upstash REST and Edge API utils.

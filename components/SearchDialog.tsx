@@ -2,8 +2,7 @@ import * as React from "react";
 import Spinner from "./Spinner";
 import ReactMarkdown from "react-markdown";
 import SourceLink from "./SourceLink";
-import { getEnvs } from "../lib/dotenv";
-const { NEXT_PUBLIC_SUPABASE_ANON_KEY } = getEnvs();
+import { NEXT_PUBLIC_SUPABASE_ANON_KEY } from "../lib/dotenv";
 function promptDataReducer(
 	state: any[],
 	action: {

@@ -15,13 +15,12 @@ import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { inspect } from "node:util";
-import { getEnvs } from "./dotenv";
-const {
+import {
 	MDX_DOCS_PATH,
 	NEXT_PUBLIC_SUPABASE_URL,
 	OPENAI_KEY,
 	SUPABASE_SERVICE_ROLE_KEY,
-} = getEnvs();
+} from "./dotenv";
 
 const ignoredFiles = ["pages/404.mdx"];
 

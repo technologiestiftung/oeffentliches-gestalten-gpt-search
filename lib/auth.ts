@@ -2,8 +2,7 @@
 // https://github.com/vercel/examples/blob/main/edge-middleware/jwt-authentication/middleware.ts
 import { jwtVerify } from "jose";
 import { AuthError } from "./errors";
-import { getEnvs } from "./dotenv";
-const { JWT_SECRET } = getEnvs();
+import { JWT_SECRET } from "./dotenv";
 
 export async function verifyCookie(token: string) {
 	if (!token) throw new AuthError("Missing token");

@@ -1,8 +1,7 @@
 import React from "react";
 import { transformPath } from "../lib/transform-path";
 import { ReactMarkdownProps } from "react-markdown/lib/complex-types";
-import { getEnvs } from "../lib/dotenv";
-const { NEXT_PUBLIC_HANDBUCH_URL } = getEnvs();
+import { NEXT_PUBLIC_HANDBUCH_URL } from "../lib/dotenv";
 
 const SourceLink: React.FC<
 	Omit<
