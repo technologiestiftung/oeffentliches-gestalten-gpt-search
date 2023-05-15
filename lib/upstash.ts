@@ -1,4 +1,11 @@
-import { UPSTASH_REST_API_DOMAIN, UPSTASH_REST_API_TOKEN } from "./dotenv";
+import { EnvError } from "./errors";
+
+const UPSTASH_REST_API_DOMAIN = process.env.UPSTASH_REST_API_DOMAIN;
+if (UPSTASH_REST_API_DOMAIN === undefined)
+	throw new EnvError("UPSTASH_REST_API_DOMAIN");
+const UPSTASH_REST_API_TOKEN = process.env.UPSTASH_REST_API_TOKEN;
+if (UPSTASH_REST_API_TOKEN === undefined)
+	throw new EnvError("UPSTASH_REST_API_TOKEN");
 
 /**
  * Upstash REST and Edge API utils.

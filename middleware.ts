@@ -3,7 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { SignJWT } from "jose";
-import { JWT_SECRET } from "./lib/dotenv";
+import { EnvError } from "./lib/errors";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) throw new EnvError("JWT_SECRET");
 export async function middleware(request: NextRequest) {
 	let response = NextResponse.next();
 	let cookie = request.cookies.get("csrf");

@@ -15,12 +15,24 @@ import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { inspect } from "node:util";
-import {
-	MDX_DOCS_PATH,
-	NEXT_PUBLIC_SUPABASE_URL,
-	OPENAI_KEY,
-	SUPABASE_SERVICE_ROLE_KEY,
-} from "./dotenv";
+import { EnvError } from "./errors";
+
+const MDX_DOCS_PATH = process.env.MDX_DOCS_PATH;
+if (MDX_DOCS_PATH === undefined) {
+	throw new EnvError("MDX_DOCS_PATH");
+}
+const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+if (NEXT_PUBLIC_SUPABASE_URL === undefined) {
+	throw new EnvError("NEXT_PUBLIC_SUPABASE_URL");
+}
+const OPENAI_KEY = process.env.OPENAI_KEY;
+if (OPENAI_KEY === undefined) {
+	throw new EnvError("OPENAI_KEY");
+}
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (SUPABASE_SERVICE_ROLE_KEY === undefined) {
+	throw new EnvError("SUPABASE_SERVICE_ROLE_KEY");
+}
 
 const ignoredFiles = ["pages/404.mdx"];
 

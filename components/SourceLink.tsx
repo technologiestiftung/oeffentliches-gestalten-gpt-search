@@ -1,7 +1,10 @@
 import React from "react";
 import { transformPath } from "../lib/transform-path";
 import { ReactMarkdownProps } from "react-markdown/lib/complex-types";
-import { NEXT_PUBLIC_HANDBUCH_URL } from "../lib/dotenv";
+import { EnvError } from "../lib/errors";
+const NEXT_PUBLIC_HANDBUCH_URL = process.env.NEXT_PUBLIC_HANDBUCH_URL;
+if (NEXT_PUBLIC_HANDBUCH_URL === undefined)
+	throw new EnvError("NEXT_PUBLIC_HANDBUCH_URL");
 
 const SourceLink: React.FC<
 	Omit<

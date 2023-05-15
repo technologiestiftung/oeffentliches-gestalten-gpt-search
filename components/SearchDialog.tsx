@@ -2,7 +2,10 @@ import * as React from "react";
 import Spinner from "./Spinner";
 import ReactMarkdown from "react-markdown";
 import SourceLink from "./SourceLink";
-import { NEXT_PUBLIC_SUPABASE_ANON_KEY } from "../lib/dotenv";
+import { EnvError } from "../lib/errors";
+const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+if (NEXT_PUBLIC_SUPABASE_ANON_KEY === undefined)
+	throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
 function promptDataReducer(
 	state: any[],
 	action: {
