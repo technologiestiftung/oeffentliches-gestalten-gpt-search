@@ -4,6 +4,10 @@ import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
 import { useCookies, Cookies } from "react-cookie";
+import { Header } from "../components/Header";
+import { SmallBlueHexagon } from "../components/SmallBlueHexagon";
+import { PinkHexagon } from "../components/PinkHexagon";
+import { MediumBlueHexagon } from "../components/MediumBlueHexagon";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const cookies = new Cookies(context.req.headers.cookie);
@@ -72,19 +76,19 @@ const Home: React.FC<
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			{/* <header className="z-10 border-b border-blue-200 h-7 bg-blue-50"></header> */}
-			<main
-				className={
-					"flex flex-col justify-center items-center min-h-screen m-3 sm:m-0"
-				}
-			>
-				<h1 className={"text-5xl pb-6 sm:text-5xl !text-left"}>
-					Handbuch GPT Suche
-				</h1>
-				<div>
-					<SearchDialog csrfToken={cookie.csrf} />
+
+			<main>
+				<div className="relative flex justify-center h-screen w-screen overflow-hidden">
+					<div className="flex flex-col gap-2 justify-between h-screen w-screen px-2 sm:px-4 lg:w-[64rem] pt-10">
+						<Header />
+						<SearchDialog csrfToken={cookie.csrf} />
+						<SmallBlueHexagon />
+						<PinkHexagon />
+						<MediumBlueHexagon />
+					</div>
 				</div>
 			</main>
+
 			{/* <footer className="z-10 border-t border-blue-200 h-7 bg-blue-50">
 				<div className="grid grid-cols-12 px-6 py-12 gap-y-14">
 					<div className="col-span-12 lg:col-start-2 md:col-span-6 lg:col-span-4">

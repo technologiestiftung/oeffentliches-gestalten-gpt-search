@@ -1,50 +1,48 @@
 import * as React from "react";
 import Spinner from "./Spinner";
-import ReactMarkdown from "react-markdown";
 import SourceLink from "./SourceLink";
 import { EnvError } from "../lib/errors";
+import { useEffect, useRef } from "react";
+import { PaperPlaneIcon } from "./PaperPlaneIcon";
+import ReactMarkdown from "react-markdown";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-function promptDataReducer(
-	state: any[],
-	action: {
-		index?: number;
-		answer?: string | undefined;
-		status?: string;
-		query?: string | undefined;
-		type?: "remove-last-item" | string;
-	}
+type QuestionAnswerPair = {
+	question: string;
+	answer: string;
+	id: string;
+};
+
+async function appendAnswer(
+	questionAnswerPairs: QuestionAnswerPair[],
+	currentQuestionAnswerPair: QuestionAnswerPair,
+	data: ReadableStream<Uint8Array>,
+	setQuestionAnswerPairs: React.Dispatch<
+		React.SetStateAction<QuestionAnswerPair[]>
+	>,
+	setIsWriting: React.Dispatch<React.SetStateAction<boolean>>
 ) {
-	// set a standard state to use later
-	const current = [...state];
+	setIsWriting(true);
 
-	if (action.type) {
-		switch (action.type) {
-			case "remove-last-item":
-				current.pop();
-				return [...current];
-			default:
-				break;
-		}
+	const reader = data.getReader();
+	const decoder = new TextDecoder("utf-8");
+
+	let done = false;
+	while (!done) {
+		const { value, done: doneReading } = await reader.read();
+		done = doneReading;
+		currentQuestionAnswerPair.answer += decoder.decode(value);
+
+		const index = questionAnswerPairs.findIndex(
+			(questionAnswerPair) =>
+				questionAnswerPair.id === currentQuestionAnswerPair.id
+		);
+
+		questionAnswerPairs.splice(index, 1, currentQuestionAnswerPair);
+		setQuestionAnswerPairs([...questionAnswerPairs]);
 	}
 
-	// check that an index is present
-	if (action.index === undefined) return [...state];
-
-	if (!current[action.index]) {
-		current[action.index] = { query: "", answer: "", status: "" };
-	}
-
-	current[action.index].answer = action.answer;
-
-	if (action.query) {
-		current[action.index].query = action.query;
-	}
-	if (action.status) {
-		current[action.index].status = action.status;
-	}
-
-	return [...current];
+	setIsWriting(false);
 }
 
 export const SearchDialog: React.FC<{ csrfToken: string }> = ({
@@ -54,157 +52,188 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 		throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
 
 	const [search, setSearch] = React.useState<string>("");
-	const [question, setQuestion] = React.useState<string>("");
-	const [answer, setAnswer] = React.useState<string | undefined>("");
 	const [isLoading, setIsLoading] = React.useState(false);
 	const [hasError, setHasError] = React.useState(false);
-	const [promptIndex, setPromptIndex] = React.useState(0);
-	const [promptData, dispatchPromptData] = React.useReducer(
-		promptDataReducer,
-		[]
-	);
+	const [isWriting, setIsWriting] = React.useState(false);
 
-	const handleConfirm = React.useCallback(
-		async (query: string) => {
-			setAnswer(undefined);
-			setQuestion(query);
-			setSearch("");
-			dispatchPromptData({ index: promptIndex, answer: undefined, query });
-			setHasError(false);
-			setIsLoading(true);
-			const response = await fetch("/api/vector-search", {
-				method: "POST",
-				credentials: "same-origin",
-				headers: {
-					"Content-Type": "application/json",
-					apikey: NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
-					Authorization: `Bearer ${NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-				},
-				body: JSON.stringify({ query, csrf_token: csrfToken }),
-			});
+	const conversationRef = useRef<HTMLDivElement>(null);
 
-			if (!response.ok) {
-				setIsLoading(false);
-				setHasError(true);
-				console.error(await response.text());
-				return;
-			}
-			const data = response.body;
-			if (!data) {
-				setIsLoading(false);
-				return;
-			}
-			const reader = data.getReader();
-			const decoder = new TextDecoder("utf-8");
-			let done = false;
-			while (!done) {
-				const { value, done: doneReading } = await reader.read();
-				done = doneReading;
-				const chunkValue = decoder.decode(value);
-				setAnswer((answer) => {
-					const currentAnswer = answer ?? "";
+	const [questionAnswerPairs, setQuestionAnswerPairs] = React.useState<
+		QuestionAnswerPair[]
+	>([]);
 
-					dispatchPromptData({
-						index: promptIndex,
-						answer: currentAnswer + chunkValue,
-					});
+	useEffect(() => {
+		if (!conversationRef.current) return;
 
-					return (answer ?? "") + chunkValue;
-				});
-			}
+		conversationRef.current?.scrollTo(0, conversationRef.current.scrollHeight);
+	}, [conversationRef, questionAnswerPairs, isLoading, hasError]);
+
+	async function handleConfirm(query: string) {
+		const currentQuestionAnswerPair = {
+			id: crypto.randomUUID(),
+			question: query,
+			answer: "",
+		};
+
+		setHasError(false);
+
+		const updatedQuestionAnswerPairs = [
+			...questionAnswerPairs,
+			currentQuestionAnswerPair,
+		];
+
+		setQuestionAnswerPairs(updatedQuestionAnswerPairs);
+		setIsLoading(true);
+
+		const response = await fetch("/api/vector-search", {
+			method: "POST",
+			credentials: "same-origin",
+			headers: {
+				"Content-Type": "application/json",
+				apikey: NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
+				Authorization: `Bearer ${NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+			},
+			body: JSON.stringify({ query, csrf_token: csrfToken }),
+		});
+
+		if (!response.ok) {
 			setIsLoading(false);
-		},
-		[promptIndex, promptData]
-	);
+			setHasError(true);
+			console.error(await response.text());
+			return;
+		}
+
+		const data = response.body;
+		if (!data) {
+			setIsLoading(false);
+			return;
+		}
+
+		appendAnswer(
+			updatedQuestionAnswerPairs,
+			currentQuestionAnswerPair,
+			data,
+			setQuestionAnswerPairs,
+			setIsWriting
+		);
+
+		setIsLoading(false);
+	}
 
 	const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
-		console.log(search);
+
+		if (isLoading) {
+			return;
+		}
 
 		handleConfirm(search);
+
+		setSearch("");
 	};
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className={"flex flex-col max-w-md"}>
-				{isLoading && (
-					<div className={"flex items-center justify-left"}>
-						<div className="inline-flex items-center px-4 py-2 transition duration-150 ease-in-out ">
-							<Spinner />
-							Ich lese mal schnell das Handbuch...
-						</div>
+			<div
+				className="overflow-auto border border-grey-200 h-full bg-white z-10 text-xl pb-2"
+				ref={conversationRef}
+			>
+				{!questionAnswerPairs.length && (
+					<div className="flex flex-col gap-4 items-center pt-4">
+						Beispiele:
+						<a
+							href="#"
+							className="w-60 border rounded px-2 py-1"
+							onClick={() => handleConfirm("Worüber geht es in dem Handbuch?")}
+						>
+							„Worüber geht es in dem Handbuch?“{" "}
+							<span className="text-magenta-500">→</span>
+						</a>
+						<a
+							href="#"
+							className="w-60 border rounded px-2 py-1"
+							onClick={() =>
+								handleConfirm("Wann wurde das Handbuch entwickelt?")
+							}
+						>
+							„Wann wurde das Handbuch entwickelt?“{" "}
+							<span className="text-magenta-500">→</span>
+						</a>
+						<a
+							href="#"
+							className="w-60 border rounded px-2 py-1"
+							onClick={() =>
+								handleConfirm("Wer hat an dem Handbuch mitgewirkt?")
+							}
+						>
+							„Wer hat an dem Handbuch mitgewirkt?“{" "}
+							<span className="text-magenta-500">→</span>
+						</a>
 					</div>
 				)}
-				{question && (
-					<div className={"flex flex-row pb-4"}>
-						{/* <h3 className="font-semibold">Frage:</h3> */}
 
-						<p className="">
-							<strong>Frage: </strong>
-							{question}
-						</p>
+				{questionAnswerPairs.map(({ id, question, answer }) => (
+					<div key={id}>
+						<div className="flex items-baseline bg-blue-50 gap-4 p-2">
+							<span className="">Ich:</span>
+							<p className="italic font-bold">{question}</p>
+						</div>
+						{answer && (
+							<>
+								<div className="flex gap-3 p-2">
+									<span>GPT:</span>
+									<ReactMarkdown
+										// eslint-disable-next-line react/no-children-prop
+										children={answer}
+										components={{
+											a: (props) => <SourceLink {...props} />,
+										}}
+									/>
+								</div>
+							</>
+						)}
 					</div>
-				)}
-				{hasError && (
-					<div className={"flex flex-row pb-4"}>
-						<span className="">
-							Ups. Da ist was schief gelaufen. Lad die Seite nochmal neu und
-							probier es noch einmal!
+				))}
+
+				{isLoading && (
+					<div className="flex items-center gap-3 p-2 ">
+						<span>GPT:</span>
+						<p>Ich lese mal schnell das Handbuch...</p>
+						<span>
+							<Spinner />
 						</span>
 					</div>
 				)}
-				{answer && !hasError ? (
-					<div className={"flex flex-row pb-4"}>
+
+				{hasError && (
+					<div className="flex items-baseline gap-3 p-2 ">
+						<span>GPT:</span>
 						<p>
-							<strong className="pr-2">Antwort:</strong>
+							Ups. Da ist was schief gelaufen. Lad die Seite nochmal neu und
+							probier es noch einmal!
 						</p>
-						<ReactMarkdown
-							// eslint-disable-next-line react/no-children-prop
-							children={answer}
-							components={{
-								a: (props) => <SourceLink {...props} />,
-							}}
-						/>
 					</div>
-				) : null}
+				)}
+			</div>
 
-				<div className={"flex flex-row pb-4"}>
-					<textarea
-						id="search"
-						placeholder="Stell ein Frage…"
-						rows={5}
-						name="search"
-						value={search}
-						onChange={(e) => setSearch(e.target.value)}
-						className="w-full px-3 py-2 leading-tight text-gray-700 border shadow appearance-none focus:outline-none focus:shadow-outline"
-					/>
-				</div>
-
-				<div className={"flex flex-row pb-4"}>
-					<span className="pr-2 text-sm italic text-left text-blue-500">
-						Versuch doch mal:{" "}
-					</span>
-					<button
-						type="button"
-						className="pr-2 text-sm italic text-left text-blue-500 hover:text-blue-900"
-						onClick={(_) =>
-							setSearch(
-								"Wann wurde das Handbuch Öffentliches Gestalten entwickelt?"
-							)
-						}
-					>
-						Wann wurde das Handbuch Öffentliches Gestalten entwickelt?
-					</button>
-				</div>
-				<div className={"flex items-end ml-auto flex-row pb-4"}>
-					<button
-						type="submit"
-						className="mt-5 w-max px-4 py-1.5 transition-colors bg-magenta-500 hover:bg-white text-white hover:text-blue-500 !font-bold hover:!no-underline"
-					>
-						Fragen
-					</button>
-				</div>
-			</form>
+			<div className="flex justify-center w-full mb-12 bg-white z-10 text-xl">
+				<form onSubmit={handleSubmit} className="w-full">
+					<div className="flex px-3 py-2 border border-grey-200">
+						<input
+							id="search"
+							placeholder="Stell' eine Frage, z.B. „Wann wurde das Handbuch entwickelt?“"
+							name="search"
+							value={search}
+							disabled={isLoading || isWriting}
+							onChange={(e) => setSearch(e.target.value)}
+							className="w-full placeholder:italic leading-tight text-grey-700 appearance-none focus:outline-none"
+						/>
+						<button className="appearance-none -rotate-45" type="submit">
+							<PaperPlaneIcon />
+						</button>
+					</div>
+				</form>
+			</div>
 		</>
 	);
 };
