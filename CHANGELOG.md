@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.3.0...v1.4.0) (2023-05-16)
+
+
+### Bug Fixes
+
+* **deployment:** Move env loading back to files ([5f84d67](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/5f84d67d985422e2b2f8dd0a4415bbab15b459b8))
+* **env:** Move env checks into functtions ([cb0cdb5](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/cb0cdb5d0218ffd5537f37a19e66d3456dba35a7))
+
+
+### Features
+
+* Refine prompt to include links ([1b2d126](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/1b2d12691aa87ed71234fc4855af1a605f351c58))
+* **Source Lin:** Add link to ref. handbuch page ([afab305](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/afab305a4fc519219f9fc2e853281a346d9555f2))
+
 # [1.3.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.2.1...v1.3.0) (2023-05-04)
 
 
