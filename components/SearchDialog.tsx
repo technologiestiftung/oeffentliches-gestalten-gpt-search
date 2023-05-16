@@ -1,5 +1,10 @@
 import * as React from "react";
 import Spinner from "./Spinner";
+import ReactMarkdown from "react-markdown";
+import SourceLink from "./SourceLink";
+import { EnvError } from "../lib/errors";
+const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
 function promptDataReducer(
 	state: any[],
 	action: {
@@ -11,7 +16,7 @@ function promptDataReducer(
 	}
 ) {
 	// set a standard state to use later
-	let current = [...state];
+	const current = [...state];
 
 	if (action.type) {
 		switch (action.type) {
@@ -45,6 +50,9 @@ function promptDataReducer(
 export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 	csrfToken,
 }) => {
+	if (NEXT_PUBLIC_SUPABASE_ANON_KEY === undefined)
+		throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
+
 	const [search, setSearch] = React.useState<string>("");
 	const [question, setQuestion] = React.useState<string>("");
 	const [answer, setAnswer] = React.useState<string | undefined>("");
@@ -55,9 +63,6 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 		promptDataReducer,
 		[]
 	);
-
-	const cantHelp =
-		answer?.trim() === "Tut mir leid. Damit kann ich nicht dienen.";
 
 	const handleConfirm = React.useCallback(
 		async (query: string) => {
@@ -72,8 +77,8 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 				credentials: "same-origin",
 				headers: {
 					"Content-Type": "application/json",
-					apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
-					Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+					apikey: NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
+					Authorization: `Bearer ${NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
 				},
 				body: JSON.stringify({ query, csrf_token: csrfToken }),
 			});
@@ -121,7 +126,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className={`flex flex-col max-w-md`}>
+			<form onSubmit={handleSubmit} className={"flex flex-col max-w-md"}>
 				{isLoading && (
 					<div className={"flex items-center justify-left"}>
 						<div className="inline-flex items-center px-4 py-2 transition duration-150 ease-in-out ">
@@ -131,7 +136,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 					</div>
 				)}
 				{question && (
-					<div className={`flex flex-row pb-4`}>
+					<div className={"flex flex-row pb-4"}>
 						{/* <h3 className="font-semibold">Frage:</h3> */}
 
 						<p className="">
@@ -151,8 +156,15 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 				{answer && !hasError ? (
 					<div className={"flex flex-row pb-4"}>
 						<p>
-							<strong>Antwort:</strong> {answer}
+							<strong className="pr-2">Antwort:</strong>
 						</p>
+						<ReactMarkdown
+							// eslint-disable-next-line react/no-children-prop
+							children={answer}
+							components={{
+								a: (props) => <SourceLink {...props} />,
+							}}
+						/>
 					</div>
 				) : null}
 
@@ -184,7 +196,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 						Wann wurde das Handbuch Öffentliches Gestalten entwickelt?
 					</button>
 				</div>
-				<div className={`flex items-end ml-auto flex-row pb-4`}>
+				<div className={"flex items-end ml-auto flex-row pb-4"}>
 					<button
 						type="submit"
 						className="mt-5 w-max px-4 py-1.5 transition-colors bg-magenta-500 hover:bg-white text-white hover:text-blue-500 !font-bold hover:!no-underline"

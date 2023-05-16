@@ -1,3 +1,8 @@
+import { EnvError } from "./errors";
+
+const UPSTASH_REST_API_DOMAIN = process.env.UPSTASH_REST_API_DOMAIN;
+const UPSTASH_REST_API_TOKEN = process.env.UPSTASH_REST_API_TOKEN;
+
 /**
  * Upstash REST and Edge API utils.
  * Note: taken from https://github.com/vercel/examples/tree/main/edge-functions/api-rate-limit
@@ -35,8 +40,12 @@ export async function upstashRest(
 	args: any[],
 	options?: { pipeline: boolean }
 ) {
-	const domain = process.env.UPSTASH_REST_API_DOMAIN;
-	const token = process.env.UPSTASH_REST_API_TOKEN;
+	if (UPSTASH_REST_API_DOMAIN === undefined)
+		throw new EnvError("UPSTASH_REST_API_DOMAIN");
+	if (UPSTASH_REST_API_TOKEN === undefined)
+		throw new EnvError("UPSTASH_REST_API_TOKEN");
+	const domain = UPSTASH_REST_API_DOMAIN;
+	const token = UPSTASH_REST_API_TOKEN;
 
 	if (!domain || !token) {
 		throw new Error("Missing required Upstash credentials of the REST API");
@@ -51,8 +60,12 @@ export async function upstashRest(
 }
 
 export async function upstashEdge(args: any[]) {
-	const domain = process.env.UPSTASH_EDGE_API_DOMAIN;
-	const token = process.env.UPSTASH_EDGE_API_TOKEN;
+	if (UPSTASH_REST_API_DOMAIN === undefined)
+		throw new EnvError("UPSTASH_REST_API_DOMAIN");
+	if (UPSTASH_REST_API_TOKEN === undefined)
+		throw new EnvError("UPSTASH_REST_API_TOKEN");
+	const domain = UPSTASH_REST_API_DOMAIN;
+	const token = UPSTASH_REST_API_TOKEN;
 
 	if (!domain || !token) {
 		throw new Error("Missing required Upstash credentials of the Edge API");

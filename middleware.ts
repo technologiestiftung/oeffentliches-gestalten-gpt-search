@@ -3,8 +3,10 @@ import { v4 as uuidv4 } from "uuid";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { SignJWT } from "jose";
-import { getJwtSecretKey } from "./lib/auth";
+import { EnvError } from "./lib/errors";
+const JWT_SECRET = process.env.JWT_SECRET;
 export async function middleware(request: NextRequest) {
+	if (!JWT_SECRET) throw new EnvError("JWT_SECRET");
 	let response = NextResponse.next();
 	let cookie = request.cookies.get("csrf");
 
@@ -14,7 +16,7 @@ export async function middleware(request: NextRequest) {
 			.setJti(uuidv4())
 			.setIssuedAt()
 			.setExpirationTime("2h")
-			.sign(new TextEncoder().encode(getJwtSecretKey()));
+			.sign(new TextEncoder().encode(JWT_SECRET));
 
 		response.cookies.set("csrf", token, {
 			httpOnly: false,
@@ -33,7 +35,7 @@ export async function middleware(request: NextRequest) {
 // const csrfProtect = csrf({
 // 	cookie: {
 // 		name: "csrf-handbuch-gpt",
-// 		secure: process.env.NODE_ENV === "production",
+// 		secure: NODE_ENV === "production",
 // 	},
 // });
 

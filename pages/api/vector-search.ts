@@ -1,24 +1,38 @@
 import { createClient } from "@supabase/supabase-js";
 import { codeBlock, oneLine } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
-import { ApplicationError, AuthError, UserError } from "../../lib/errors";
+import {
+	ApplicationError,
+	AuthError,
+	EnvError,
+	UserError,
+} from "../../lib/errors";
 import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "../../lib/openai-stream";
 import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
+import { Database } from "../../types/database";
+
+const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const OPENAI_KEY = process.env.OPENAI_KEY;
+const OPENAI_MODEL = process.env.OPENAI_MODEL;
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood. So we use the api by making fetach calls directly
 export const config = {
 	runtime: "edge",
 };
 
-const openAiKey = process.env.OPENAI_KEY;
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
 export default async function handler(req: NextRequest) {
+	if (NEXT_PUBLIC_SUPABASE_URL === undefined)
+		throw new EnvError("NEXT_PUBLIC_SUPABASE_URL");
+	if (OPENAI_KEY === undefined) throw new EnvError("OPENAI_KEY");
+	if (OPENAI_MODEL === undefined) throw new EnvError("OPENAI_MODEL");
+	if (SUPABASE_SERVICE_ROLE_KEY === undefined)
+		throw new EnvError("SUPABASE_SERVICE_ROLE_KEY");
+
 	// TODO: Find out why the types are going south here
 	const resRateLimit = await ipRateLimit(req);
 	if (resRateLimit.status !== 200) return resRateLimit;
@@ -52,17 +66,17 @@ export default async function handler(req: NextRequest) {
 	switch (req.method) {
 		case "POST": {
 			try {
-				if (!openAiKey) {
+				if (!OPENAI_KEY) {
 					throw new ApplicationError("Missing environment variable OPENAI_KEY");
 				}
 
-				if (!supabaseUrl) {
+				if (!NEXT_PUBLIC_SUPABASE_URL) {
 					throw new ApplicationError(
 						"Missing environment variable SUPABASE_URL"
 					);
 				}
 
-				if (!supabaseServiceKey) {
+				if (!SUPABASE_SERVICE_ROLE_KEY) {
 					throw new ApplicationError(
 						"Missing environment variable SUPABASE_SERVICE_ROLE_KEY"
 					);
@@ -80,7 +94,10 @@ export default async function handler(req: NextRequest) {
 					throw new UserError("Missing query in request data");
 				}
 
-				const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+				const supabaseClient = createClient<Database>(
+					NEXT_PUBLIC_SUPABASE_URL,
+					SUPABASE_SERVICE_ROLE_KEY
+				);
 
 				// Moderate the content to comply with OpenAI T&C
 				const sanitizedQuery = query.trim();
@@ -89,7 +106,7 @@ export default async function handler(req: NextRequest) {
 					{
 						method: "POST",
 						headers: {
-							Authorization: `Bearer ${openAiKey}`,
+							Authorization: `Bearer ${OPENAI_KEY}`,
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
@@ -112,7 +129,7 @@ export default async function handler(req: NextRequest) {
 					{
 						method: "POST",
 						headers: {
-							Authorization: `Bearer ${openAiKey}`,
+							Authorization: `Bearer ${OPENAI_KEY}`,
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
@@ -148,13 +165,39 @@ export default async function handler(req: NextRequest) {
 					);
 				}
 
+				console.log(pageSections);
+				const { error: pagesError, data: pages } = await supabaseClient
+					.from("nods_page")
+					.select("*")
+					.in(
+						"id",
+						pageSections.map((page) => page.page_id)
+					);
+				if (pagesError) {
+					throw new ApplicationError(
+						"Failed to match pages to pageSections",
+						pagesError
+					);
+				}
 				const tokenizer = new GPT3Tokenizer({ type: "gpt3" });
 				let tokenCount = 0;
 				let contextText = "";
-
+				const uniquePageIds = new Set();
+				for (const page of pages) {
+					uniquePageIds.add(page.id);
+				}
 				for (let i = 0; i < pageSections.length; i++) {
 					const pageSection = pageSections[i];
-					const content = pageSection.content;
+					let content = pageSection.content;
+					// filter one unique page from the array pages by matching the content pageSection["page_id"] with the page.id
+					if (uniquePageIds.has(pageSection.page_id)) {
+						const page = pages.find((page) => page.id === pageSection.page_id);
+						if (page) {
+							content += `**[Quelle][${page.path}]**\n\n`;
+							// uniquePageIds.delete(pageSection.page_id);
+						}
+					}
+
 					const encoded = tokenizer.encode(content);
 					tokenCount += encoded.text.length;
 
@@ -170,14 +213,15 @@ export default async function handler(req: NextRequest) {
 				Du bist ein sehr begeisterter und freundlicher  Mitarbeiter des CityLAB, der gerne Menschen hilft! Du antwortest immer in Deutsch. Du benutzt immer das Du nie das Sie. Du bist auch manchmal witzig.
 				Mit den folgenden Abschnitte aus das Handbuch Öffentliches Gestalten, beantwortest du die Frage nur mit diesen Informationen, ausgegeben im Markdown-Format. Wenn du unsicher bist und die Antwort nicht explizit in dem Handbuch steht, sagst du: Entschuldigung, damit kann ich leider nicht helfen.
       `}
-
-      Abschnitte des Handbuchs:
+			${oneLine`Jeder Abschnitt enthält den Link zur originalen Seite aus dem Handbuch in als Markdown link mit der Seiten ID und dem Pfad[SEITEN ID](PFAD) am Ende.Diese Links müssen erhalten bleiben und in deiner Antwort angezeigt werden.Der Link sieht zum Beispiel so aus:  ** [Quelle](/bar)** 
+      Abschnitte des Handbuchs:`}
       ${contextText}
       Antwort als Markdown (mit möglichen Zitaten in Anführungszeichen):
     `;
 
+				console.log(prompt);
 				const completionOptions: CreateChatCompletionRequest = {
-					model: "gpt-3.5-turbo",
+					model: OPENAI_MODEL,
 					messages: [
 						{
 							role: "system",
@@ -190,7 +234,7 @@ export default async function handler(req: NextRequest) {
 					stream: true,
 				};
 
-				const stream = await OpenAIStream(completionOptions, openAiKey);
+				const stream = await OpenAIStream(completionOptions, OPENAI_KEY);
 				return new Response(stream);
 			} catch (err: unknown) {
 				if (err instanceof UserError) {
