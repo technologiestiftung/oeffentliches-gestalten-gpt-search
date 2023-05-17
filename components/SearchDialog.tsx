@@ -7,7 +7,7 @@ import { PaperPlaneIcon } from "./PaperPlaneIcon";
 import ReactMarkdown from "react-markdown";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-type QuestionAnswerPair = {
+export type QuestionAnswerPair = {
 	question: string;
 	answer: string;
 	id: string;
@@ -93,7 +93,11 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 				apikey: NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
 				Authorization: `Bearer ${NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
 			},
-			body: JSON.stringify({ query, csrf_token: csrfToken }),
+			body: JSON.stringify({
+				query,
+				csrf_token: csrfToken,
+				questionAnswerPairs,
+			}),
 		});
 
 		if (!response.ok) {
@@ -108,6 +112,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 			setIsLoading(false);
 			return;
 		}
+		console.log(data);
 
 		appendAnswer(
 			updatedQuestionAnswerPairs,
@@ -135,15 +140,15 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 	return (
 		<>
 			<div
-				className="overflow-auto border border-grey-200 h-full bg-white z-10 text-xl pb-2"
+				className="z-10 h-full pb-2 overflow-auto text-xl bg-white border border-grey-200"
 				ref={conversationRef}
 			>
 				{!questionAnswerPairs.length && (
-					<div className="flex flex-col gap-4 items-center pt-4">
+					<div className="flex flex-col items-center gap-4 pt-4">
 						Beispiele:
 						<a
 							href="#"
-							className="w-60 border rounded px-2 py-1"
+							className="px-2 py-1 border rounded w-60"
 							onClick={() => handleConfirm("Worüber geht es in dem Handbuch?")}
 						>
 							„Worüber geht es in dem Handbuch?“{" "}
@@ -151,7 +156,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 						</a>
 						<a
 							href="#"
-							className="w-60 border rounded px-2 py-1"
+							className="px-2 py-1 border rounded w-60"
 							onClick={() =>
 								handleConfirm("Wann wurde das Handbuch entwickelt?")
 							}
@@ -161,7 +166,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 						</a>
 						<a
 							href="#"
-							className="w-60 border rounded px-2 py-1"
+							className="px-2 py-1 border rounded w-60"
 							onClick={() =>
 								handleConfirm("Wer hat an dem Handbuch mitgewirkt?")
 							}
@@ -174,7 +179,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 
 				{questionAnswerPairs.map(({ id, question, answer }) => (
 					<div key={id}>
-						<div className="flex items-baseline bg-blue-50 gap-4 p-2">
+						<div className="flex items-baseline gap-4 p-2 bg-blue-50">
 							<span className="">Ich:</span>
 							<p className="italic font-bold">{question}</p>
 						</div>
@@ -216,7 +221,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 				)}
 			</div>
 
-			<div className="flex justify-center w-full mb-12 bg-white z-10 text-xl">
+			<div className="z-10 flex justify-center w-full mb-12 text-xl bg-white">
 				<form onSubmit={handleSubmit} className="w-full">
 					<div className="flex px-3 py-2 border border-grey-200">
 						<input
@@ -226,9 +231,9 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 							value={search}
 							disabled={isLoading || isWriting}
 							onChange={(e) => setSearch(e.target.value)}
-							className="w-full placeholder:italic leading-tight text-grey-700 appearance-none focus:outline-none"
+							className="w-full leading-tight appearance-none placeholder:italic text-grey-700 focus:outline-none"
 						/>
-						<button className="appearance-none -rotate-45" type="submit">
+						<button className="-rotate-45 appearance-none" type="submit">
 							<PaperPlaneIcon />
 						</button>
 					</div>
