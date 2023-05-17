@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.4.0...v1.5.0) (2023-05-17)
+
+
+### Bug Fixes
+
+* adjusted test setup, added scrollTo mock ([d2b5ecb](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/d2b5ecbbfa9814ac166e12ff9659497a5054f31f))
+
+
+### Features
+
+* redesigned the application, added styling, chat-like ui ([e48d666](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/e48d6663fcc9227e34ab0fab18d3555fdba38a9f))
+
 # [1.4.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.3.0...v1.4.0) (2023-05-16)
 
 
