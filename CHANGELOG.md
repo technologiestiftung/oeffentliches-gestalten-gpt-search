@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.5.0...v1.6.0) (2023-05-17)
+
+
+### Features
+
+* **chat history:** Give the questions context ([a946e5e](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/a946e5e79ec1f1a64a000499bbd942374ae2d57a))
+
 # [1.5.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.4.0...v1.5.0) (2023-05-17)
 
 
