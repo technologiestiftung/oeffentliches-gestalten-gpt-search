@@ -4,10 +4,6 @@ import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
 import { useCookies, Cookies } from "react-cookie";
-import { Header } from "../components/Header";
-import { SmallBlueHexagon } from "../components/SmallBlueHexagon";
-import { PinkHexagon } from "../components/PinkHexagon";
-import { MediumBlueHexagon } from "../components/MediumBlueHexagon";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const cookies = new Cookies(context.req.headers.cookie);
@@ -78,15 +74,15 @@ const Home: React.FC<
 			</Head>
 
 			<main>
-				<div className="relative flex justify-center h-screen w-screen overflow-hidden">
-					<div className="flex flex-col gap-2 justify-between h-screen w-screen px-2 sm:px-4 lg:w-[64rem] pt-10">
-						<Header />
+				{/*<div className="relative flex justify-center h-screen w-screen overflow-hidden">*/}
+					<div className="flex flex-col h-screen w-screen">
+						{/*<Header />*/}
 						<SearchDialog csrfToken={cookie.csrf} />
-						<SmallBlueHexagon />
-						<PinkHexagon />
-						<MediumBlueHexagon />
+						{/*<SmallBlueHexagon />*/}
+						{/*<PinkHexagon />*/}
+						{/*<MediumBlueHexagon />*/}
 					</div>
-				</div>
+				{/*</div>*/}
 			</main>
 
 			{/* <footer className="z-10 border-t border-blue-200 h-7 bg-blue-50">

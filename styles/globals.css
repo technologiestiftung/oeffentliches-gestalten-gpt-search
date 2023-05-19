@@ -136,6 +136,6 @@
 
 	body {
 		@apply font-sans antialiased;
-		background: #1d1e43;
+		/*background: #1d1e43;*/
 	}
 }
