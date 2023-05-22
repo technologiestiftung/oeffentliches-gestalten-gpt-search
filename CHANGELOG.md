@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.6.0...v1.7.0) (2023-05-22)
+
+
+### Features
+
+* reworked application ui ([c8ade6c](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/c8ade6c5b71b3c820b319edc53b476f4170a204e))
+
 # [1.6.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.5.0...v1.6.0) (2023-05-17)
 
 
