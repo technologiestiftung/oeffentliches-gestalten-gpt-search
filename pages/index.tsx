@@ -67,7 +67,7 @@ const Home: React.FC<
 				<title>Handbuch GPT Suche</title>
 				<meta
 					name="description"
-					content="Handbuch Öffentliches Gestalten OpenAI Suche"
+					content="Chatbot Öffentliches Gestalten"
 				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
