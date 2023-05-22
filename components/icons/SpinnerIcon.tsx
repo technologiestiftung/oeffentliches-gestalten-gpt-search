@@ -1,4 +1,4 @@
-export default function Spinner() {
+export default function SpinnerIcon() {
 	return (
 		<svg
 			className="w-5 h-5 text-blue-500 animate-spin"
