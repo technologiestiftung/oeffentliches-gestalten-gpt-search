@@ -156,20 +156,30 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 									href="#"
 									className="px-2 py-1 border rounded w-full sm:w-60"
 									onClick={() =>
-										handleConfirm("Worüber geht es in dem Handbuch?")
+										handleConfirm("Was sind gute Methoden für das Ideen-Brainstorming?")
 									}
 								>
-									„Worüber geht es in dem Handbuch?“{" "}
+										„Was sind gute Methoden für das Ideen-Brainstorming?“{" "}
 									<span className="text-magenta-500">→</span>
 								</a>
 								<a
 									href="#"
 									className="px-2 py-1 border rounded w-full sm:w-60"
 									onClick={() =>
-										handleConfirm("Wann wurde das Handbuch entwickelt?")
+										handleConfirm("Wie gelange ich zu einer Entscheidung am Ende eines Workshops?")
 									}
 								>
-									„Wann wurde das Handbuch entwickelt?“{" "}
+									„Wie gelange ich zu einer Entscheidung am Ende eines Workshops?“{" "}
+									<span className="text-magenta-500">→</span>
+								</a>
+								<a
+									href="#"
+									className="px-2 py-1 border rounded w-full sm:w-60"
+									onClick={() =>
+										handleConfirm("Was muss ich beachten, wenn ich einen Workshop vorbereite?")
+									}
+								>
+									„Was muss ich beachten, wenn ich einen Workshop vorbereite?“{" "}
 									<span className="text-magenta-500">→</span>
 								</a>
 							</div>
@@ -193,6 +203,8 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 									<div className="w-6 -ml-1 mt-1">
 										<BookIcon />
 									</div>
+									<div className="flex flex-col gap-4">
+
 									<ReactMarkdown
 										// eslint-disable-next-line react/no-children-prop
 										children={answer}
@@ -200,6 +212,7 @@ export const SearchDialog: React.FC<{ csrfToken: string }> = ({
 											a: (props) => <SourceLink {...props} />,
 										}}
 									/>
+									</div>
 								</div>
 							</div>
 						)}
