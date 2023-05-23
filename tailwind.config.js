@@ -43,6 +43,7 @@ module.exports = {
 				800: "rgb(var(--grey-800) / <alpha-value>)",
 				900: "rgb(var(--grey-900) / <alpha-value>)",
 			},
+			bluegrey: "rgba(47, 47, 162, 0.1)",
 			white: "#fff",
 			transparent: "transparent",
 			currentColor: "currentColor",

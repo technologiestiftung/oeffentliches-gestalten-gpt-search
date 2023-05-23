@@ -7,19 +7,23 @@ import {
 
 export const Footer = () => {
 	return (
-		<div className="flex justify-center gap-10 flex-wrap max-w-[38rem]">
-			<div className="flex flex-col items-center gap-5 w-44 leading-5">
+		<div className="flex flex-wrap w-full justify-center gap-x-16 text-sm">
+			<div className="flex flex-col items-start gap-2">
 				Entstanden durch die Zusammenarbeit von
-				<CityLabLogo />
-				<PoliticsForTomorrowLogo />
+				<div className="flex flex-wrap pl-1 gap-x-10">
+					<CityLabLogo />
+					<PoliticsForTomorrowLogo />
+				</div>
 			</div>
-			<div className="flex flex-col items-center gap-5 w-44">
+			<div className="flex flex-col items-start gap-3">
 				Ein Projekt der
 				<TSBLogo />
 			</div>
-			<div className="flex flex-col items-center gap-5 w-44">
+			<div className="flex flex-col items-start gap-1">
 				Gefördert durch
-				<BerlinLogo />
+				<div className="w-20">
+					<BerlinLogo />
+				</div>
 			</div>
 		</div>
 	);
