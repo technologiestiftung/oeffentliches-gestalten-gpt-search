@@ -17,7 +17,7 @@ import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
 import { Database } from "../../types/database";
-import { QuestionAnswerPair } from "../../components/SearchDialog";
+import { QuestionAnswerPair } from "../../types/questionAnswerPair";
 
 const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const OPENAI_KEY = process.env.OPENAI_KEY;
