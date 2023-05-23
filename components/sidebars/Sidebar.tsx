@@ -27,6 +27,11 @@ export const Sidebar = () => {
 		setQuestionAnswerPairs([questionAnswerPair])
 	}
 
+	function handleNewChatClick() {
+		setIsMobileSidebarVisible(false);
+		setQuestionAnswerPairs([])
+	}
+
 	const items = history.map((questionAnswerPair) => (
 		<li key={questionAnswerPair.id}>
 			<button
@@ -52,7 +57,7 @@ export const Sidebar = () => {
 						!isLoading && "hover:bg-magenta-500 hover:text-white"
 					}`}
 					disabled={isLoading}
-					onClick={() => setQuestionAnswerPairs([])}
+					onClick={() => handleNewChatClick()}
 				>
 					<span className="text-xl pb-1"></span> Neuer Chat
 				</button>
