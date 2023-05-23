@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export const Header = () => {
 	return (
 		<div className="flex gap-2 sm:gap-5 flex-col justify-center px-2">
@@ -18,9 +16,7 @@ export const Header = () => {
 				&nbsp;ist nun bequem über unseren KI Chatbot verfügbar. Stelle einfach
 				eine Frage und lass&apos; dich von den Antworten inspirieren!
 			</p>
-			<p>
-				Starte mit einem der Beispiele oder stelle deine eigene Frage:
-			</p>
+			<p>Starte mit einem der Beispiele oder stelle deine eigene Frage:</p>
 		</div>
 	);
 };

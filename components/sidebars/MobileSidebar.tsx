@@ -1,8 +1,7 @@
 import React from "react";
-import { MenuIcon } from "../icons/MenuIcon";
+import { MenuIcon, XIcon } from "../icons";
 import { Sidebar } from "./Sidebar";
-import { XIcon } from "../icons/XIcon";
-import {useChatbotStore} from "../../store";
+import { useChatbotStore } from "../../store";
 
 export const MobileSidebar = () => {
 	const isMobileSidebarVisible = useChatbotStore(
@@ -21,7 +20,9 @@ export const MobileSidebar = () => {
 			</div>
 
 			<div
-				className={`absolute lg:hidden top-0 left-0 w-screen h-screen bg-grey-300 bg-opacity-40 z-40 ${isMobileSidebarVisible ? 'visible' : 'invisible'}`}
+				className={`absolute lg:hidden top-0 left-0 w-screen h-screen bg-grey-300 bg-opacity-40 z-40 ${
+					isMobileSidebarVisible ? "visible" : "invisible"
+				}`}
 			>
 				<div
 					className={`flex items-start w-80 h-full ease-in-out duration-300 ${
@@ -33,7 +34,10 @@ export const MobileSidebar = () => {
 							<Sidebar />
 						</div>
 					</div>
-					<button className="p-2" onClick={() => setIsMobileSidebarVisible(false)}>
+					<button
+						className="p-2"
+						onClick={() => setIsMobileSidebarVisible(false)}
+					>
 						<XIcon />
 					</button>
 				</div>

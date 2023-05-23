@@ -6,7 +6,7 @@ import { PaperPlaneIcon } from "./icons";
 import ReactMarkdown from "react-markdown";
 import { BookIcon, UserIcon } from "./icons";
 import { Welcome } from "./Welcome";
-import {useChatbotStore} from "../store";
+import { useChatbotStore } from "../store";
 
 export const SearchDialog: React.FC = () => {
 	const [search, setSearch] = React.useState<string>("");
@@ -43,12 +43,12 @@ export const SearchDialog: React.FC = () => {
 		<>
 			<div className="flex flex-col w-full justify-between pt-12 lg:pt-0">
 				<div
-					className={`z-10 h-full w-full overflow-auto text-xl ${questionAnswerPairs.length > 0 && 'pb-[4.5rem]'}`}
+					className={`z-10 h-full w-full overflow-auto text-xl ${
+						questionAnswerPairs.length > 0 && "pb-[4.5rem]"
+					}`}
 					ref={conversationRef}
 				>
-					{!questionAnswerPairs.length && (
-						<Welcome />
-					)}
+					{!questionAnswerPairs.length && <Welcome />}
 
 					{questionAnswerPairs.map(({ id, question, answer }) => (
 						<div key={id}>

@@ -22,7 +22,7 @@ const SourceLink: React.FC<
 	return (
 		<>
 			<p className="pt-3 pb-5">
-				Quelle:{' '}
+				Quelle:{" "}
 				<a
 					className="text-magenta-500 font-bold underline hover:text-blue-700"
 					target="_blank"

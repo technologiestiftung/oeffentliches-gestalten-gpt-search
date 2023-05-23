@@ -1,6 +1,6 @@
-import { ChatbotOeffentlichesGestaltenLogo } from "../logos/ChatbotOeffentlichesGestaltenLogo";
+import { ChatbotOeffentlichesGestaltenLogo } from "../logos";
 import React, { useEffect, useState } from "react";
-import { MessageIcon } from "../icons/MessageIcon";
+import { MessageIcon } from "../icons";
 import { useChatbotStore } from "../../store";
 import { QuestionAnswerPair } from "../../types/questionAnswerPair";
 import { getLocalStorageHistory } from "../../utils";
@@ -24,12 +24,12 @@ export const Sidebar = () => {
 
 	function handleHistoryItemClick(questionAnswerPair: QuestionAnswerPair) {
 		setIsMobileSidebarVisible(false);
-		setQuestionAnswerPairs([questionAnswerPair])
+		setQuestionAnswerPairs([questionAnswerPair]);
 	}
 
 	function handleNewChatClick() {
 		setIsMobileSidebarVisible(false);
-		setQuestionAnswerPairs([])
+		setQuestionAnswerPairs([]);
 	}
 
 	const items = history.map((questionAnswerPair) => (

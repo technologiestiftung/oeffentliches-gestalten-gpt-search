@@ -6,8 +6,8 @@ import React from "react";
 import { useCookies, Cookies } from "react-cookie";
 import { MobileSidebar } from "../components/sidebars/MobileSidebar";
 import { EnvError } from "../lib/errors";
-import {useChatbotStore} from "../store";
-import {DesktopSidebar} from "../components/sidebars/DesktopSidebar";
+import { useChatbotStore } from "../store";
+import { DesktopSidebar } from "../components/sidebars/DesktopSidebar";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -69,7 +69,6 @@ const Home: React.FC<
 
 	if (NEXT_PUBLIC_SUPABASE_ANON_KEY === undefined)
 		throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
-
 
 	return (
 		<>

@@ -2,12 +2,7 @@ export const ChatbotOeffentlichesGestaltenLogo = () => {
 	return (
 		<>
 			<div className="flex justify-center gap-4 leading-5">
-				<svg
-					width="36px"
-					height="41px"
-					viewBox="0 0 36 41"
-					version="1.1"
-				>
+				<svg width="36px" height="41px" viewBox="0 0 36 41" version="1.1">
 					<g
 						id="Page-1"
 						stroke="none"
@@ -40,7 +35,9 @@ export const ChatbotOeffentlichesGestaltenLogo = () => {
 						</g>
 					</g>
 				</svg>
-				<h3 className="font-bold">Chatbot <br /> Öffentliches Gestalten</h3>
+				<h3 className="font-bold">
+					Chatbot <br /> Öffentliches Gestalten
+				</h3>
 			</div>
 		</>
 	);
