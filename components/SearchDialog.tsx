@@ -22,10 +22,10 @@ export const SearchDialog: React.FC = () => {
 	const conversationRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (!conversationRef.current) return;
+		if (!conversationRef.current || !questionAnswerPairs.length) return;
 
 		conversationRef.current?.scrollTo(0, conversationRef.current.scrollHeight);
-	}, [conversationRef, questionAnswerPairs, isLoading, hasError]);
+	}, [questionAnswerPairs, isLoading, hasError]);
 
 	const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
@@ -41,7 +41,7 @@ export const SearchDialog: React.FC = () => {
 
 	return (
 		<>
-			<div className="flex flex-col w-full justify-between">
+			<div className="flex flex-col w-full justify-between pt-12 lg:pt-0">
 				<div
 					className={`z-10 h-full w-full overflow-auto text-xl ${questionAnswerPairs.length > 0 && 'pb-[4.5rem]'}`}
 					ref={conversationRef}

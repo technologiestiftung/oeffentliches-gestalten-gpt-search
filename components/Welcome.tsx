@@ -19,13 +19,13 @@ export const Welcome = () => {
 	return (
 		<>
 			<div className="h-full">
-				<div className="h-full flex flex-col justify-between pt-24 pb-2 items-center">
-					<div className="flex flex-col gap-16">
+				<div className="h-full flex flex-col justify-between gap-5 lg:pt-16 xl:pt-24 items-center">
+					<div className="flex flex-col gap-5 sm:gap-16">
 						<div className="flex justify-center">
 							<Header />
 						</div>
-						<div className="flex flex-col items-center gap-16 p-2 ">
-							<div className="flex flex-wrap justify-center gap-4">
+						<div className="flex flex-col items-center gap-8 sm:gap-16 sm:p-2 ">
+							<div className="flex flex-wrap justify-center gap-4 px-6">
 								<a
 									href="#"
 									className="px-3.5 py-4 bg-bluegrey w-full sm:w-60 italic"
@@ -61,7 +61,7 @@ export const Welcome = () => {
 									„Was muss ich beachten, wenn ich einen Workshop vorbereite?“{" "}
 								</a>
 							</div>
-							<form onSubmit={handleSubmit} className="w-full shrink">
+							<form onSubmit={handleSubmit} className="w-full shrink px-4">
 								<div className="flex px-3 py-2 border border-grey-200">
 									<input
 										id="search"
@@ -77,7 +77,9 @@ export const Welcome = () => {
 							</form>
 						</div>
 					</div>
-					<Footer />
+					<div className="pb-4">
+						<Footer />
+					</div>
 				</div>
 			</div>
 		</>

@@ -22,6 +22,9 @@ type ChatbotStore = {
 	questionAnswerPairs: QuestionAnswerPair[];
 	setQuestionAnswerPairs: (questionAnswerPairs: QuestionAnswerPair[]) => void;
 
+	isMobileSidebarVisible: boolean;
+	setIsMobileSidebarVisible: (isMobileSidebarVisible: boolean) => void;
+
 	handleConfirm: (query: string) => Promise<void>;
 };
 
@@ -41,6 +44,10 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 	questionAnswerPairs: [],
 	setQuestionAnswerPairs: (questionAnswerPairs) =>
 		set(() => ({ questionAnswerPairs })),
+
+	isMobileSidebarVisible: false,
+	setIsMobileSidebarVisible: (isMobileSidebarVisible) =>
+		set(() => ({ isMobileSidebarVisible })),
 
 	handleConfirm: async (query) => {
 		const currentQuestionAnswerPair = {
@@ -89,7 +96,7 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 		const data = response.body;
 
 		if (!data) {
-			set((state) => ({ isLoading: false }));
+			set(() => ({ isLoading: false }));
 
 			return;
 		}
@@ -117,7 +124,7 @@ async function appendAnswer(
 		replace?: boolean | undefined
 	) => void
 ) {
-	set((state) => ({ isWriting: true }));
+	set(() => ({ isWriting: true }));
 
 	const reader = data.getReader();
 	const decoder = new TextDecoder("utf-8");
@@ -139,5 +146,5 @@ async function appendAnswer(
 
 	updateLocalStoryHistoryItem(currentQuestionAnswerPair);
 
-	set((state) => ({ isWriting: false }));
+	set(() => ({ isWriting: false }));
 }

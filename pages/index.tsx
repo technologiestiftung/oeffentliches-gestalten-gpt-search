@@ -4,10 +4,10 @@ import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
 import { useCookies, Cookies } from "react-cookie";
-import { Sidebar } from "../components/Sidebar";
-import { MobileSidebar } from "../components/MobileSidebar";
+import { MobileSidebar } from "../components/sidebars/MobileSidebar";
 import { EnvError } from "../lib/errors";
 import {useChatbotStore} from "../store";
+import {DesktopSidebar} from "../components/sidebars/DesktopSidebar";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -84,7 +84,7 @@ const Home: React.FC<
 				{/*<div className="relative flex justify-center h-screen w-screen overflow-hidden">*/}
 				<div className="flex h-screen w-screen">
 					<MobileSidebar />
-					<Sidebar />
+					<DesktopSidebar />
 					<SearchDialog />
 				</div>
 				{/*</div>*/}
