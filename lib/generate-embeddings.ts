@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { ObjectExpression } from "estree";
 import GithubSlugger from "github-slugger";
+import { Content, Root } from "mdast";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { mdxFromMarkdown, MdxjsEsm } from "mdast-util-mdx";
 import { toMarkdown } from "mdast-util-to-markdown";
@@ -15,7 +16,6 @@ import { readdir, readFile, stat } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { inspect } from "node:util";
 import { EnvError } from "./errors";
-import { Root } from "mdast";
 
 const MDX_DOCS_PATH = process.env.MDX_DOCS_PATH;
 const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -100,7 +100,7 @@ function extractMetaExport(mdxTree: Root) {
  *
  * Useful to split a markdown file into smaller sections.
  */
-function splitTreeBy(tree: Root, predicate: (node: any) => boolean) {
+function splitTreeBy(tree: Root, predicate: (node: Content) => boolean) {
 	return tree.children.reduce<Root[]>((trees, node) => {
 		const [lastTree] = trees.slice(-1);
 
