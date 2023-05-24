@@ -23,6 +23,7 @@ export const MobileSidebar = () => {
 				className={`absolute lg:hidden top-0 left-0 w-screen h-screen bg-grey-300 bg-opacity-40 z-40 ${
 					isMobileSidebarVisible ? "visible" : "invisible"
 				}`}
+				style={{maxHeight: '-webkit-fill-available', maxWidth: '-webkit-fill-available'}}
 			>
 				<div
 					className={`flex items-start w-80 h-full ease-in-out duration-300 ${

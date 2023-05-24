@@ -81,7 +81,7 @@ const Home: React.FC<
 
 			<main>
 				{/*<div className="relative flex justify-center h-screen w-screen overflow-hidden">*/}
-				<div className="flex h-screen w-screen">
+				<div className="flex h-screen w-screen" style={{maxHeight: '-webkit-fill-available', maxWidth: '-webkit-fill-available'}}>
 					<MobileSidebar />
 					<DesktopSidebar />
 					<SearchDialog />
