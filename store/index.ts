@@ -25,7 +25,7 @@ type ChatbotStore = {
 	isMobileSidebarVisible: boolean;
 	setIsMobileSidebarVisible: (isMobileSidebarVisible: boolean) => void;
 
-	handleConfirm: (query: string) => Promise<void>;
+	handleConfirm: (query: string, shouldAppendToLocalStorage: boolean) => Promise<void>;
 };
 
 export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
@@ -49,7 +49,7 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 	setIsMobileSidebarVisible: (isMobileSidebarVisible) =>
 		set(() => ({ isMobileSidebarVisible })),
 
-	handleConfirm: async (query) => {
+	handleConfirm: async (query, shouldAppendToLocalStorage) => {
 		const currentQuestionAnswerPair = {
 			id: crypto.randomUUID(),
 			question: query,
@@ -63,7 +63,9 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 		];
 		const csrf_token = get().csrfToken;
 
-		appendLocalStorageHistory(currentQuestionAnswerPair);
+		if (shouldAppendToLocalStorage) {
+			appendLocalStorageHistory(currentQuestionAnswerPair);
+		}
 
 		set(() => ({
 			hasError: false,

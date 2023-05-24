@@ -34,7 +34,7 @@ export const SearchDialog: React.FC = () => {
 			return;
 		}
 
-		handleConfirm(search);
+		handleConfirm(search, true);
 
 		setSearch("");
 	};

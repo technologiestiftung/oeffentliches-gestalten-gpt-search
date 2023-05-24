@@ -17,6 +17,7 @@ export const Sidebar = () => {
 	const setIsMobileSidebarVisible = useChatbotStore(
 		(state) => state.setIsMobileSidebarVisible
 	);
+	const handleConfirm = useChatbotStore((state) => state.handleConfirm);
 
 	useEffect(() => {
 		setHistory(getLocalStorageHistory());
@@ -24,6 +25,11 @@ export const Sidebar = () => {
 
 	function handleHistoryItemClick(questionAnswerPair: QuestionAnswerPair) {
 		setIsMobileSidebarVisible(false);
+
+		if (questionAnswerPair.answer === "") {
+			handleConfirm(questionAnswerPair.question, false);
+		}
+
 		setQuestionAnswerPairs([questionAnswerPair]);
 	}
 
@@ -66,7 +72,9 @@ export const Sidebar = () => {
 			</div>
 			<div className="pb-5">
 				<div className="border-t-[1px] w-full border-t-grey-200 pt-5" />
-				<ChatbotOeffentlichesGestaltenLogo />
+				<div className="px-5">
+					<ChatbotOeffentlichesGestaltenLogo />
+				</div>
 			</div>
 		</>
 	);

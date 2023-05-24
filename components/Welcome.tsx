@@ -13,7 +13,7 @@ export const Welcome = () => {
 
 		const query = ((e.target as HTMLFormElement)[0] as HTMLInputElement).value;
 
-		handleConfirm(query);
+		handleConfirm(query, true);
 	};
 
 	return (
@@ -28,10 +28,11 @@ export const Welcome = () => {
 							<div className="flex flex-wrap justify-center gap-4 px-6">
 								<a
 									href="#"
-									className="px-3.5 py-4 bg-bluegrey w-full sm:w-60 italic"
+									className="px-3.5 py-4 bg-bluegrey hover:bg-darkerbluegrey w-full sm:w-60 italic"
 									onClick={() =>
 										handleConfirm(
-											"Was sind gute Methoden für das Ideen-Brainstorming?"
+											"Was sind gute Methoden für das Ideen-Brainstorming?",
+											true
 										)
 									}
 								>
@@ -39,10 +40,11 @@ export const Welcome = () => {
 								</a>
 								<a
 									href="#"
-									className="px-3.5 py-4 bg-bluegrey w-full sm:w-60 italic"
+									className="px-3.5 py-4 bg-bluegrey hover:bg-darkerbluegrey w-full sm:w-60 italic"
 									onClick={() =>
 										handleConfirm(
-											"Wie gelange ich zu einer Entscheidung am Ende eines Workshops?"
+											"Wie gelange ich zu einer Entscheidung am Ende eines Workshops?",
+											true
 										)
 									}
 								>
@@ -51,10 +53,11 @@ export const Welcome = () => {
 								</a>
 								<a
 									href="#"
-									className="px-3.5 py-4 bg-bluegrey w-full sm:w-60 italic"
+									className="px-3.5 py-4 bg-bluegrey hover:bg-darkerbluegrey w-full sm:w-60 italic"
 									onClick={() =>
 										handleConfirm(
-											"Was muss ich beachten, wenn ich einen Workshop vorbereite?"
+											"Was muss ich beachten, wenn ich einen Workshop vorbereite?",
+											true
 										)
 									}
 								>
