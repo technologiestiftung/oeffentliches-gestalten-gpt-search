@@ -1,9 +1,10 @@
 import { create } from "zustand";
-import { QuestionAnswerPair } from "../types/questionAnswerPair";
 import {
-	appendLocalStorageHistory,
-	updateLocalStoryHistoryItem,
-} from "../utils";
+	appendChatSessionToHistory,
+	updateChatSessionInHistory,
+} from "../lib/local-storage";
+import { ChatSession, Message } from "../types/chat";
+import { randomUUID } from "crypto";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 type ChatbotStore = {
@@ -19,13 +20,24 @@ type ChatbotStore = {
 	isWriting: boolean;
 	setIsWriting: (isWriting: boolean) => void;
 
-	questionAnswerPairs: QuestionAnswerPair[];
-	setQuestionAnswerPairs: (questionAnswerPairs: QuestionAnswerPair[]) => void;
+	currentChatSession: ChatSession;
+	setCurrentChatSession: (chatSession: ChatSession) => void;
+
+	history: ChatSession[];
+	setHistory: (chatSession: ChatSession[]) => void;
 
 	isMobileSidebarVisible: boolean;
 	setIsMobileSidebarVisible: (isMobileSidebarVisible: boolean) => void;
 
-	handleConfirm: (query: string, shouldAppendToLocalStorage: boolean) => Promise<void>;
+	handleConfirm: ({
+		query,
+		isNewSession,
+		isNewMessage,
+	}: {
+		query: string;
+		isNewSession: boolean;
+		isNewMessage: boolean;
+	}) => Promise<void>;
 };
 
 export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
@@ -41,35 +53,49 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 	isWriting: false,
 	setIsWriting: (isWriting) => set(() => ({ isWriting })),
 
-	questionAnswerPairs: [],
-	setQuestionAnswerPairs: (questionAnswerPairs) =>
-		set(() => ({ questionAnswerPairs })),
+	currentChatSession: getInitialChatSession(),
+	setCurrentChatSession: (chatSession) =>
+		set(() => ({ currentChatSession: chatSession })),
+
+	history: [],
+	setHistory: (chatSession: ChatSession[]) => {
+		set(() => ({ history: chatSession }));
+	},
 
 	isMobileSidebarVisible: false,
 	setIsMobileSidebarVisible: (isMobileSidebarVisible) =>
 		set(() => ({ isMobileSidebarVisible })),
 
-	handleConfirm: async (query, shouldAppendToLocalStorage) => {
-		const currentQuestionAnswerPair = {
+	handleConfirm: async ({ query, isNewSession, isNewMessage }) => {
+		const currentMessage: Message = {
 			id: crypto.randomUUID(),
-			question: query,
-			answer: "",
+			role: "user",
+			content: query,
 		};
 
-		const previousQuestionAnswerPairs = get().questionAnswerPairs;
-		const updatedQuestionAnswerPairs = [
-			...previousQuestionAnswerPairs,
-			currentQuestionAnswerPair,
-		];
+		const currentChatSession = get().currentChatSession;
+
 		const csrf_token = get().csrfToken;
 
-		if (shouldAppendToLocalStorage) {
-			appendLocalStorageHistory(currentQuestionAnswerPair);
+		if (isNewSession) {
+			const updatedHistory = appendChatSessionToHistory(currentChatSession);
+
+			set(() => ({
+				history: updatedHistory,
+			}));
+		}
+
+		if (isNewMessage) {
+			currentChatSession.messages.push(currentMessage);
+			const updatedHistory = updateChatSessionInHistory(currentChatSession);
+			set(() => ({
+				currentChatSession,
+				history: updatedHistory,
+			}));
 		}
 
 		set(() => ({
 			hasError: false,
-			questionAnswerPairs: updatedQuestionAnswerPairs,
 			isLoading: true,
 		}));
 
@@ -84,7 +110,7 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 			body: JSON.stringify({
 				query,
 				csrf_token,
-				questionAnswerPairs: previousQuestionAnswerPairs,
+				currentChatSession,
 			}),
 		});
 
@@ -103,20 +129,15 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 			return;
 		}
 
-		appendAnswer(
-			updatedQuestionAnswerPairs,
-			currentQuestionAnswerPair,
-			data,
-			set
-		);
+		appendAnswer(currentChatSession, currentMessage, data, set);
 
 		set(() => ({ isLoading: false }));
 	},
 }));
 
 async function appendAnswer(
-	questionAnswerPairs: QuestionAnswerPair[],
-	currentQuestionAnswerPair: QuestionAnswerPair,
+	currentChatSession: ChatSession,
+	currentMessage: Message,
 	data: ReadableStream<Uint8Array>,
 	set: (
 		partial:
@@ -131,22 +152,54 @@ async function appendAnswer(
 	const reader = data.getReader();
 	const decoder = new TextDecoder("utf-8");
 
+	const answerId = crypto.randomUUID();
+	const answer: Message = {
+		id: answerId,
+		role: "assistant",
+		content: "",
+	};
+
+	currentChatSession.messages.push(answer);
+
+	set(() => ({ currentChatSession }));
+
 	let done = false;
 	while (!done) {
 		const { value, done: doneReading } = await reader.read();
 		done = doneReading;
-		currentQuestionAnswerPair.answer += decoder.decode(value);
+		answer.content += decoder.decode(value);
 
-		const index = questionAnswerPairs.findIndex(
-			(questionAnswerPair) =>
-				questionAnswerPair.id === currentQuestionAnswerPair.id
+		const index = currentChatSession.messages.findIndex(
+			(message) => message.id === answer.id
 		);
 
-		questionAnswerPairs.splice(index, 1, currentQuestionAnswerPair);
-		set(() => ({ questionAnswerPairs: [...questionAnswerPairs] }));
+		currentChatSession.messages.splice(index, 1, answer);
+		set(() => ({
+			currentChatSession: {
+				id: currentChatSession.id,
+				title: currentChatSession.title,
+				messages: currentChatSession.messages,
+			},
+		}));
 	}
 
-	updateLocalStoryHistoryItem(currentQuestionAnswerPair);
+	const updatedHistory = updateChatSessionInHistory(currentChatSession);
 
-	set(() => ({ isWriting: false }));
+	set(() => ({ isWriting: false, history: updatedHistory }));
+}
+
+function getInitialChatSession() {
+	if (typeof crypto === "undefined") {
+		return {
+			id: randomUUID(),
+			messages: [],
+			title: "",
+		};
+	}
+
+	return {
+		id: crypto.randomUUID(),
+		messages: [],
+		title: "",
+	};
 }

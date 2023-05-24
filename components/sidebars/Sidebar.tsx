@@ -1,18 +1,19 @@
 import { ChatbotOeffentlichesGestaltenLogo } from "../logos";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { MessageIcon } from "../icons";
 import { useChatbotStore } from "../../store";
-import { QuestionAnswerPair } from "../../types/questionAnswerPair";
-import { getLocalStorageHistory } from "../../utils";
+import {getLocalChatSessionHistory} from "../../lib/local-storage";
+import { ChatSession } from "../../types/chat";
 
 export const Sidebar = () => {
-	const [history, setHistory] = useState<QuestionAnswerPair[]>([]);
+	const history = useChatbotStore((state) => state.history);
+	const setHistory = useChatbotStore((state) => state.setHistory);
 	const isLoading = useChatbotStore((state) => state.isLoading);
-	const questionAnswerPairs = useChatbotStore(
-		(state) => state.questionAnswerPairs
+	const currentChatSession = useChatbotStore(
+		(state) => state.currentChatSession
 	);
-	const setQuestionAnswerPairs = useChatbotStore(
-		(state) => state.setQuestionAnswerPairs
+	const setCurrentChatSession = useChatbotStore(
+		(state) => state.setCurrentChatSession
 	);
 	const setIsMobileSidebarVisible = useChatbotStore(
 		(state) => state.setIsMobileSidebarVisible
@@ -20,35 +21,42 @@ export const Sidebar = () => {
 	const handleConfirm = useChatbotStore((state) => state.handleConfirm);
 
 	useEffect(() => {
-		setHistory(getLocalStorageHistory());
-	}, [questionAnswerPairs]);
+		setHistory(getLocalChatSessionHistory());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
-	function handleHistoryItemClick(questionAnswerPair: QuestionAnswerPair) {
+	function handleHistoryItemClick(selectedChatSession: ChatSession) {
 		setIsMobileSidebarVisible(false);
+		setCurrentChatSession(selectedChatSession);
 
-		if (questionAnswerPair.answer === "") {
-			handleConfirm(questionAnswerPair.question, false);
+		const lastMessage = selectedChatSession.messages.at(-1);
+		if (lastMessage?.role !=='user') {
+			return;
 		}
 
-		setQuestionAnswerPairs([questionAnswerPair]);
+		handleConfirm({ query: lastMessage.content, isNewSession: false, isNewMessage: false });
 	}
 
 	function handleNewChatClick() {
 		setIsMobileSidebarVisible(false);
-		setQuestionAnswerPairs([]);
+		setCurrentChatSession({
+			id: crypto.randomUUID(),
+			title: "",
+			messages: [],
+		});
 	}
 
-	const items = history.map((questionAnswerPair) => (
-		<li key={questionAnswerPair.id}>
+	const items = history.map((chatSession) => (
+		<li key={chatSession.id}>
 			<button
 				className="flex p-2 gap-2 justify-start items-center text-left"
 				disabled={isLoading}
-				onClick={() => handleHistoryItemClick(questionAnswerPair)}
+				onClick={() => handleHistoryItemClick(chatSession)}
 			>
 				<div>
 					<MessageIcon />
 				</div>
-				<div className="grow">{questionAnswerPair.question}</div>
+				<div className="grow">{chatSession.title || chatSession.messages[0].content}</div>
 			</button>
 		</li>
 	));
@@ -58,7 +66,7 @@ export const Sidebar = () => {
 			<div className="flex flex-col items-center overflow-auto w-full p-4 gap-4">
 				<button
 					className={`${
-						questionAnswerPairs.length ? "flex" : "hidden"
+						currentChatSession.messages.length ? "flex" : "hidden"
 					} justify-center items-center px-2 py-1 text-magenta-500 border border-magenta-500 font-bold w-32 ${
 						!isLoading && "hover:bg-magenta-500 hover:text-white"
 					}`}

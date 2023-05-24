@@ -13,7 +13,7 @@ export const Welcome = () => {
 
 		const query = ((e.target as HTMLFormElement)[0] as HTMLInputElement).value;
 
-		handleConfirm(query, true);
+		handleConfirm({ query, isNewSession: true, isNewMessage: true });
 	};
 
 	return (
@@ -30,10 +30,12 @@ export const Welcome = () => {
 									href="#"
 									className="px-3.5 py-4 bg-bluegrey hover:bg-darkerbluegrey w-full sm:w-60 italic"
 									onClick={() =>
-										handleConfirm(
-											"Was sind gute Methoden für das Ideen-Brainstorming?",
-											true
-										)
+										handleConfirm({
+											query:
+												"Was sind gute Methoden für das Ideen-Brainstorming?",
+											isNewSession: true,
+											isNewMessage: true,
+										})
 									}
 								>
 									„Was sind gute Methoden für das Ideen-Brainstorming?“{" "}
@@ -42,10 +44,12 @@ export const Welcome = () => {
 									href="#"
 									className="px-3.5 py-4 bg-bluegrey hover:bg-darkerbluegrey w-full sm:w-60 italic"
 									onClick={() =>
-										handleConfirm(
-											"Wie gelange ich zu einer Entscheidung am Ende eines Workshops?",
-											true
-										)
+										handleConfirm({
+											query:
+												"Wie gelange ich zu einer Entscheidung am Ende eines Workshops?",
+											isNewSession: true,
+											isNewMessage: true,
+										})
 									}
 								>
 									„Wie gelange ich zu einer Entscheidung am Ende eines
@@ -55,10 +59,12 @@ export const Welcome = () => {
 									href="#"
 									className="px-3.5 py-4 bg-bluegrey hover:bg-darkerbluegrey w-full sm:w-60 italic"
 									onClick={() =>
-										handleConfirm(
-											"Was muss ich beachten, wenn ich einen Workshop vorbereite?",
-											true
-										)
+										handleConfirm({
+											query:
+												"Was muss ich beachten, wenn ich einen Workshop vorbereite?",
+											isNewSession: true,
+											isNewMessage: true,
+										})
 									}
 								>
 									„Was muss ich beachten, wenn ich einen Workshop vorbereite?“{" "}

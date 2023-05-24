@@ -14,18 +14,18 @@ export const SearchDialog: React.FC = () => {
 	const hasError = useChatbotStore((state) => state.hasError);
 	const isWriting = useChatbotStore((state) => state.isWriting);
 
-	const questionAnswerPairs = useChatbotStore(
-		(state) => state.questionAnswerPairs
+	const currentChatSession = useChatbotStore(
+		(state) => state.currentChatSession
 	);
 	const handleConfirm = useChatbotStore((state) => state.handleConfirm);
 
 	const conversationRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (!conversationRef.current || !questionAnswerPairs.length) return;
+		if (!conversationRef.current || !currentChatSession.messages.length) return;
 
 		conversationRef.current?.scrollTo(0, conversationRef.current.scrollHeight);
-	}, [questionAnswerPairs, isLoading, hasError]);
+	}, [currentChatSession, isLoading, hasError]);
 
 	const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
@@ -34,7 +34,7 @@ export const SearchDialog: React.FC = () => {
 			return;
 		}
 
-		handleConfirm(search, true);
+		handleConfirm({ query: search, isNewSession: false, isNewMessage: true });
 
 		setSearch("");
 	};
@@ -44,23 +44,23 @@ export const SearchDialog: React.FC = () => {
 			<div className="flex flex-col w-full justify-between pt-12 lg:pt-0">
 				<div
 					className={`z-10 h-full w-full overflow-auto text-xl ${
-						questionAnswerPairs.length > 0 && "pb-[4.5rem]"
+						currentChatSession.messages.length > 0 && "pb-[4.5rem]"
 					}`}
 					ref={conversationRef}
 				>
-					{!questionAnswerPairs.length && <Welcome />}
+					{!currentChatSession.messages.length && <Welcome />}
 
-					{questionAnswerPairs.map(({ id, question, answer }) => (
+					{currentChatSession.messages.map(({ id, role, content }) => (
 						<div key={id}>
-							<div className="flex justify-center w-full bg-blue-50">
+							{role === 'user' && <div className="flex justify-center w-full bg-blue-50">
 								<div className="flex grow justify-start gap-4 p-5 max-w-[48rem]">
 									<div className="w-6 mt-0.5">
 										<UserIcon />
 									</div>
-									<p>{question}</p>
+									<p>{content}</p>
 								</div>
-							</div>
-							{answer && (
+							</div>}
+							{role === 'assistant' && (
 								<div className="flex justify-center w-full">
 									<div className="flex grow justify-start gap-4 p-6 max-w-[48rem]">
 										<div className="w-6 -ml-1 mt-1">
@@ -69,7 +69,7 @@ export const SearchDialog: React.FC = () => {
 										<div className="flex flex-col gap-4">
 											<ReactMarkdown
 												// eslint-disable-next-line react/no-children-prop
-												children={answer}
+												children={content}
 												components={{
 													a: (props) => <SourceLink {...props} />,
 												}}
@@ -112,7 +112,7 @@ export const SearchDialog: React.FC = () => {
 					)}
 				</div>
 
-				{questionAnswerPairs.length > 0 && (
+				{currentChatSession.messages.length > 0 && (
 					<div className="relative">
 						<div className="z-20 absolute w-full bottom-0 items-center h-28 text-xl bg-gradient-to-t from-white via-white to-transparent">
 							<div className="flex justify-center bg-white mt-12">

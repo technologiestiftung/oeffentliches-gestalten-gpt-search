@@ -17,7 +17,7 @@ import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
 import { Database } from "../../types/database";
-import { QuestionAnswerPair } from "../../types/questionAnswerPair";
+import { ChatSession } from "../../types/chat";
 
 const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const OPENAI_KEY = process.env.OPENAI_KEY;
@@ -97,11 +97,11 @@ export default async function handler(req: NextRequest) {
 					throw new UserError("Missing query in request data");
 				}
 
-				const { questionAnswerPairs } = requestData as {
-					questionAnswerPairs: QuestionAnswerPair[];
+				const { currentChatSession } = requestData as {
+					currentChatSession: ChatSession;
 				};
 
-				if (!questionAnswerPairs) {
+				if (!currentChatSession) {
 					throw new UserError("Missing questionAnswerPairs in request data");
 				}
 
@@ -228,20 +228,11 @@ export default async function handler(req: NextRequest) {
       ${contextText}
       Antwort als Markdown (mit möglichen Zitaten in Anführungszeichen):
     `;
-				const history = questionAnswerPairs
-					.map((pair) => {
-						return [
-							{
-								role: "user" as ChatCompletionRequestMessageRoleEnum,
-								content: pair.question,
-							},
-							{
-								role: "assistant" as ChatCompletionRequestMessageRoleEnum,
-								content: pair.answer,
-							},
-						];
-					})
-					.flat();
+				const history = currentChatSession.messages
+					.slice(0, -1)
+					.map(({ role, content }) => {
+						return { role, content };
+					});
 
 				const completionOptions: CreateChatCompletionRequest = {
 					model: OPENAI_MODEL,
