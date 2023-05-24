@@ -45,7 +45,7 @@ export const Sidebar = () => {
 				disabled={isLoading}
 				onClick={() => handleHistoryItemClick(questionAnswerPair)}
 			>
-				<div className="">
+				<div>
 					<MessageIcon />
 				</div>
 				<div className="grow">{questionAnswerPair.question}</div>
