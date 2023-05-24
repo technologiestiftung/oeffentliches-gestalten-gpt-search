@@ -189,16 +189,19 @@ async function appendAnswer(
 }
 
 function getInitialChatSession() {
-	if (typeof crypto === "undefined") {
+	if (
+		typeof crypto !== "undefined" &&
+		typeof crypto.randomUUID === "function"
+	) {
 		return {
-			id: randomUUID(),
+			id: crypto.randomUUID(),
 			messages: [],
 			title: "",
 		};
 	}
 
 	return {
-		id: crypto.randomUUID(),
+		id: randomUUID(),
 		messages: [],
 		title: "",
 	};
