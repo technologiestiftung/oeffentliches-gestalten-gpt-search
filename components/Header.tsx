@@ -1,10 +1,10 @@
 export const Header = () => {
 	return (
-		<div className="flex gap-2 sm:gap-5 flex-col justify-center px-2">
+		<div className="flex gap-2 sm:gap-5 flex-col justify-center px-12">
 			<h1 className="text-4xl text-blue-500 font-semibold">
 				Chatbot Öffentliches Gestalten
 			</h1>
-			<p className="max-w-[38rem] text-md leading-5 text-xl">
+			<p className="max-w-[38rem] leading-5 text-xl">
 				Das gesammelte Wissen aus dem&nbsp;
 				<a
 					href="https://www.oeffentliches-gestalten.de/"
