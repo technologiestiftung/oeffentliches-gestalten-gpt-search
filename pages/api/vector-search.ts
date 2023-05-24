@@ -17,7 +17,7 @@ import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Cookies } from "react-cookie";
 import { verifyCookie } from "../../lib/auth";
 import { Database } from "../../types/database";
-import { QuestionAnswerPair } from "../../components/SearchDialog";
+import { ChatSession } from "../../types/chat";
 
 const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const OPENAI_KEY = process.env.OPENAI_KEY;
@@ -97,11 +97,11 @@ export default async function handler(req: NextRequest) {
 					throw new UserError("Missing query in request data");
 				}
 
-				const { questionAnswerPairs } = requestData as {
-					questionAnswerPairs: QuestionAnswerPair[];
+				const { currentChatSession } = requestData as {
+					currentChatSession: ChatSession;
 				};
 
-				if (!questionAnswerPairs) {
+				if (!currentChatSession) {
 					throw new UserError("Missing questionAnswerPairs in request data");
 				}
 
@@ -219,29 +219,20 @@ export default async function handler(req: NextRequest) {
 				}
 
 				const prompt = codeBlock`
-      ${oneLine`
-				Du bist ein sehr begeisterter und freundlicher  Mitarbeiter des CityLAB, der gerne Menschen hilft! Du antwortest immer in Deutsch. Du benutzt immer das Du nie das Sie. Du bist auch manchmal witzig.
-				Mit den folgenden Abschnitte aus das Handbuch Öffentliches Gestalten, beantwortest du die Frage nur mit diesen Informationen, ausgegeben im Markdown-Format. Wenn du unsicher bist und die Antwort nicht explizit in dem Handbuch steht, sagst du: Entschuldigung, damit kann ich leider nicht helfen.
-      `}
-			${oneLine`Jeder Abschnitt enthält den Link zur originalen Seite aus dem Handbuch in als Markdown link mit der Seiten ID und dem Pfad [SEITEN ID](PFAD) am Ende. Diese Links müssen erhalten bleiben und in deiner Antwort angezeigt werden. Der Link sieht zum Beispiel so aus:  ** [Quelle](/bar)** 
-      Abschnitte des Handbuchs:`}
-      ${contextText}
-      Antwort als Markdown (mit möglichen Zitaten in Anführungszeichen):
-    `;
-				const history = questionAnswerPairs
-					.map((pair) => {
-						return [
-							{
-								role: "user" as ChatCompletionRequestMessageRoleEnum,
-								content: pair.question,
-							},
-							{
-								role: "assistant" as ChatCompletionRequestMessageRoleEnum,
-								content: pair.answer,
-							},
-						];
-					})
-					.flat();
+					${oneLine`
+						Du bist ein sehr begeisterter und freundlicher  Mitarbeiter des CityLAB, der gerne Menschen hilft! Du antwortest immer in Deutsch. Du benutzt immer das Du nie das Sie. Du bist auch manchmal witzig.
+						Mit den folgenden Abschnitte aus das Handbuch Öffentliches Gestalten, beantwortest du die Frage nur mit diesen Informationen, ausgegeben im Markdown-Format. Wenn du unsicher bist und die Antwort nicht explizit in dem Handbuch steht, sagst du: Entschuldigung, damit kann ich leider nicht helfen.
+					`}
+					${oneLine`Jeder Abschnitt enthält den Link zur originalen Seite aus dem Handbuch in als Markdown link mit der Seiten ID und dem Pfad [SEITEN ID](PFAD) am Ende. Diese Links müssen erhalten bleiben und in deiner Antwort angezeigt werden. Bitte nutze nur die Markdown Links mit der Seiten ID und dem Pfad, keine Internet Links. Der Link sieht zum Beispiel so aus:  ** [Quelle](/bar)** 
+					Abschnitte des Handbuchs:`}
+					${contextText}
+					Antwort als Markdown (mit möglichen Zitaten in Anführungszeichen):
+				`;
+				const history = currentChatSession.messages
+					.slice(0, -1)
+					.map(({ role, content }) => {
+						return { role, content };
+					});
 
 				const completionOptions: CreateChatCompletionRequest = {
 					model: OPENAI_MODEL,

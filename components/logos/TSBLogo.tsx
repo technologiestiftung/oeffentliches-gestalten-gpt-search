@@ -2,8 +2,8 @@ export const TSBLogo = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			width="126"
-			height="38"
+			width="auto"
+			height="auto"
 			viewBox="0 0 126 38"
 			className="w-36 h-auto"
 		>

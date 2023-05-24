@@ -43,6 +43,8 @@ module.exports = {
 				800: "rgb(var(--grey-800) / <alpha-value>)",
 				900: "rgb(var(--grey-900) / <alpha-value>)",
 			},
+			bluegrey: "rgba(47, 47, 162, 0.1)",
+			darkerbluegrey: "rgba(47, 47, 162, 0.3)",
 			white: "#fff",
 			transparent: "transparent",
 			currentColor: "currentColor",
@@ -85,6 +87,14 @@ module.exports = {
 				"large-circle": "large-circle",
 			},
 		},
+		screens: {
+			'xs': '500px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px'
+		}
 	},
 	corePlugins: {
 		preflight: true,

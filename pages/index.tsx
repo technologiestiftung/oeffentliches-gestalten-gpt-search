@@ -4,6 +4,11 @@ import { SearchDialog } from "../components/SearchDialog";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next/types";
 import React from "react";
 import { useCookies, Cookies } from "react-cookie";
+import { MobileSidebar } from "../components/sidebars/MobileSidebar";
+import { EnvError } from "../lib/errors";
+import { useChatbotStore } from "../store";
+import { DesktopSidebar } from "../components/sidebars/DesktopSidebar";
+const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const cookies = new Cookies(context.req.headers.cookie);
@@ -15,7 +20,8 @@ const Home: React.FC<
 	InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ csrf }) => {
 	const [cookie] = useCookies(["csrf"]);
-	const [loading, setLoading] = React.useState(false);
+	const setCsrfToken = useChatbotStore((state) => state.setCsrfToken);
+	setCsrfToken(cookie.csrf);
 	const [state, setState] = React.useState<any>({
 		path: "/api/ping",
 		latency: null,
@@ -61,27 +67,25 @@ const Home: React.FC<
 		}
 	};
 
+	if (NEXT_PUBLIC_SUPABASE_ANON_KEY === undefined)
+		throw new EnvError("NEXT_PUBLIC_SUPABASE_ANON_KEY");
+
 	return (
 		<>
 			<Head>
 				<title>Handbuch GPT Suche</title>
-				<meta
-					name="description"
-					content="Handbuch Öffentliches Gestalten OpenAI Suche"
-				/>
+				<meta name="description" content="Chatbot Öffentliches Gestalten" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
 			<main>
 				{/*<div className="relative flex justify-center h-screen w-screen overflow-hidden">*/}
-					<div className="flex flex-col h-screen w-screen">
-						{/*<Header />*/}
-						<SearchDialog csrfToken={cookie.csrf} />
-						{/*<SmallBlueHexagon />*/}
-						{/*<PinkHexagon />*/}
-						{/*<MediumBlueHexagon />*/}
-					</div>
+				<div className="flex h-screen w-screen" style={{maxHeight: '-webkit-fill-available', maxWidth: '-webkit-fill-available'}}>
+					<MobileSidebar />
+					<DesktopSidebar />
+					<SearchDialog />
+				</div>
 				{/*</div>*/}
 			</main>
 
