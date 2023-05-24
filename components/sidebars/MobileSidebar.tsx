@@ -24,6 +24,7 @@ export const MobileSidebar = () => {
 					isMobileSidebarVisible ? "visible" : "invisible"
 				}`}
 				style={{maxHeight: '-webkit-fill-available', maxWidth: '-webkit-fill-available'}}
+				onClick={() => setIsMobileSidebarVisible(false)}
 			>
 				<div
 					className={`flex items-start w-80 h-full ease-in-out duration-300 ${
