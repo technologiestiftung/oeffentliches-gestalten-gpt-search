@@ -1,3 +1,42 @@
+# [1.9.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.8.1...v1.9.0) (2023-05-25)
+
+
+### Features
+
+* added logging of raw answer ([07abf30](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/07abf30a0d4c97c8c6ccf9309d865aeba1c9dd6d))
+
+## [1.8.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.8.0...v1.8.1) (2023-05-25)
+
+
+### Bug Fixes
+
+* add line clamp on history items ([73b90a3](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/73b90a3a4662be7900c87e0e5b969bfd7658ea63))
+
+# [1.8.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.7.0...v1.8.0) (2023-05-24)
+
+
+### Bug Fixes
+
+* added missing styles to correctly use the full (available) screen in ios safari ([1285f19](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/1285f1911e5c05a60ee85ad92af15bef0e334ef3))
+* adjusted system prompt to prevent including links towards other external websites in source ([79f55e2](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/79f55e21e056fe0f8ee082e96c46bbd0110b29f2))
+* close the sidebar when clicking on new chat button ([c5c4fac](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/c5c4fac7ae10888099913224c1b7a531c6749379))
+* import type path ([2baa258](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/2baa258ceebcd651187296b532f4e39e61e7fd29))
+* increased horizontal padding in intro text to make it look more centered ([5cb7b24](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/5cb7b24bc5bb6ab90f73845a4aef29d7aa1be9e9))
+* renamed page title ([d6e4fc5](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/d6e4fc54e56e2d019459b8067e530002565be7ed))
+* replaced the chat suggestions and fixed a layout issue when the answer has more than one paragraph ([d7f0709](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/d7f0709cb71d5dece05cbcc068605366eb7bf779))
+* reverted removal of leading slash in transform path ([bbd9eda](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/bbd9eda1d7fb064bd3e8943be299fa7b1e90b813))
+
+
+### Features
+
+* added color change on hover for paper plane ([7f1c7a5](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/7f1c7a54f1a71cb08f5027185cdd6939a3881207))
+* added function to requery chatgpt when clicking on a history item without answer, added darker background on hover on example cards ([e8c34a4](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/e8c34a4f12f221cf5a22510d486fc30f725ac5e7))
+* added mobile sidebar and improved mobile ui ([d2dde4e](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/d2dde4e80cbdb3400525af50479964a608fca841))
+* added session based history ([1efcc1f](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/1efcc1f060204aa0c3745bcee40c70728c617c3e))
+* added simple history, sidebar, state management, improved ui ([a374a21](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/a374a21833b6d09033906f7fd76938b6814f492d))
+* close mobile sidebar when clicking on the grey background ([9f78953](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/9f7895370bc7d9a9706f25a33afe0bc1f25ebc74))
+* extended footer ([b5c59bc](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/b5c59bc39b189e1400fe62509d77a4653ba98a53))
+
 # [1.7.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.6.0...v1.7.0) (2023-05-22)
 
 

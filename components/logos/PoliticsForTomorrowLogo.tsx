@@ -5,7 +5,6 @@ export const PoliticsForTomorrowLogo = () => {
 			width="106.699"
 			height="32.92"
 			viewBox="0 0 106.699 32.92"
-			className="w-32 h-auto pr-3"
 		>
 			<g fill="none" fillRule="nonzero">
 				<path
