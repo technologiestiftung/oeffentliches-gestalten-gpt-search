@@ -2,7 +2,7 @@ import { ChatbotOeffentlichesGestaltenLogo } from "../logos";
 import React, { useEffect } from "react";
 import { MessageIcon } from "../icons";
 import { useChatbotStore } from "../../store";
-import {getLocalChatSessionHistory} from "../../lib/local-storage";
+import { getLocalChatSessionHistory } from "../../lib/local-storage";
 import { ChatSession } from "../../types/chat";
 
 export const Sidebar = () => {
@@ -30,11 +30,15 @@ export const Sidebar = () => {
 		setCurrentChatSession(selectedChatSession);
 
 		const lastMessage = selectedChatSession.messages.at(-1);
-		if (lastMessage?.role !=='user') {
+		if (lastMessage?.role !== "user") {
 			return;
 		}
 
-		handleConfirm({ query: lastMessage.content, isNewSession: false, isNewMessage: false });
+		handleConfirm({
+			query: lastMessage.content,
+			isNewSession: false,
+			isNewMessage: false,
+		});
 	}
 
 	function handleNewChatClick() {
@@ -56,7 +60,9 @@ export const Sidebar = () => {
 				<div>
 					<MessageIcon />
 				</div>
-				<div className="grow">{chatSession.title || chatSession.messages[0].content}</div>
+				<div className="grow line-clamp-3">
+					{chatSession.title || chatSession.messages[0].content}
+				</div>
 			</button>
 		</li>
 	));
