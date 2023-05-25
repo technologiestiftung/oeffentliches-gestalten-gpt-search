@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.8.1...v1.9.0) (2023-05-25)
+
+
+### Features
+
+* added logging of raw answer ([07abf30](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/07abf30a0d4c97c8c6ccf9309d865aeba1c9dd6d))
+
 ## [1.8.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.8.0...v1.8.1) (2023-05-25)
 
 
