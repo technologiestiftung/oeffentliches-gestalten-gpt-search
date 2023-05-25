@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.8.0...v1.8.1) (2023-05-25)
+
+
+### Bug Fixes
+
+* add line clamp on history items ([73b90a3](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/73b90a3a4662be7900c87e0e5b969bfd7658ea63))
+
 # [1.8.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.7.0...v1.8.0) (2023-05-24)
 
 
