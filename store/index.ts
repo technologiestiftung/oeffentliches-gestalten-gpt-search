@@ -183,6 +183,8 @@ async function appendAnswer(
 		}));
 	}
 
+	console.log(`Raw answer:\n${answer.content}`);
+
 	const updatedHistory = updateChatSessionInHistory(currentChatSession);
 
 	set(() => ({ isWriting: false, history: updatedHistory }));
