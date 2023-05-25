@@ -5,7 +5,7 @@ export const CityLabLogo = () => {
 			width="872"
 			height="175"
 			viewBox="0 0 872 175"
-			className="w-44 h-auto pr-3"
+			className="w-44 h-auto"
 		>
 			<g fill="none">
 				<path

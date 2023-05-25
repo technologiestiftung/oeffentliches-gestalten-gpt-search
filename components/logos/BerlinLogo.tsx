@@ -4,8 +4,8 @@ export const BerlinLogo = () => {
 			id="Ebene_1"
 			data-name="Ebene 1"
 			xmlns="http://www.w3.org/2000/svg"
-			width="150"
-			height="100"
+			width="auto"
+			height="auto"
 			viewBox="0 0 850.39 566.93"
 		>
 			<defs>
