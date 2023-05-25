@@ -1,17 +1,5 @@
----
-sidebar_label: "Potenziale eingrenzen"
-sidebar_position: 5
-sidebar_class_name: "stage stage-4"
-image: "/img/social-erkennen.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as PotenzialBaukasten from "@site/src/assets/methods/potenzialbaukasten.md";
-import * as WieKoennenWirFragen from "@site/src/assets/methods/wie-koennen-wir-fragen.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
+import { Hint } from @site/src/components/Hint;
 
 # Potenziale eingrenzen
 
@@ -32,49 +20,41 @@ In unserer Unternehmung ebnen wir den Weg zur Lösung durch ambitionierte Frages
 
 Für unsere [„Wie können wir ...“-Fragen](#wie-können-wir-fragen) sind zwei Aspekte entscheidend: der Fokus auf das zu bearbeitende Problem und eine Lösungsspur, die uns motiviert, etwas zu entwickeln, auf das wir bisher keine Antwort haben. Dabei ziehen wir unterschiedliche Versionen in Betracht, um Fragestellungen zu formulieren, die unser bisheriges Wissen gekonnt bündeln:
 
-<img
-	src="/img/03_line_graph.svg"
-	className="w-full mx-auto aspect-square"
-	aria-hidden
-/>
+<img src=/img/03_line_graph.svg/>
 
 ## Potenzialbaukasten
 
-<MethodSummary
-	title={PotenzialBaukasten.frontMatter.title}
-	time={PotenzialBaukasten.frontMatter.time}
-	attributes={PotenzialBaukasten.frontMatter.attributes}
-	footer={PotenzialBaukasten.frontMatter.note}
->
-	<PotenzialBaukasten.default />
-</MethodSummary>
 
-<MethodCard
-	title={PotenzialBaukasten.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[PotenzialBaukasten.frontMatter.time]}
-	imageUrl={"/img/03_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/03_potenzialbaukasten.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Potenzialbaukasten
+time: 60 – 180 Minuten
+attributes:
+  - label: Niveau
+    content: Hoch
+  - label: Materialien
+    content: Bedürfnis-Hindernis-Paare, Stifte, Klebezettel oder digitale Arbeitsmittel
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Hinweis
+    content: Verbindung zu Quelldaten aus Interviews oder Beobachtungen gewährleisten, um Nachvollziehbarkeit sicherzustellen.
+note: Laut Innovationsforscher K. Dorst, liegt die zentrale Herausforderung von Innovationsprozessen darin, von den Konsequenzen und Effekten, zurück zu den Ursachen zu denken. Deshalb ist das Herauskristallisieren der Art und Weise, wie Dinge funktionieren oder eingesetzt werden essentiell, um innovationsverhindernde Logiken zu erkennen.
 
+
+### Was und wofür?
+
+Der **Potenzialbaukasten** unterstützt die differenzierte Weiterbearbeitung von Bedürfnissen und Hindernissen. Durch die Unterscheidung in verschiedene Erkenntnisebenen, können systemische Muster und Potenziale für Innovationen erkannt werden.
+
+### Mehrwert
+
+Die Analyse von erstrebenswerten Zuständen und hindernden Faktoren eröffnet Perspektiven, die häufig implizit bleiben. Sobald die strukturelle Ebene deutlich wird, lassen sich nützliche Prinzipien ableiten. Sie weisen auf Veränderungspotenziale hin, die als Schlüssel zur Lösung dienen können.
 ### Vorgehen
 
 1. Vorlage mit Ebenen und Feldern groß übertragen.
 
-<Hint>
-	<b>Hinweis:</b> Es ist sinnvoll, bei der Bearbeitung die Beschreibungen laut
-	zu lesen und die Erkenntnisse bzw. Antworten gemeinsam zuzuordnen und
-	auszuformulieren.
-</Hint>
+
+<b>Hinweis:</b> Es ist sinnvoll, bei der Bearbeitung die Beschreibungen laut
+zu lesen und die Erkenntnisse bzw. Antworten gemeinsam zuzuordnen und
+auszuformulieren.
+
 
 2. Ein prägnantes Paar aus dem [Bedürfnis-Hindernis-Filter](#bedürfnis-hindernis-filter) auswählen.
 
@@ -90,31 +70,28 @@ Für unsere [„Wie können wir ...“-Fragen](#wie-können-wir-fragen) sind zwe
 
 ## „Wie können wir...“­-Fragen
 
-<MethodSummary
-	title={WieKoennenWirFragen.frontMatter.title}
-	time={WieKoennenWirFragen.frontMatter.time}
-	attributes={WieKoennenWirFragen.frontMatter.attributes}
-	footer={WieKoennenWirFragen.frontMatter.note}
->
-	<WieKoennenWirFragen.default />
-</MethodSummary>
 
-<MethodCard
-	title={WieKoennenWirFragen.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[WieKoennenWirFragen.frontMatter.time]}
-	imageUrl={"/img/03_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/03_wie_koennen_wir_fragen.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: „Wie können wir ...“­-Fragen
+time: 60 – 120 Minuten
+attributes:
+  - label: Niveau
+    content: Mittel – Hoch
+  - label: Materialien
+    content: Stifte, Klebezettel, ein großes Stück Papier, z.B. Flipchart oder Rückseite eines Posters
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Hinweis
+    content: Nachvollziehbarkeit herstellen, indem aufgezeigt wird, auf welchen Originaldaten die Fragen basieren.
+note: „Wie können wir…“-Fragen können als lösungsorientierte Denkhaltung verstanden werden. Dieser Satzanfang ermöglicht es, Herausforderungen konstruktiv zu benennen und mit dem Fokus auf die Sache zu bearbeiten. Sie werden meist für die Formulierung einer richtungsweisenden Problemhypothese angewandt. Sie können jedoch an unterschiedlichen Stellen im Innovationsprozess zum Einsatz kommen. Beispielsweise als Leitfrage, bevor Kontakt mit Schlüsselakteuren besteht oder auch als Provokation, um besonders verrückte Ideen zu entwickeln.
+
+
+### Was und wofür?
+
+_„Wie können wir ...“-Fragen_ bündeln gewonnene Erkenntnisse, indem erstrebenswerte Zustände und verhindernde Faktoren in einer offenen Frage sinnvoll kombiniert werden. Mit ihrer einfachen und flexiblen Struktur weisen sie in die Richtung von Lösungs­ansätzen, ohne sie vorzugeben.
+
+### Mehrwert
+
+**WKW-Fragen** stärken die individuelle und kollektive Problemlösungskompetenz. Ihr herausfordernder Charakter regt die Entwicklung von vielzähligen Ideen an, die ein gemeinsames Ziel anvisieren und weniger offensichtlich sind.
 
 ### Vorgehen
 
@@ -124,15 +101,13 @@ Für unsere [„Wie können wir ...“-Fragen](#wie-können-wir-fragen) sind zwe
 
 3. Neben den ausgewählten _erstrebenswerten Zustand_ verschiedene _hindernde Faktoren_ in der rechten Spalte zuordnen und ausprobieren, welche Kombinationen spannend sind. Was gehört zusammen? Nach Trial & Error Prinzip vorgehen. „Wie können wir WEM ermöglichen, WAS zu tun, OHNE dass ...“ mehrmals laut aussprechen und so anpassen, dass daraus eine runde Fragestellung entsteht. Erst dann notieren.
 
-<Hint>
-	<b>Check:</b> Enthält die Frage bereits eine spezifische Lösung? Ist die Frage
-	zu abstrakt und ohne Richtung? Falls ja, dann neue Kombinationen suchen.
-</Hint>
+
+<b>Check:</b> Enthält die Frage bereits eine spezifische Lösung? Ist die Frage
+zu abstrakt und ohne Richtung? Falls ja, dann neue Kombinationen suchen.
+
 
 4. Nach eigenem Ermessen Schritte **02 und 03** mehrmals wiederholen. Alle sinnvollen Varianten dokumentieren und mit etwas Abstand nochmals betrachten und verfeinern. Nicht kombinierbare Elemente können später im Prozess, z.B. bei der Ideenfindung, einbezogen werden.
 
-<Hint>
-	<b>Joker:</b> Falls vorab ein nützliches Prinzip identifiziert wurde, kann die
-	Variante „Wie können wir WEM ermöglichen, WAS zu tun, INDEM…“ angewandt
-	werden.
-</Hint>
+
+<b>Joker:</b> Falls vorab ein nützliches Prinzip identifiziert wurde, kann die Variante „Wie können wir WEM ermöglichen, WAS zu tun, INDEM…“ angewandt werden.
+

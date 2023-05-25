@@ -1,18 +1,5 @@
----
-sidebar_label: "Inspiration sammeln"
-sidebar_position: 3
-sidebar_class_name: "stage stage-2"
-image: "/img/social-entwerfen.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as Inspirationsdatenbank from "@site/src/assets/methods/inspirationsdatenbank.md";
-import * as Innovationsreise from "@site/src/assets/methods/innovationsreise.md";
-import * as Werteturm from "@site/src/assets/methods/werteturm.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
+
 
 # Inspiration sammeln
 
@@ -34,31 +21,28 @@ Wird ein neues Handlungsumfeld erfahren, kann die Wirkung eines bestimmten Lösu
 
 ## Inspirationsdatenbank
 
-<MethodSummary
-	title={Inspirationsdatenbank.frontMatter.title}
-	time={Inspirationsdatenbank.frontMatter.time}
-	attributes={Inspirationsdatenbank.frontMatter.attributes}
-	footer={Inspirationsdatenbank.frontMatter.note}
->
-	<Inspirationsdatenbank.default />
-</MethodSummary>
 
-<MethodCard
-	title={Inspirationsdatenbank.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[Inspirationsdatenbank.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_inspirationsdatenbank.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Inspirationsdatenbank
+time: 30 – 50 Minuten
+attributes:
+  - label: Niveau
+    content: Mäßig – Mittel
+  - label: Materialien
+    content: Erfassungsmedium (z.B. Excel-Tabelle), bisherige Rechercheresultate, z.B. aus dem Wissensatlas
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Wichtige Zwischenergebnisse der Unternehmung in einer Datenbank systematisieren und für zukünftige Unternehmungen nutzen
+note: Datenbanken leben durch Pflege und etwas Disziplin. Das wird erleichtert, wenn der Zugang auch über ein Smartphone möglich ist oder neue Einträge auf mehreren Geräten gleichzeitig synchronisiert werden.
+
+
+### Was und wofür?
+
+Die **Inspirationsdatenbank** ist ein systematischer Ansatz, um inspirierende Beispiele für ein bestimmtes Potenzialfeld zu organisieren, zu archivieren und wieder auffindbar zu sammeln. Durch das Vergeben unterschiedlicher Kategorien wie Fokus, Format, Umfang oder Zielgruppe können wir die gesammelten Konzepte oder Praxisbeispiele vergleichen.
+
+### Mehrwert
+
+Je größer das Interesse an systemischen Innovationen, desto mehr lässt sich davon finden. Auch wenn der Aufbau recht arbeitsintensiv erscheint, wird die Datenbank nicht nur für die gegenwärtige, sondern auch für zukünftige Unternehmungen einen wertvollen Beitrag leisten. Dies ist ein Weg, um auch Entscheidungsträger:innen die Möglichkeit zu geben, schnell etwas Neues nachzuschlagen.
 
 ### Vorgehen
 
@@ -83,31 +67,28 @@ Wird ein neues Handlungsumfeld erfahren, kann die Wirkung eines bestimmten Lösu
 
 ## Innovationsreise
 
-<MethodSummary
-	title={Innovationsreise.frontMatter.title}
-	time={Innovationsreise.frontMatter.time}
-	attributes={Innovationsreise.frontMatter.attributes}
-	footer={Innovationsreise.frontMatter.note}
->
-	<Innovationsreise.default />
-</MethodSummary>
 
-<MethodCard
-	title={Innovationsreise.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[Innovationsreise.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_innovationsreise.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Innovationsreise
+time: Vorbereitung: 45 – 60 Minuten / Durchführung: ca. 1 Tag / Nachbesprechung: 45 – 60 Minuten
+attributes:
+  - label: Niveau
+    content: Mittel - Hoch
+  - label: Materialien
+    content: Inspirationsdatenbank, Klebezettel, Stifte
+  - label: Rollen
+    content: Organisation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Mit Orten oder Abteilungen beginnen, die leicht zu erreichen sind
+note: Neben der Innovationsreise können auch durch ein sogenanntes „Innovation Shadowing“ Erfahrungen gesammelt werden. Hierbei lässt sich eine Person z.B. einen Tag lang über die Schulter schauen, so dass Einblicke in deren Innovationsarbeit gewonnen werden. Es handelt sich um die Begleitung von Schlüsselpersonen mit der Aufgabe, einfach nur zu beobachten, Eindrücke zu sammeln, sich anregen zu lassen oder auch Wissen zu erwerben und anschließend zu reflektieren. (Stangl, 2020).
+
+
+### Was und wofür?
+
+Der Besuch innovativer Projekte ist das direkteste Mittel, um Neues kennenzulernen. Die **Innovationsreise** unterstützt das strategische Erkunden der Trends von morgen – in anderen Ländern, Städten und um die Ecke.
+
+### Mehrwert
+
+Indem wir Innovatives und Ungewohntes vor Ort erleben und mit den Menschen, die dies ermöglichen, in Austausch kommen, entsteht einerseits Betroffenheit und andererseits tieferes Verständnis. So können wir das Erfahrene reflektiert in unserer eigenen Organisation weiterentwickeln.
 
 ### Vorgehen
 
@@ -125,43 +106,38 @@ Wird ein neues Handlungsumfeld erfahren, kann die Wirkung eines bestimmten Lösu
 
 6. Abschließend die Inhalte in allen Feldern gemeinsam diskutieren und pro Feld Entscheidungen treffen, was für die Reise zu beachten ist. Aufschreiben und daraus Aufgaben ableiten. Aufgaben mit Termi­nierung verteilen und vermerken, wer was bis wann organisiert. Sich auf die Reise freuen!
 
-<Hint>
-	<b>Hinweis:</b> Für die Dokumentation der Reise Vorlagen zu{" "}
-	<a href="/buch/erkennen/rausgehen-menschen-treffen#gespräch-dokumentieren">Gespräch dokumentieren</a>{" "}
-	oder Matrix bei{" "}
-	<a href="/buch/entwerfen/abschluss#ich-und-der-prozess">Ich & der Prozess</a>{" "}
-	des Kapitels nutzen. Alle Mitreisenden an der Dokumentation beteiligen und
-	nach der Reise Zeit für die Auswertung und den Wissenstransfer einplanen.
-</Hint>
+
+<b>Hinweis:</b> Für die Dokumentation der Reise Vorlagen zu{ }
+<a href=/buch/erkennen/rausgehen-menschen-treffen#gespräch-dokumentieren>Gespräch dokumentieren</a>{ }
+oder Matrix bei{ }
+<a href=/buch/entwerfen/abschluss#ich-und-der-prozess>Ich & der Prozess</a>{ }
+des Kapitels nutzen. Alle Mitreisenden an der Dokumentation beteiligen und
+nach der Reise Zeit für die Auswertung und den Wissenstransfer einplanen.
+
 
 ## Werteturm
 
-<MethodSummary
-	title={Werteturm.frontMatter.title}
-	time={Werteturm.frontMatter.time}
-	attributes={Werteturm.frontMatter.attributes}
-	footer={Werteturm.frontMatter.note}
->
-	<Werteturm.default />
-</MethodSummary>
+title: Werteturm
+time: 45 – 60 Minuten
+attributes:
+  - label: Niveau
+    content: Mittel
+  - label: Materialien
+    content: Gesammelte Informationen aus der Innovationsreise
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Im Arbeitsalltag Wertetags vergeben, z.B. Welche Informationen verkörpern welche Werte?
+note: Die Werte im Turm stammen aus der Studie “Wertewelten Arbeiten 4.0”, die 2016 durch 1.200 Interviews mit repräsentativ ausgewählten Personen im Auftrag des Bundesministeriums für Arbeit und Soziales entstanden sind. Das zentrale Ergebnis der Studie ist ein Kulturraum, der die Vielfalt des Erlebens von Arbeiten und Leben in Deutschland darstellt.
 
-<MethodCard
-	title={Werteturm.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[Werteturm.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_werteturm.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
 
+### Was und wofür?
+
+Der **Werteturm** unterstützt die Priorisierung von Werten, die mit aktuellen handlungsleitenden Einstellungen und Haltungen verbunden sind. Die Methode schafft Klarheit bei der Entwicklung oder Bewertung von Ideen. Sie kann vielfältig zur Reflexion von Erlebnissen, zur Herausarbeitung von Werteversprechen oder zur strategischen Planung eingesetzt werden.
+
+### Mehrwert
+
+Durch die persönliche Bewertung können Aspekte, die wir für selbstverständlich halten, offen und sachlich innerhalb der Gruppe besprochen werden. Gemeinsam definierte Kernwerte dienen im weiteren Prozess als Referenz. Sie erleichtern die Entwicklung und die Kommunikation des innovativen Lösungsansatzes.
 ### Vorgehen
 
 1. Vorlage kopieren. Material bereit legen. Die acht Werte aus der kopierten Vorlage ausschneiden. Ersatzweise schreibt jede Person die acht Werte auf kleine Zettel.

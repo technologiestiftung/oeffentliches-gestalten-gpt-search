@@ -1,18 +1,3 @@
----
-sidebar_label: "Gesprächsbasis erstellen"
-sidebar_position: 2
-sidebar_class_name: "stage stage-1"
-image: "/img/social-erkennen.png"
----
-
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as Gespraechsleitfaden from "@site/src/assets/methods/gespraechsleitfaden.md";
-import * as Gespraechsgrundlagen from "@site/src/assets/methods/gespraechsgrundlagen.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
-
 # Gesprächsbasis erstellen
 
 ## Gesprächsstruktur vorbereiten
@@ -35,32 +20,27 @@ Durch die Gespräche denken wir uns so weit es geht, in die Perspektive unseres 
 
 ## Gesprächsleitfaden
 
-<MethodSummary
-	title={Gespraechsleitfaden.frontMatter.title}
-	time={Gespraechsleitfaden.frontMatter.time}
-	attributes={Gespraechsleitfaden.frontMatter.attributes}
-	footer={Gespraechsleitfaden.frontMatter.note}
->
-	<Gespraechsleitfaden.default />
-</MethodSummary>
+title: Gesprächsleitfaden
+time: 30 – 90 Minuten
+attributes:
+  - label: Niveau
+    content: Mittel - Hoch
+  - label: Materialien
+    content: Stifte, Papier, Klebezettel
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Der Leitfaden unterstützt ein erkundendes Vorgehen, das auch im Arbeitsalltag ausprobiert oder für virtuelle Gespräche genutzt werden kann
+note: Die Qualität der Beziehung, die vor und im Gespräch aufgebaut wird, bestimmt die Tiefe der Gesprächsdaten maßgeblich. Das unterstützt der Gesprächsleitfaden, indem er neben der Erhebung von Daten, vor allem die Interaktion mit den Gesprächspartner:innen vorbereitet.
 
-<MethodCard
-	title={Gespraechsleitfaden.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[Gespraechsleitfaden.frontMatter.time]}
-	imageUrl={"/img/03_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/03_gespraechsleitfaden.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
 
+### Was und wofür?
+
+Im Gegensatz zu einer quantitativen Umfrage folgt das geplante Gespräch keiner starren Reihenfolge an Fragen. Die Nutzung von offenen Fragen und vertiefenden Fragen bildet die Grundlage für unser semi-strukturiertes Gespräch. Der **Gesprächsleitfaden** kann und soll situativ angepasst werden. Dadurch haben wir die Flexibilität, unser Gegenüber frei berichten zu lassen und bei interessanten Gesichtspunkten gezielt nachzufragen.
+
+### Mehrwert
+
+Der Leitfaden lässt neben den vorab definierten Themenbereichen genügend Platz für neue inhaltliche Aspekte, die sich während des Gesprächs ergeben. Wir bleiben somit offen für neue Entdeckungen, ­verlieren aber nicht aus dem Blick, was wir in ­Erfahrung bringen möchten. Dies gelingt mit jedem durchgeführten Gespräch immer besser.
 ### Vorgehen
 
 1. Vorlage auf ein größeres Stück Papier übertragen.
@@ -81,40 +61,32 @@ Durch die Gespräche denken wir uns so weit es geht, in die Perspektive unseres 
 
 4. Für die eigene Unternehmung Fragen jeder Kategorie notieren.
 
-<Hint>
-	<b>Hinweis:</b> Für betroffene und verantwortliche Schlüsselakteure können
-	unterschiedliche Gesprächsleitfäden erstellt werden. Es kann sich lohnen, den
-	Leitfaden innerhalb der Akteursgruppe anzupassen.
-</Hint>
+
+<b>Hinweis:</b> Für betroffene und verantwortliche Schlüsselakteure können unterschiedliche Gesprächsleitfäden erstellt werden. Es kann sich lohnen, den Leitfaden innerhalb der Akteursgruppe anzupassen.
+
 
 ## Gesprächsgrundlagen
 
-<MethodSummary
-	title={Gespraechsgrundlagen.frontMatter.title}
-	time={Gespraechsgrundlagen.frontMatter.time}
-	attributes={Gespraechsgrundlagen.frontMatter.attributes}
-	footer={Gespraechsgrundlagen.frontMatter.note}
->
-	<Gespraechsgrundlagen.default />
-</MethodSummary>
 
-<MethodCard
-	title={Gespraechsgrundlagen.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[Gespraechsgrundlagen.frontMatter.time]}
-	imageUrl={"/img/03_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/03_gespraechsgrundlagen.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Gesprächsgrundlagen
+time: 60 – 90 Minuten
+attributes:
+  - label: Niveau
+    content: Mäßig - Hoch
+  - label: Materialien
+    content: Gesprächs­leitfaden, Stifte, Papier, Kamera, Aufnahmegerät
+  - label: Rollen
+    content: Kleingruppen à 3 Personen: Fragesteller:in, Protokollant:in, Fiktive:r Gesprächspartner:in
+note: Umgang mit Daten klären. Alle externen Teilnehmer:innen müssen der Gesprächsaufzeichnung offiziell ihre Zustimmung erteilen und die Möglichkeit erhalten, sie wieder zurückzuziehen. Je nach Vorgehen sind unterschiedliche Datenschutzvorgaben zu beachten. Die wichtigsten Aspekte sollten auf einer Einverständniserklärung zusammengefasst werden, die ggf. auch interne Regelungen berücksichtigt.
 
+
+### Was und wofür?
+
+Um Gespräche mit Schlüsselakteuren gekonnt zu führen, sollte mit dem **Gesprächsleitfaden** eine Generalprobe durchgeführt werden. Dieser Probelauf soll die Gesprächssituation mit einem Schlüsselakteur simulieren. So erkennen wir, ob unser Leitfaden die richtigen Fragen stellt und unsere Gesprächsführung innerhalb des Settings funktioniert.
+
+### Mehrwert
+
+Vor den Gesprächen können wir die Gesprächssituation selbst erleben. Die Probe schärft unsere Wahrnehmung und ermöglicht Anpassungen des Leitfadens. Wenn wir die Gesprächssituation einmal selbst durchlaufen haben, sind wir bereit, uns auf die tatsächlich zu treffende Person einzulassen.
 ### Vorgehen
 
 1. Testgruppe mit drei Personen bilden. Rollen definieren. Zwei Personen bilden als Tandem die Gesprächsleitung mit Fragensteller:in und Protokollant:in. Eine Person versetzt sich in einen potentiellen Schlüsselakteur.

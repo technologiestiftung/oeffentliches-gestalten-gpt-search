@@ -1,19 +1,4 @@
----
-sidebar_label: "Nutzen validieren"
-sidebar_position: 6
-sidebar_class_name: "stage stage-5"
-image: "/img/social-erproben.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-
-import * as MvpCanvas from "@site/src/assets/methods/mvp-canvas.md";
-
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
-import { Checkbox } from "@site/src/components/Checkbox";
 
 # Nutzen validieren
 
@@ -39,31 +24,26 @@ Für das MVP existieren viele Definitionen und Übersetzungen. Einigkeit besteht
 
 ## MVP-Canvas
 
-<MethodSummary
-	title={MvpCanvas.frontMatter.title}
-	time={MvpCanvas.frontMatter.time}
-	attributes={MvpCanvas.frontMatter.attributes}
-	footer={MvpCanvas.frontMatter.note}
->
-	<MvpCanvas.default />
-</MethodSummary>
 
-<MethodCard
-	title={MvpCanvas.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[MvpCanvas.frontMatter.time]}
-	imageUrl={"/img/05_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/05_mvp_canvas.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: MVP-Canvas
+time: 45 – 90 Minuten
+attributes:
+  - label: Niveau
+    content: Mittel
+  - label: Materialien
+    content: Testdokumentation, Testauswertung, Klebezettel, Stifte
+  - label: Rollen
+    content: Moderation, Zeitmanagement, Dokumentation
+note: Für die öffentliche Verwaltung bietet das Denken in MVPs neue Chancen, weil speziell hier die Notwendigkeit und Möglichkeit besteht, z.B. bei der Planung von (Groß-)Projekten Lösungsexperimente aufzusetzen, die den angenommenen Wert für Bürger:innen oder Mitarbeiter:innen günstig und schnell verdeutlichen.
+
+
+### Was und wofür?
+
+Mit dem Canvas entwickeln wir die Grundlagen für ein _Minimal Verwendbares Produkt/Prozess_. Das ist die Version unseres Produktes oder Prozesses, die mit geringst möglichem Aufwand den Wert unser Lösung für ausgewählte Anwender:innen validiert. Der MVP-Ansatz basiert auf dem Prinzip, ein Produkt oder einen Prozess möglichst schnell anzufertigen und lediglich mit Basis-Funktionen auszustatten.
+
+### Mehrwert
+
+MVPs sind unverzichtbar, um im weiteren Entwicklungsprozess die Risiko-Faktoren zu minimieren. Indem nur eine günstige Rohfassung erstellt und getestet wird, können weitere aufwendigere Eigenschaften und Funktionsweisen schrittweise entwickelt werden.
 
 ### Vorgehen
 
