@@ -1,18 +1,3 @@
----
-sidebar_label: "Ausprobieren lassen"
-sidebar_position: 4
-sidebar_class_name: "stage stage-3"
-image: "/img/social-erproben.png"
----
-
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as TestverlaufPlanen from "@site/src/assets/methods/testverlauf-planen.md";
-import * as TestDokumentieren from "@site/src/assets/methods/test-dokumentieren.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
-import { Checkbox } from "@site/src/components/Checkbox";
 
 # Ausprobieren lassen
 
@@ -36,119 +21,49 @@ Der Vorbereitungsaufwand variiert je nach Prototypen- und Testformat. Für das T
 
 ### Am Tag vor dem Test:
 
-<Checkbox
-	id="erinnerung"
-	label={"Tester:innen eine Erinnerung mit Uhrzeit & Ort senden."}
-/>
+- [ ] Tester:innen eine Erinnerung mit Uhrzeit & Ort senden.
+- [ ] Benötigte Materialien und Prototyp vorbereiten.
+- [ ] <a href="#testverlauf-planen"> Testverlauf planen </a>
+- [ ] Rollen klären. Wer führt den Test durch, wer dokumentiert? Ggf. mit Kolleg:innen durchspielen.
 
-<Checkbox
-	id="materialien"
-	label={"Benötigte Materialien und Prototyp vorbereiten."}
-/>
-
-<!--@dennis: hier link einfügen-->
-
-<Checkbox
-	id="testverlauf"
-	label={<a href="#testverlauf-planen"> Testverlauf planen </a>}
-/>
-
-<Checkbox
-	id="dokumentieren"
-	label={
-		"Rollen klären. Wer führt den Test durch, wer dokumentiert? Ggf. mit Kolleg:innen durchspielen."
-	}
-/>
 
 ### Am Tag des Tests:
 
-<Checkbox
-	id="vorlagen"
-	label={
-		<>
-			Vorlagen von{" "}
-			<a href="pathname:///arbeitsblatt/03_einverstaendniserklaerung.pdf">
-				Einverständniserklärung
-			</a>{" "}
-			und{" "}
-			<a href="/buch/erproben/ausprobieren-lassen#test-dokumentieren">
-				Test dokumentieren
-			</a>{" "}
-			ausdrucken oder kopieren.
-		</>
-	}
-/>
-
-<Checkbox
-	id="testergebnis"
-	label={
-		"In wenigen Minuten beschreiben können, was die Tester:innen erwartet – ohne durch zu viele Details das Testergebnis zu verfälschen."
-	}
-/>
-
-<Checkbox
-	id="testverlauf"
-	label={
-		<>
-			Sich darauf einlassen, zu lernen. Feedback als Geschenk annehmen,
-			vertiefende Fragen stellen, nichts rechtfertigen oder umfassend erklären,
-			darüber hinaus{" "}
-			<a href="/buch/erkennen/gespraechsbasis-erstellen#gesprächsgrundlagen">
-				Gesprächsgrundlagen
-			</a>{" "}
-			als Inspiration für die Interaktion mit den Testpersonen nutzen.
-		</>
-	}
-/>
-
-<Checkbox id="willkommen" label={"Tester:innen willkommen heißen."} />
-
-<Checkbox id="testen" label={"Testen!"} />
+- [ ] Vorlagen von  Einverständniserklärung und <a href="/buch/erproben/ausprobieren-lassen#test-dokumentieren">Test dokumentieren</a> ausdrucken oder kopieren.
+- [ ] In wenigen Minuten beschreiben können, was die Tester:innen erwartet – ohne durch zu viele Details das Testergebnis zu verfälschen.
+- [ ] Sich darauf einlassen, zu lernen. Feedback als Geschenk annehmen, vertiefende Fragen stellen, nichts rechtfertigen oder umfassend erklären, darüber hinaus <a href="/buch/erkennen/gespraechsbasis-erstellen#gesprächsgrundlagen">Gesprächsgrundlagen</a> als Inspiration für die Interaktion mit den Testpersonen nutzen.
+- [ ] Tester:innen willkommen heißen.
+- [ ] Testen!
 
 ### Nach dem Test:
 
-<Checkbox
-	id="auswerten"
-	label={
-		<a href="/buch/erproben/lernen-anpassen#test-auswerten">Test auswerten.</a>
-	}
-/>
-
-<Checkbox
-	id="nachgang"
-	label={
-		"Im Nachgang ein kleines Dankeschön oder eine Einladung zur Präsentation der Ergebnisse an Tester:innen versenden."
-	}
-/>
+- [ ] <a href="/buch/erproben/lernen-anpassen#test-auswerten">Test auswerten.</a>
+- [ ] Im Nachgang ein kleines Dankeschön oder eine Einladung zur Präsentation der Ergebnisse an Tester:innen versenden.
 
 ## Testverlauf planen
 
-<MethodSummary
-	title={TestverlaufPlanen.frontMatter.title}
-	time={TestverlaufPlanen.frontMatter.time}
-	attributes={TestverlaufPlanen.frontMatter.attributes}
-	footer={TestverlaufPlanen.frontMatter.note}
-	className="!mt-7"
->
-	<TestverlaufPlanen.default />
-</MethodSummary>
 
-<MethodCard
-	title={TestverlaufPlanen.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[TestverlaufPlanen.frontMatter.time]}
-	imageUrl={"/img/05_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/05_testverlauf_planen.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Testverlauf planen
+time: 30 – 90 Minuten
+attributes:
+- label: Niveau
+  content: Mittel
+- label: Materialien
+  content: Stifte, Papier, Klebezettel
+- label: Rollen
+  content: Moderation, Dokumentation, Zeitmanagement
+- label: Anregung
+  content: Struktur und Fragen des Testverlaufs nutzen, um im Arbeitsalltag Feedback einzuholen.
+note: Der Aufbau der Testsituation orientiert sich an teilnehmenden Beobachtungen. Der Vorteil dieser Methode ist eine Untersuchungssituation, die nah am Alltag der Anwender:innen verläuft. Durch das Aufdecken von routinierten Verhaltensmustern, die häufig unbewusst ablaufen, können wirklich authentische Einsichten gewonnen werden.
+
+
+### Was und wofür?
+
+Der Testverlauf beschreibt die Etappen der Testsituation über einen begrenzten Zeitraum (z.B. 45 min). Die detaillierte Planung wichtiger Interaktionspunkte mit den Tester:innen unterstützt die Durchführung eines methodisch geleiteten Probelaufs, bei dem Dramaturgie und Inhalt mit Rollen und Haltung kombiniert werden.
+
+### Mehrwert
+
+Ein Durchspielen der Testsituation stärkt gezielt das effektive Zusammenspiel des Teams und ermöglicht ein optimales Testerlebnis für die Beteiligten. Durch die Anpassung der Impulsfragen können die Annahmen im Bezug auf die Lösung gezielt untersucht und angepasst werden.
 
 ### Vorgehen
 
@@ -173,7 +88,7 @@ Der Vorbereitungsaufwand variiert je nach Prototypen- und Testformat. Für das T
 - den Test zu kommunizieren?
 - die Tester:innen vorzubereiten?
 
-**Fragen:** Welche Fragen sollen beantwortet werden? Siehe Hypothesen bei [Testbasis zusammenstellen](http://www.citylab-berlin.org/handbuch "Testbasis zusammenstellen"). Impulsfragen aus der Vorlage nutzen und ggf. anpassen. Schlusspunkt überlegen. Zum Beispiel um die eigene Zusammen­fassung der wichtigsten Aspekten bitten, sich bedanken und ggf. weitere Einbindung anbieten.
+**Fragen:** Welche Fragen sollen beantwortet werden? Siehe Hypothesen bei [Testbasis zusammenstellen](http://www.citylab-berlin.org/handbuch Testbasis zusammenstellen). Impulsfragen aus der Vorlage nutzen und ggf. anpassen. Schlusspunkt überlegen. Zum Beispiel um die eigene Zusammen­fassung der wichtigsten Aspekten bitten, sich bedanken und ggf. weitere Einbindung anbieten.
 
 3. Kurze Beschreibung zum Testen im Kontext der Unternehmung erstellen. Anschreiben verfassen, um Tester:innen zu kontaktieren.
 
@@ -181,37 +96,34 @@ Der Vorbereitungsaufwand variiert je nach Prototypen- und Testformat. Für das T
 
 ## Test dokumentieren
 
-<MethodSummary
-	title={TestDokumentieren.frontMatter.title}
-	time={TestDokumentieren.frontMatter.time}
-	attributes={TestDokumentieren.frontMatter.attributes}
-	footer={TestDokumentieren.frontMatter.note}
->
-	<TestDokumentieren.default />
-</MethodSummary>
 
-<MethodCard
-	title={TestDokumentieren.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[TestDokumentieren.frontMatter.time]}
-	imageUrl={"/img/05_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/05_test_dokumentieren.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Test dokumentieren
+time: 60 – 90 Minuten
+attributes:
+  - label: Niveau
+    content: Einfach – Mäßig
+  - label: Materialien
+    content: Testverlauf, Stifte, Klebezettel, ggf. Papier oder Pad zum Protokollieren, Aufnahmgerät, Kamera zum Dokumentieren
+  - label: Rollen
+    content: Moderation, Beobachtung, Dokumentation
+  - label: Anregung
+    content: Matrix zum Verfassen von Kurzmemos nutzen, z.B. bei Vorträgen oder Kongressen.
+note: Bei mehreren Testsituationen ist es ratsam, als Team direkt nach jedem Durchlauf zusammenzukommen und das Erlebte zu reflektieren. Neben der Dokumentation während des Tests, die grundlegend für die Gesamtauswertung ist, ermöglicht eine Ad-hoc-Auswertung spontane Anpassungen am Prototyp oder der Testsituation und beschleunigt das Lernen.
+
+
+### Was und wofür?
+
+Die Testsituation und Anwendung des Prototyps wird anhand einer einfachen Matrix dokumentiert. Die Dokumentation basiert auf konkreten Beobachtungspunkten und Originalzitaten. Sie sollte konzentriert, während des gesamten Testverlaufs und pro Testperson erfolgen.
+
+### Mehrwert
+
+Im Nachgang des Tests werden die Dokumentationen gemeinsam im Team gesichtet. Neben den Testfragen können auch die Körpersprache und die Interaktionen der Anwender:innen relevante Erkenntnisse zur Funktionstüchtigkeit der Lösung liefern. In der Vorlage [Test auswerten](http://www.citylab-berlin.org/handbuch Test auswerten) werden die Erkenntnisse verdichtet.
 
 ### Vorgehen
 
 1. Vor, während und nach dem Test als Team arbeiten. Rollen verteilen. Bei mehreren Testpersonen pro Tester:in Beobachter:in bestimmen, die je eine Dokumentationsvorlage nutzt.
 
-2. Moderierende Person führt durch den Testlauf anhand [Testverlauf planen](http://www.citylab-berlin.org/handbuch "Testverlauf planen"): Tester:innen willkommen heißen (1), den Testhintergrund erläutern (2) und die Teilnehmer:innen auf ihre Rolle als Tester:innen einstimmen (3). Ggf. Rückfragen zum Vorgehen oder Verständnisfragen zur Testsituation beantworten. An die [Einverständniserklärung](http://www.citylab-berlin.org/handbuch "Einverständniserklärung") bzw. Aufnahme denken, auf Anonymisierung hinweisen. Offenheit herstellen.
+2. Moderierende Person führt durch den Testlauf anhand [Testverlauf planen](http://www.citylab-berlin.org/handbuch Testverlauf planen): Tester:innen willkommen heißen (1), den Testhintergrund erläutern (2) und die Teilnehmer:innen auf ihre Rolle als Tester:innen einstimmen (3). Ggf. Rückfragen zum Vorgehen oder Verständnisfragen zur Testsituation beantworten. An die [Einverständniserklärung](http://www.citylab-berlin.org/handbuch Einverständniserklärung) bzw. Aufnahme denken, auf Anonymisierung hinweisen. Offenheit herstellen.
 
 3. Testsituation anmoderieren und starten (4). Die Tester:innen mit dem Prototyp interagieren lassen. Dokumentierende Personen beobachten und notieren Interaktion und Verhalten (5). Auf Körpersprache, Mimik, Tonfall und Wortwahl achten. Die Vorlage nutzen, um Beobachtungen zu erfassen:
 

@@ -1,18 +1,4 @@
----
-sidebar_label: "Viele Ideen entwickeln"
-sidebar_position: 4
-sidebar_class_name: "stage stage-3"
-image: "/img/social-entwerfen.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as KreativitaetsmuskelAufwaermen from "@site/src/assets/methods/kreativitaetsmuskel-aufwaermen.md";
-import * as KreativerRadschlag from "@site/src/assets/methods/kreativer-radschlag.md";
-import * as IdeenGenerator from "@site/src/assets/methods/ideen-generator.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
 
 # Viele Ideen entwickeln
 
@@ -30,14 +16,6 @@ Kreatives Denken, also die Fähigkeit sich etwas Neues vorzustellen, wird als ei
 
 Wie können die folgenden 9 Punkte mit maximal vier geraden Linien verbunden werden, ohne den Stift dabei abzusetzen? Malen Sie die Punkte auf ein Blatt Papier und probieren Sie es gern mehrmals.
 
-<div className="mx-auto w-3/4 aspect-square grid grid-cols-3 grid-rows-3">
-  {Array.from(Array(9)).map((idx) => {
-    return (
-      <div key={idx} className="m-7 bg-blue-500 w-4 h-4 rounded-full"></div>
-      )
-})}
-
-</div>
 
 ## Kreativität üben
 
@@ -45,31 +23,27 @@ Kreativität kann geübt werden – am besten zusammen. Die Kunst besteht darin,
 
 ## Kreativitätsmuskel aufwärmen
 
-<MethodSummary
-	title={KreativitaetsmuskelAufwaermen.frontMatter.title}
-	time={KreativitaetsmuskelAufwaermen.frontMatter.time}
-	attributes={KreativitaetsmuskelAufwaermen.frontMatter.attributes}
-	footer={KreativitaetsmuskelAufwaermen.frontMatter.note}
->
-	<KreativitaetsmuskelAufwaermen.default />
-</MethodSummary>
+title: Kreativitätsmuskel aufwärmen
+time: 5 – 15 Minuten je Übung
+attributes:
+  - label: Niveau
+    content: Einfach
+  - label: Materialien
+    content: Variiert. Oft sind Papier und Stift, Stimme und Körper ausreichend.
+  - label: Rollen
+    content: Moderation, Zeitmanagement
+  - label: Anregung
+    content: Warm-ups zu einem Ritual werden lassen und neue Mindsets etablieren. Auf das Energielevel des Teams achten und Warm-ups ggf. adaptieren.
+note: Nicht die Wirtschaftskrise, sondern unsere Art zu denken ist das Problem, behauptet Kreativitätsforscher Edward de Bono. Wer neue Ideen entwickeln will, muss methodisch vorgehen. Sein Credo: Umdenken gelingt nur durch Provokation.
 
-<MethodCard
-	title={KreativitaetsmuskelAufwaermen.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[KreativitaetsmuskelAufwaermen.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_kreativitaetsmuskel_aufwaermen.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+
+### Was und wofür?
+
+Aufwärmübungen (Warm-ups) sind kurze Einheiten von fünf bis maximal 15 Minuten, die Teams spielerisch unterstützen, bestimmte Arbeitshaltungen einzunehmen. Kreativitäts-Warm-ups sind besonders vor der Ideengenerierung geeignet, weil sie zu wilden und verrückten Ideen ermutigen. So kann sich das Team darauf vorbereiten, den inneren Zensor auszuschalten und Mut für außergewöhnliche Ideen zu sammeln.
+
+### Mehrwert
+
+Kreativitäts-Warm-ups bauen Barrieren ab, fördern das Einfühlungsvermögen und schweißen Teams zusammen. Sie sind leicht umzusetzen und können in fast jeder Raumsituation für verschiedenste Arbeitsformate eingesetzt werden. Sie fördern das _outside-of-the-box_-Denken in Teams, weil die Phantasie jeder einzelnen Person angeregt und auch der Körper dabei aktiviert wird.
 
 ### Vorgehen
 
@@ -87,31 +61,26 @@ Wie die schlummernde Kreativität eines Teams geweckt und kollaboratives Denken 
 
 ## Kreativer Radschlag
 
-<MethodSummary
-	title={KreativerRadschlag.frontMatter.title}
-	time={KreativerRadschlag.frontMatter.time}
-	attributes={KreativerRadschlag.frontMatter.attributes}
-	footer={KreativerRadschlag.frontMatter.note}
->
-	<KreativerRadschlag.default />
-</MethodSummary>
 
-<MethodCard
-	title={KreativerRadschlag.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[KreativerRadschlag.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_kreativer_radschlag.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Kreativer Radschlag
+time: 30 – 45 Minuten
+attributes:
+  - label: Niveau
+    content: Einfach
+  - label: Materialien
+    content: Kopierte Vorlagen, Stifte, Klebezettel, Wie-könne-Wir-Frage
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+note: Der kreative Radschlag hat Bezüge zur Kopfstandmethode und Edward de Bonos Provokationstechnik, die in vielen Variationen existiert. Durch mentale Provokationen wird gewohntes Denken aus eingefahrenen Bahnen geworfen und im Gehirn weniger genutzte Synapsen aktiviert.
+
+
+### Was und wofür?
+
+Beim kreativen Radschlag wird abwechselnd positiv und negativ gedacht. Die Methode basiert auf dem Prinzip der kollektiven Autorenschaft. Indem immer auf die Ideen der anderer Teammitglieder Bezug genommen wird, entsteht eine Sammlung an Ideen, die sich keine Person allein hätte ausdenken können.
+
+### Mehrwert
+
+Wenn eine Idee von Mensch zu Mensch weitergegeben wird, kann sie wachsen und sich auf unerwartete Weise verändern. Indem die eigene Vorstellungskraft durch überschwängliche Zustimmung und verheerende Kritik abwechselnd geweitet wird, entstehen erstaunliche und originelle Lösungsansätze. Selbst wenn die einzelnen Ideen komisch oder unmöglich erscheinen, beinhaltet der Kern häufig konzeptuelle Wegweiser, die in eine erfolgversprechende Richtung weisen.
 
 ### Vorgehen
 
@@ -131,31 +100,28 @@ Wie die schlummernde Kreativität eines Teams geweckt und kollaboratives Denken 
 
 ## Ideen-Generator
 
-<MethodSummary
-	title={IdeenGenerator.frontMatter.title}
-	time={IdeenGenerator.frontMatter.time}
-	attributes={IdeenGenerator.frontMatter.attributes}
-	footer={IdeenGenerator.frontMatter.note}
->
-	<IdeenGenerator.default />
-</MethodSummary>
 
-<MethodCard
-	title={IdeenGenerator.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[IdeenGenerator.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_ideen_generator.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Ideen-Generator
+time: 45 – 60 Minuten
+attributes:
+  - label: Niveau
+    content: Mäßig - Mittel
+  - label: Materialien
+    content: Ideenkonzepte aus Kreativer Radschlag
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Im Arbeitsalltag öfter „Was wäre wenn…“ fragen und mit Umkehrungen oder Erweiterungen in Routinen experimentieren.
+note: Methoden wie der Ideen-Generator sind Abwandlungen des sogenannten morphologischen Kasten, den der Physiker Zwicky in der 1930er Jahren entwickelte. Morphologie bedeutet Verwandlung und wird vornehmlich im Bereich der Untersuchung biologischer Verwandtschaften verwendet.
+
+
+### Was und wofür?
+
+Im **Ideen-Generator** wird ein Problem oder eine Fragestellung aus verschiedenen Perspektiven betrachtet. Es werden neun provokative Ansätze genutzt, um weitere oder gänzlich neue Ideen zu entwickeln. So können schnell und umfassend viele überraschende Gedanken formuliert und in Betracht gezogen werden.
+
+### Mehrwert
+
+Der **Ideen-Generator** dehnt das Denken um ein Konzept herum in verschiedene Richtungen aus. Dadurch entstehen Grundlagen für anregende Diskussionen, die den Lösungsansatz stärken. Um das Werkzeug effektiv zu nutzen, sollte der Ausgangspunkt (Konzeptidee aus dem [Kreativen Radschlag](/buch/entwerfen/viele-ideen-entwickeln#kreativer-radschlag), Problem oder Vorschlag) übersichtlich dargestellt werden.
 
 ### Vorgehen
 

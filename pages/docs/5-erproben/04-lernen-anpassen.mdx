@@ -1,17 +1,4 @@
----
-sidebar_label: "Lernen und anpassen"
-sidebar_position: 5
-sidebar_class_name: "stage stage-4"
-image: "/img/social-erproben.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as TestAuswerten from "@site/src/assets/methods/test-auswerten.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
-import { Checkbox } from "@site/src/components/Checkbox";
 
 # Lernen und anpassen
 
@@ -37,32 +24,28 @@ Um diese möglicherweise ernüchternde Aufgabe mit Neugier und Freude zu meister
 
 ## Test auswerten
 
-<MethodSummary
-	title={TestAuswerten.frontMatter.title}
-	time={TestAuswerten.frontMatter.time}
-	attributes={TestAuswerten.frontMatter.attributes}
-	footer={TestAuswerten.frontMatter.note}
->
-	<TestAuswerten.default />
-</MethodSummary>
 
-<MethodCard
-	title={TestAuswerten.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[TestAuswerten.frontMatter.time]}
-	imageUrl={"/img/05_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/05_test_auswerten.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Test auswerten
+time: 30 – 45 Minuten
+attributes:
+  - label: Niveau
+    content: Einfach – Mittel
+  - label: Materialien
+    content: Papier, Klebezettel, Stifte
+  - label: Rollen
+    content: Moderation, Zeitmanagement, Dokumentation
+  - label: Anregung
+    content: Die Frageformel 3 x Was als Abschluss für Arbeitsbesprechungen oder Workshops nutzen
+note: What? So What? What if? Now What? ist eine Liberating Structure, die von Henri Lipmanowicz und Keith McCandless entwickelt wurde. Chris Argyris hat diese Schlussfolgerungsleiter in Reasoning, Learning, and Action: Individual and Organizational (1982) veröffentlicht. Peter Senge machte das Konzept durch sein Buch The Fifth Discipline: The Art and Practice of the Learning Organization (1990) bekannt.
 
+
+### Was und wofür?
+
+Der Reflexionsansatz von _3 x Was_ ermöglicht es, strukturiert auf eine gemeinsame Erfahrung zurückzublicken. Dies gelingt durch das Durchlaufen von drei Stufen: dem Sammeln von Fakten (_Was?_), dem Interpretieren der Fakten und Ableiten von Schlussfolgerungen (_Was dann?_) bis zum Beschluss der nächsten logischen Schritte (_Was jetzt?_).
+
+### Mehrwert
+
+Jede Stimme wird gehört, wobei sich wichtige Einsichten durchsetzen und neue Wege aufgezeigt werden. Dieses gemeinsame Vorgehen verhindert die Missverständnisse, die sonst Uneinigkeit über die nächsten Schritte schüren.
 ### Vorgehen
 
 1. Vorlage groß übertragen und Material bereit legen. Situation des Tests erneut vergegenwärtigen. Dafür Dokumentationen vom Testlauf nutzen.

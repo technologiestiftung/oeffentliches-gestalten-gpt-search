@@ -1,18 +1,4 @@
----
-sidebar_label: "Rausgehen & Menschen treffen"
-sidebar_position: 3
-sidebar_class_name: "stage stage-2"
-image: "/img/social-erkennen.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as VorgespaecheFuehren from "@site/src/assets/methods/vorgespraeche-fuehren.md";
-import * as GespraechDokumentieren from "@site/src/assets/methods/gespraech-dokumentieren.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
-import { Checkbox } from "@site/src/components/Checkbox";
 
 # Rausgehen & Menschen treffen
 
@@ -22,7 +8,7 @@ import { Checkbox } from "@site/src/components/Checkbox";
 
 Mit einer kurzen Beschreibung der Unternehmung und des Zwecks des Gesprächs können wir ein Anschreiben für die [Vorgespräche](#vorgespräche-führen) verfassen. Der Schwerpunkt unserer Untersuchung bestimmt, welche und wie viele Personen wir treffen. Unser Fokus liegt dabei grundsätzlich auf den Schlüsselakteuren.
 
-### Diversität berücksichtigen
+### Diversity berücksichtigen
 
 Innerhalb der Schlüsselakteure berücksichtigen wir im Auswahlprozess für unsere Gespräche Personen mit [diversen Grundeinstellungen](https://www.dieandereteilung.de/), Lebensumständen, Geschlechtern, Ethnien und Altersgruppen. So kann etwa ein Schlüsselakteur _Freiberufliche:r Steuerzahler:in_ vielfältig ausfallen: offener oder enttäuschter Gesellschaftstyp, Alleinerziehende:r mit zwei Kindern oder kinderlose:r Berufseinsteiger:in, Fremdsprachler:in, Generation Y, Babyboomer und so weiter.
 
@@ -44,31 +30,25 @@ Bei der Kontaktaufnahme mit Verbündeten und Partner:innen kann schnell die Frag
 
 ## Vorgespräche führen
 
-<MethodSummary
-	title={VorgespaecheFuehren.frontMatter.title}
-	time={VorgespaecheFuehren.frontMatter.time}
-	attributes={VorgespaecheFuehren.frontMatter.attributes}
-	footer={VorgespaecheFuehren.frontMatter.note}
->
-	<VorgespaecheFuehren.default />
-</MethodSummary>
 
-<MethodCard
-	title={VorgespaecheFuehren.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[VorgespaecheFuehren.frontMatter.time]}
-	imageUrl={"/img/03_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/03_vorgespraeche_fuehren.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Vorgespräche führen
+time: 45 – 60 Minuten
+attributes:
+  - label: Niveau
+    content: Mäßig - Mittel
+  - label: Materialien
+    content: Akteurskarte, Stift und Papier für Notizen, Erfassungsmedium (z.B. Excel-Tabelle) zum Sammeln
+  - label: Rollen
+    content: Fragensteller:in, Protokollant:in
+
+
+### Was und wofür?
+
+Durch die Auswahl von Schlüsselakteuren haben wir theoretisch eingegrenzt, wer für den Erkenntnisprozess wichtig erscheint. Im nächsten Schritt geht es um den Abgleich mit der Realität. In einem Vorgespräch können wir entscheiden, ob der Mensch hinter dem Schlüsselakteur uns wirklich weiterhelfen kann. Persönliche Treffen werden so nicht „einfach terminiert”, sondern durch den Kontakt im Vorgespräch individuell angebahnt.
+
+### Mehrwert
+
+**Vorgespräche** sind wichtig, um unsere Gesprächspartner:innen nach Bedeutsamkeit und nicht nach Positionen oder statistischen Messgrößen auszuwählen. Wertvolle Gespräche basieren auf Freiwilligkeit und beiderseitigem Interesse, ein Thema näher zu betrachten.
 
 ### Vorgehen
 
@@ -82,12 +62,12 @@ Bei der Kontaktaufnahme mit Verbündeten und Partner:innen kann schnell die Frag
 
 5. Information notieren und nach Abschluß aller **Vorgespräche** die interessantesten und vielfältigsten Gesprächspartner:innen im Team auswählen.
 
-<Hint>
+
 	<b>Hinweis:</b> Für die ausgewählten Personen eingängige Kürzel (z.B.
 	Initialen der Akteursgruppe + fortlaufende Nummer) vergeben. Diese Kürzel
 	werden bei der Nutzung anderer Methoden verwendet, dienen der
 	Nachvollziehbarkeit und bilden die Grundlage für evidenzbasiertes Arbeiten.
-</Hint>
+
 
 ## Schlüsselakteuren begegnen
 
@@ -105,92 +85,46 @@ Wir richten uns nach den Kalendern unserer Gesprächspartner:innen und verschieb
 
 ### Am Tag vor dem Treffen:
 
-<Checkbox
-	id="schlau-machen"
-	label={
-		"Sich bzgl. der Gesprächspartner:in schlau machen und Hintergrundinformationen, Veröffentlichungen oder Lebenslauf anschauen."
-	}
-/>
+- [ ] Sich bzgl. der Gesprächspartner:in schlau machen und Hintergrundinformationen, Veröffentlichungen oder Lebenslauf anschauen.
+- [ ] Rollen klären. Wer stellt Fragen, wer dokumentiert? Sich mental darauf einlassen, jemandem aktiv zuzuhören.
 
-<Checkbox
-	id="rollen-klaeren"
-	label={
-		"Rollen klären. Wer stellt Fragen, wer dokumentiert? Sich mental darauf einlassen, jemandem aktiv zuzuhören."
-	}
-/>
 
 ### Am Tag des Treffens:
 
-<Checkbox
-	id="materialien-gepackt"
-	label={
-		"Alle notwendigen Materialien einpacken inkl. Gesprächsleitfaden, Einverständniserklärung, Gesprächstipps und eigene Vorlagen für die Dokumentation."
-	}
-/>
+- [ ] Alle notwendigen Materialien einpacken inkl. Gesprächsleitfaden, Einverständniserklärung, Gesprächstipps und eigene Vorlagen für die Dokumentation.
+- [ ] Vorhaben in 2 min beschreiben können, gemeinsam üben bzw. einstudieren.
+- [ ] Zum Ort fahren und sich vor dem Gespräch sensibilisieren, nur beobachten. Was sehen wir? Was hören wir?"
+- [ ] Im Tandem das <a href="#gespräch-dokumentieren">Gespräch dokumentieren</a>.
+- [ ] Im Nachgang ein kleines Dankeschön oder eine Einladung zur Präsentation der Zwischenergebnisse versenden."
 
-<Checkbox
-	id="vorhaben-beschreiben"
-	label={
-		"Vorhaben in 2 min beschreiben können, gemeinsam üben bzw. einstudieren."
-	}
-/>
 
-<Checkbox
-	id="zum-ort-fahren"
-	label={
-		"Zum Ort fahren und sich vor dem Gespräch sensibilisieren, nur beobachten. Was sehen wir? Was hören wir?"
-	}
-/>
-
-<Checkbox
-	id="dokumentieren-im-tandem"
-	label={
-		<>
-			Im Tandem das <a href="#gespräch-dokumentieren">Gespräch dokumentieren</a>.
-		</>
-	}
-/>
-
-<Checkbox
-	id="dankeschoen-versenden"
-	label={
-		"Im Nachgang ein kleines Dankeschön oder eine Einladung zur Präsentation der Zwischenergebnisse versenden."
-	}
-/>
-
-<Hint>
 	<b>Hinweis:</b> Mindestens 3 Stunden pro Termin einplanen, um zum Treffpunkt
 	zu gelangen, sich mental auf die Person einzulassen, das Gespräch zu führen
 	und eine erste Dokumentation anzufertigen.
-</Hint>
+
 
 ## Gespräch dokumentieren
 
-<MethodSummary
-	title={GespraechDokumentieren.frontMatter.title}
-	time={GespraechDokumentieren.frontMatter.time}
-	attributes={GespraechDokumentieren.frontMatter.attributes}
-	footer={GespraechDokumentieren.frontMatter.note}
->
-	<GespraechDokumentieren.default />
-</MethodSummary>
 
-<MethodCard
-	title={GespraechDokumentieren.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[GespraechDokumentieren.frontMatter.time]}
-	imageUrl={"/img/03_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/03_gespraech_dokumentieren.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Gespräch dokumentieren
+time: 60 – 90 Minuten
+attributes:
+  - label: Niveau
+    content: Einfach - Mäßig
+  - label: Materialien
+    content: Pro Gespräch: Leitfaden, Papier und Stift zur Mitschrift, ggf. Aufnahmegerät, Kamera zum Dokumentieren
+  - label: Rollen
+    content: Gesprächsleitung, Protokollierung, Beobachtung
+note: Im Bezug auf das Gespräch sind prägnante Kombinationen von Aussage, Körpersprache und Tonfall besonders interessant. Untersuchungen im tatsächlichen Kontext sind bemerkenswert effektiv, da sie Beobachtungsmöglichkeiten bieten, die selbst die kontroversesten und komplexesten Fragen leichter verständlich machen.
+
+
+### Was und wofür?
+
+Die Gesprächsdokumentation ist eine Mitschrift, die auf Originalzitaten und Beobachtungen basiert. Auf dieser Grundlage kann im Nachgang eine ­gemeinsame Auswertung erstellt werden, die neben den Gesprächsinhalten auch die Körpersprache und Interaktionen mit der Umgebung einbezieht.
+
+### Mehrwert
+
+Durch die Dokumentation der Situation vor, während und nach dem Gespräch können wir Aspekte entdecken, die häufig übersehen werden. Unwichtig erscheinende Informationen gewinnen an Relevanz, wenn sie im Zusammenhang betrachtet werden können. Außerdem sind Visualisierungen erfahrungsgemäß immer eine Bereicherung!
 
 ### Vorgehen
 

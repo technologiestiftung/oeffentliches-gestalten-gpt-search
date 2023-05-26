@@ -1,18 +1,4 @@
----
-sidebar_label: "Eine Idee ausarbeiten"
-sidebar_position: 5
-sidebar_class_name: "stage stage-4"
-image: "/img/social-entwerfen.png"
----
 
-import { MethodSummary } from "@site/src/components/MethodSummary";
-import * as VisuelleAbstimmung from "@site/src/assets/methods/visuelle-abstimmung.md";
-import * as MehrwertAufwandMatrix from "@site/src/assets/methods/mehrwert-aufwand-matrix.md";
-import * as Zukunftstheater from "@site/src/assets/methods/zukunftstheater.md";
-import { MethodCard } from "@site/src/components/MethodCard";
-import { Link } from "@site/src/components/Link";
-import EditIcon from "@site/static/img/icons/edit.svg";
-import { Hint } from "@site/src/components/Hint";
 
 # Eine Idee ausarbeiten
 
@@ -32,31 +18,28 @@ Durch das Formulieren von Geschichten erkennen wir, auf was es wirklich ankommt.
 
 ## Visuelle Abstimmung
 
-<MethodSummary
-	title={VisuelleAbstimmung.frontMatter.title}
-	time={VisuelleAbstimmung.frontMatter.time}
-	attributes={VisuelleAbstimmung.frontMatter.attributes}
-	footer={VisuelleAbstimmung.frontMatter.note}
->
-	<VisuelleAbstimmung.default />
-</MethodSummary>
 
-<MethodCard
-	title={VisuelleAbstimmung.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[VisuelleAbstimmung.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_visuelle_abstimmung.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Visuelle Abstimmung
+time: 10 – 15 Minuten
+attributes:
+  - label: Niveau
+    content: Einfach
+  - label: Materialien
+    content: Klebepunkte oder alternativ verschieden­farbige Stifte
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Die visuelle Abstimmung lässt sich auch digital durchführen und dokumentieren. Online-Werkzeuge ausprobieren.
+note: Die Punktwahl sollte nicht für finale Entscheidungen verwendet werden. Das Vorgehen setzt voraus, dass die Teilnehmenden alle Optionen kennen, prüfen und vergleichen, bevor sie ihre Punkte aufkleben. Deswegen ist zu empfehlen, ähnliche Aspekte vorab in thematischen Gruppen zu verdichten und diese zu bewerten.
+
+
+### Was und wofür?
+
+Die **visuelle Abstimmung** ist eine einfache und schnelle Methode, Ideen zu priorisieren. Alle Mitglieder einer Gruppe werden einbezogen, um eine Wahl zu treffen und Entscheidungen vorzubereiten. Durch das Bepunkten einzelner Aspekte oder Vorschläge entsteht innerhalb weniger Minuten eine visuelle Tendenz.
+
+### Mehrwert
+
+Diese Art der Stimmabgabe ist universell einsetzbar und kann beliebig erweitert werden: bei einfarbigen Varianten bestimmt die Quantität, bei mehrfarbigen Varianten ist zusätzlich die Bedeutung der Farben von Belang. Durch das Platzieren von farbigen Punkten oder Elementen kann jede Person individuell über die Bedeutung vielfältiger Aspekte abstimmen, die eine Priorisierung erfordern.
 
 ### Vorgehen
 
@@ -76,31 +59,28 @@ Durch das Formulieren von Geschichten erkennen wir, auf was es wirklich ankommt.
 
 ## Mehrwert-Aufwand-Matrix
 
-<MethodSummary
-	title={MehrwertAufwandMatrix.frontMatter.title}
-	time={MehrwertAufwandMatrix.frontMatter.time}
-	attributes={MehrwertAufwandMatrix.frontMatter.attributes}
-	footer={MehrwertAufwandMatrix.frontMatter.note}
->
-	<MehrwertAufwandMatrix.default />
-</MethodSummary>
 
-<MethodCard
-	title={MehrwertAufwandMatrix.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[MehrwertAufwandMatrix.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_mehrwert_aufwand_matrix.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Mehrwert-Aufwand-Matrix
+time: 30 – 60 Minuten
+attributes:
+  - label: Niveau
+    content: Mäßig – Mittel
+  - label: Materialien
+    content: Ideen in Form von Klebezetteln aus den bisherigen Etappen
+  - label: Rollen
+    content: Moderation, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Digital-Matrix erstellen, z.B. in GroupMap.
+note: Die Matrix wird oft verwendet, um die Produktivität eines Teams zu maximieren. Aufgrund ihrer Einfachheit und Vielseitigkeit ist sie ein echtes All-Round-Talent und kann für tägliche Aufgabenlisten bis hin zu strategischen Aktionsplänen eingesetzt werden.
+
+
+### Was und wofür?
+
+Diese Matrix unterstützt Entscheidungsprozesse. Einzelpersonen oder Teams können Ideen und Konzepte anhand des dafür notwendigen Aufwands und des erwarteten Mehrwerts analysieren. Je nach Ausprägungsgrad ergibt sich in der 2×2-Matrix eine Empfehlung, welche Ideen favorisiert angegangen werden sollen.
+
+### Mehrwert
+
+Mit den Empfehlungen können Ideen priorisiert werden. Das erleichtert eine abgestimmte Auswahl der Aktivitäten und zeigt auf, wo Zeit und Ressourcen am besten eingesetzt werden können.
 
 ### Vorgehen
 
@@ -120,32 +100,28 @@ Durch das Formulieren von Geschichten erkennen wir, auf was es wirklich ankommt.
 
 ## Zukunftstheater
 
-<MethodSummary
-	title={Zukunftstheater.frontMatter.title}
-	time={Zukunftstheater.frontMatter.time}
-	attributes={Zukunftstheater.frontMatter.attributes}
-	footer={Zukunftstheater.frontMatter.note}
->
-	<Zukunftstheater.default />
-</MethodSummary>
 
-<MethodCard
-	title={Zukunftstheater.frontMatter.title}
-	surtitle="Arbeitsblatt"
-	attributes={[Zukunftstheater.frontMatter.time]}
-	imageUrl={"/img/04_hero.svg"}
-	className="mt-5"
-	footer={
-		<Link
-			className="text-magenta-500 underline"
-			href={"pathname:///arbeitsblatt/04_zukunftstheater.pdf"}
-			icon={<EditIcon className="w-3 h-3 text-inherit" />}
-		>
-			PDF-Vorlage
-		</Link>
-	}
-/>
+title: Zukunftstheater
+time: 90 – 150 Minuten
+attributes:
+  - label: Niveau
+    content: Mittel – Hoch
+  - label: Materialien
+    content: Falls gewünscht: Requisiten, um in unterschiedliche Rollen schlüpfen zu können
+  - label: Rollen
+    content: Moderation, Beobachtung, Dokumentation, Zeitmanagement
+  - label: Anregung
+    content: Knirschszenen im Arbeitsalltag identifizieren und gemeinsam mit Kolleg:innen überlegen, wie sie verändert werden könnten.
+note: Das Zukunftstheater basiert auf dem Improv Prototyping der Liberating Structures. Hierbei werden drei Wissensebenen gleichzeitig erschlossen: explizites Wissen, das von den Teilnehmenden geteilt wird; stillschweigendes Wissen, das durch die Beobachtung der Leistung der anderen Teilnehmenden entdeckt wird; und entstehendes Wissen, d.h. neue Ideen, die entstehen und gemeinsam entwickelt werden. Diese kraftvolle Kombination kann die Quelle transformativer Erfahrungen sein und gleichzeitig macht sie ernsthaft Spaß.
 
+
+### Was und wofür?
+
+Das **Zukunftstheater** ermöglicht den Beteiligten, sich in eine präferierte Situation in der Zukunft hineinzuversetzen. Es wird eine Situation dargestellt, in der durch die Anwendung der Lösung das Problem nicht mehr existiert. Dadurch können sowohl die Darsteller:innen als auch Zuschauer:innen erleben, wie sich das Neue anfühlt.
+
+### Mehrwert
+
+Anstatt das Neue zu zerreden, kann mit allen Sinnen erfahren werden, was sich an der Lösung richtig oder falsch anfühlt. Durch das Anhalten oder Einfrieren einzelner Szenen, können die Beteiligten in ihrer Rolle dazu konkret befragt werden.
 ### Vorgehen
 
 1. Bisher entwickelte Lösung vorm inneren Auge visualisieren und sich als Team eine Situation vorstellen, in der die Lösung erfolgreich zum Einsatz gekommen ist bzw. Wirkung gezeigt hat.
