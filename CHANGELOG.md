@@ -1,3 +1,15 @@
+# [1.10.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.9.0...v1.10.0) (2023-05-26)
+
+
+### Bug Fixes
+
+* **links:** Add Missing double quotes in links ([2cd7d4f](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/2cd7d4f5363ec12f011508fb53a8fdbe0ae7ef28))
+
+
+### Features
+
+* **content:** Unpack all components into markdown ([355c596](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/355c596979a493c655d9308e8c3d5c53945839fe))
+
 # [1.9.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.8.1...v1.9.0) (2023-05-25)
 
 
