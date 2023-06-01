@@ -1,21 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 import { codeBlock, oneLine } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
-import {
-	ApplicationError,
-	AuthError,
-	EnvError,
-	UserError,
-} from "../../lib/errors";
-import {
-	ChatCompletionRequestMessageRoleEnum,
-	CreateChatCompletionRequest,
-} from "openai";
+import { ApplicationError, EnvError, UserError } from "../../lib/errors";
+import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "../../lib/openai-stream";
 import { NextRequest } from "next/server";
 import { ipRateLimit } from "../../lib/ip-rate-limit";
-import { Cookies } from "react-cookie";
-import { verifyCookie } from "../../lib/auth";
 import { Database } from "../../types/database";
 import { ChatSession } from "../../types/chat";
 
@@ -39,32 +29,6 @@ export default async function handler(req: NextRequest) {
 
 	const resRateLimit = await ipRateLimit(req);
 	if (resRateLimit.status !== 200) return resRateLimit;
-
-	const cookies = new Cookies(req.headers.get("cookie") ?? "");
-	const token = cookies.get("csrf");
-	let payload: unknown;
-	try {
-		payload = await verifyCookie(token);
-	} catch (error) {
-		if (error instanceof AuthError) {
-			console.log(error);
-			return new Response(
-				JSON.stringify({ success: false, error: error.message }),
-				{
-					status: 401,
-					headers: resRateLimit.headers,
-				}
-			);
-		} else {
-			return new Response(
-				JSON.stringify({ success: false, error: "Unknown error" }),
-				{
-					status: 500,
-					headers: resRateLimit.headers,
-				}
-			);
-		}
-	}
 
 	switch (req.method) {
 		case "POST": {
@@ -204,7 +168,6 @@ export default async function handler(req: NextRequest) {
 						const page = pages.find((page) => page.id === pageSection.page_id);
 						if (page) {
 							content += `**[Quelle][${page.path}]**\n\n`;
-							// uniquePageIds.delete(pageSection.page_id);
 						}
 					}
 
