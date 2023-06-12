@@ -1,3 +1,12 @@
+## [1.10.2](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.10.1...v1.10.2) (2023-06-12)
+
+
+### Bug Fixes
+
+* **csrf:** Use edge-csrf protection ([6debb09](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/6debb09ecc6492da5156449f59d0d116ee180f6a))
+* **csrf:** Use edge-csrf protection ([8dd1f55](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/8dd1f55e401037ee3e68c8c0e9d3293ba6e58ad3))
+* Remove link to removed file ([7084725](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/7084725769d4094702efab9efa8567a2258e1d74))
+
 ## [1.10.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.10.0...v1.10.1) (2023-06-01)
 
 
