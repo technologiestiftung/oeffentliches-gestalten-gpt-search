@@ -103,13 +103,13 @@ export const useChatbotStore = create<ChatbotStore>()((set, get) => ({
 			method: "POST",
 			credentials: "same-origin",
 			headers: {
+				"X-CSRF-Token": csrf_token,
 				"Content-Type": "application/json",
 				apikey: NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
 				Authorization: `Bearer ${NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
 			},
 			body: JSON.stringify({
 				query,
-				csrf_token,
 				currentChatSession,
 			}),
 		});
