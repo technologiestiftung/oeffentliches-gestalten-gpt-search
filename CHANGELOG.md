@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.10.0...v1.10.1) (2023-06-01)
+
+
+### Bug Fixes
+
+* **links:** The path segment of links was wrong ([adb2909](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/adb29091cc832ff05b4363e091a1cff6c11646b8))
+
 # [1.10.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.9.0...v1.10.0) (2023-05-26)
 
 
