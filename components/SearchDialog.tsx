@@ -7,6 +7,8 @@ import ReactMarkdown from "react-markdown";
 import { BookIcon, UserIcon } from "./icons";
 import { Welcome } from "./Welcome";
 import { useChatbotStore } from "../store";
+import { StyledOrderedList } from "./lists/StyledOrderedList";
+import { StyledUnorderedList } from "./lists/StyledUnorderedList";
 
 export const SearchDialog: React.FC = () => {
 	const [search, setSearch] = React.useState<string>("");
@@ -52,15 +54,17 @@ export const SearchDialog: React.FC = () => {
 
 					{currentChatSession.messages.map(({ id, role, content }) => (
 						<div key={id}>
-							{role === 'user' && <div className="flex justify-center w-full bg-blue-50">
-								<div className="flex grow justify-start gap-4 p-5 max-w-[48rem]">
-									<div className="w-6 mt-0.5">
-										<UserIcon />
+							{role === "user" && (
+								<div className="flex justify-center w-full bg-blue-50">
+									<div className="flex grow justify-start gap-4 p-5 max-w-[48rem]">
+										<div className="w-6 mt-0.5">
+											<UserIcon />
+										</div>
+										<p>{content}</p>
 									</div>
-									<p>{content}</p>
 								</div>
-							</div>}
-							{role === 'assistant' && (
+							)}
+							{role === "assistant" && (
 								<div className="flex justify-center w-full">
 									<div className="flex grow justify-start gap-4 p-6 max-w-[48rem]">
 										<div className="w-6 -ml-1 mt-1">
@@ -72,6 +76,8 @@ export const SearchDialog: React.FC = () => {
 												children={content}
 												components={{
 													a: (props) => <SourceLink {...props} />,
+													ol: (props) => <StyledOrderedList {...props} />,
+													ul: (props) => <StyledUnorderedList {...props} />,
 												}}
 											/>
 										</div>

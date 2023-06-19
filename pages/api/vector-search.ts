@@ -189,7 +189,14 @@ export default async function handler(req: NextRequest) {
 					${oneLine`Jeder Abschnitt enthält den Link zur originalen Seite aus dem Handbuch in als Markdown link mit der Seiten ID und dem Pfad [SEITEN ID](PFAD) am Ende. Diese Links müssen erhalten bleiben und in deiner Antwort angezeigt werden. Bitte nutze nur die Markdown Links mit der Seiten ID und dem Pfad, keine Internet Links. Der Link sieht zum Beispiel so aus: **[Quelle](/bar)** 
 					Abschnitte des Handbuchs:`}
 					${contextText}
-					Antwort als Markdown (mit möglichen Zitaten in Anführungszeichen):
+					Antwort als Markdown (mit möglichen Zitaten in Anführungszeichen), in diesem Format:
+
+					Antwort Text
+					**[Quelle](Link)**
+
+					Sollte es eine Auflistung in der Antwort geben, schreibe bitte die Quellen nach jedem Satz, und nicht in innerhalb.
+
+					Das ist die Frage des Users:
 				`;
 				const history = currentChatSession.messages
 					.slice(0, -1)
