@@ -21,14 +21,16 @@ export const Footer = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col items-center md:items-start gap-3">
-					Ein Projekt der
-					<TSBLogo />
-				</div>
-				<div className="flex flex-col items-center md:items-start gap-1">
-					Gefördert durch
-					<div className="w-20">
-						<BerlinLogo />
+				<div className="flex flex-wrap justify-center gap-8">
+					<div className="flex flex-col items-center md:items-start gap-3">
+						Ein Projekt der
+						<TSBLogo />
+					</div>
+					<div className="flex flex-col items-center md:items-start gap-1">
+						Gefördert durch
+						<div className="w-20">
+							<BerlinLogo />
+						</div>
 					</div>
 				</div>
 			</div>
