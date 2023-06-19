@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.10.2...v1.11.0) (2023-06-19)
+
+
+### Bug Fixes
+
+* adjusted the prompt to make the sources more consistent ([1a49cad](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/1a49cadc5dde79a506f1ebf0ec09be257ee3d02d))
+
+
+### Features
+
+* added styled lists to correctly render them in the response ([e0cf21f](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/e0cf21fab0df4877ce8381713c1792157c7d09ea))
+* extracted suggestions into own component, added new suggestions, added sticky input text at the bottom ([6144885](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/6144885717784f275a242afcbc74e8e957415288))
+
 ## [1.10.2](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.10.1...v1.10.2) (2023-06-12)
 
 

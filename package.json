@@ -1,6 +1,6 @@
 {
 	"name": "oeg-aisearch",
-	"version": "1.10.2",
+	"version": "1.11.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
