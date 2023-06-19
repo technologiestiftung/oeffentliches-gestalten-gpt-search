@@ -6,6 +6,7 @@ import { MobileSidebar } from "../components/sidebars/MobileSidebar";
 import { EnvError } from "../lib/errors";
 import { useChatbotStore } from "../store";
 import { DesktopSidebar } from "../components/sidebars/DesktopSidebar";
+import Script from "next/script";
 const NEXT_PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -44,6 +45,8 @@ const Home: React.FC<
 					<SearchDialog />
 				</div>
 			</main>
+
+			<Script src="/matomo.js" />
 		</>
 	);
 };
