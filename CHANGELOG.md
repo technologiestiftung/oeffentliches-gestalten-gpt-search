@@ -1,3 +1,17 @@
+# [1.12.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.11.0...v1.12.0) (2023-06-21)
+
+
+### Bug Fixes
+
+* adjusted footer layout ([a36b849](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/a36b84982c8f6c7650b3e343775077c7c83bc23f))
+* replaced the welcome text ([23be207](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/23be20734b0552aa855c07758f42a685bde2529c))
+
+
+### Features
+
+* added matomo analytics script ([95e069e](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/95e069ed7fc439c803cb9665577da717c5dd101a))
+* reworked readme.md ([496731a](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/496731ad2a4a4875d364f264528fae24eb8f23ab))
+
 # [1.11.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.10.2...v1.11.0) (2023-06-19)
 
 
