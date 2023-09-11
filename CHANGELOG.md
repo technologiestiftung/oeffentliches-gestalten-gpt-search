@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.12.0...v1.12.1) (2023-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-cookie to v6 ([f835468](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/f835468f0d103e1dcd90fe8ea7e82f9e8566e0e4))
+
 # [1.12.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.11.0...v1.12.0) (2023-06-21)
 
 
