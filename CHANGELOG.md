@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.12.1...v1.12.2) (2023-10-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mdast-util-to-string to v4 ([50ff101](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/50ff101c40c64ca4c115200f3e637cc6ffc7b650))
+
 ## [1.12.1](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.12.0...v1.12.1) (2023-09-11)
 
 
