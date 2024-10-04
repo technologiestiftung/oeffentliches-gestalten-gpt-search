@@ -5,7 +5,7 @@ import { ApplicationError, EnvError, UserError } from "../../lib/errors";
 import { CreateChatCompletionRequest } from "openai";
 import { OpenAIStream } from "../../lib/openai-stream";
 import { NextRequest } from "next/server";
-import { ipRateLimit } from "../../lib/ip-rate-limit";
+// import { ipRateLimit } from "../../lib/ip-rate-limit";
 import { Database } from "../../types/database";
 import { ChatSession } from "../../types/chat";
 
@@ -27,8 +27,10 @@ export default async function handler(req: NextRequest) {
 	if (SUPABASE_SERVICE_ROLE_KEY === undefined)
 		throw new EnvError("SUPABASE_SERVICE_ROLE_KEY");
 
-	const resRateLimit = await ipRateLimit(req);
-	if (resRateLimit.status !== 200) return resRateLimit;
+	// TODO this is currently not working.
+	//  But we might sunset this product soon anyway.
+	// const resRateLimit = await ipRateLimit(req);
+	// if (resRateLimit.status !== 200) return resRateLimit;
 
 	switch (req.method) {
 		case "POST": {
