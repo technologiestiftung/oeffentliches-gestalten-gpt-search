@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.12.2...v1.13.0) (2024-10-04)
+
+
+### Features
+
+* remove ip rate limiting ([e50a8ea](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/commit/e50a8ea5253db2afbd9880f42de3d8f404b9bae3))
+
 ## [1.12.2](https://github.com/technologiestiftung/oeffentliches-gestalten-gpt-search/compare/v1.12.1...v1.12.2) (2023-10-02)
 
 
