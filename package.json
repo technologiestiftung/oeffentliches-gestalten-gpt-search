@@ -32,7 +32,7 @@
 		"react-markdown": "8.0.7",
 		"typescript": "5.0.4",
 		"unist-builder": "3.0.1",
-		"unist-util-filter": "4.0.1",
+		"unist-util-filter": "5.0.1",
 		"zustand": "4.3.8"
 	},
 	"devDependencies": {
